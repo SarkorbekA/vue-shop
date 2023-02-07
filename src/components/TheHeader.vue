@@ -37,44 +37,42 @@
     <div class="container">
       <div class="header">
         <a href="#" class="logo">
-          <img src="../assets/img/Logo.svg" alt="logo">
+          <img width="100" height="auto" src="../assets/img/Logo.svg" alt="logo">
         </a>
         <div class="search">
           <input type="text" placeholder="Поиск по товарам...">
           <img class="" src="../assets/img/search.svg" alt="search">
         </div>
-        <div class="menu">
-          <ul class="menu__list">
-            <li class="location">
-              <div class="menu__list-img">
-                <img src="../assets/img/geo.svg" alt="location">
-              </div>
-              <div class="menu__list-text">
-                <a href="#">Работаем по всему Узбекистану</a>
-              </div>
-            </li>
-            <li class="contact">
-              <div class="menu__list-img">
-                <img src="../assets/img/tel.svg" alt="tel">
-              </div>
-              <div class="menu__list-text">
-                <a class="menu__list-contact" href="tel:+998991001879">+998 90 000 00 00</a>
-                <a class="menu__list-contact" href="tel:+998991001879">Заказать звонок</a>
-              </div>
-            </li>
-            <li class="cart">
-              <div class="menu__list-img">
-                <img src="../assets/img/shop.svg" alt="shop cart">
-              </div>
-              <div class="menu__list-text">
-                <a class="menu__list-cart" href="#">Корзинка</a>
-                <a class="menu__list-count" href="#">
-                  <span>1</span>
-                </a>
-              </div>
-            </li>
-          </ul>
-        </div>
+        <ul class="menu__list">
+          <li class="location">
+            <div class="menu__list-img">
+              <img width="19" height="auto" src="../assets/img/geo.svg" alt="location">
+            </div>
+            <div class="menu__list-text">
+              <a href="#">Работаем по всему Узбекистану</a>
+            </div>
+          </li>
+          <li class="contact">
+            <div class="menu__list-img">
+              <img width="20" height="auto" src="../assets/img/tel.svg" alt="tel">
+            </div>
+            <div class="menu__list-text">
+              <a class="menu__list-contact" href="tel:+998991001879">+998 90 000 00 00</a>
+              <a class="menu__list-contact" href="tel:+998991001879">Заказать звонок</a>
+            </div>
+          </li>
+          <li class="cart">
+            <div class="menu__list-img">
+              <img width="22" height="auto" src="../assets/img/shop.svg" alt="shop cart">
+            </div>
+            <div class="menu__list-text">
+              <a class="menu__list-cart" href="#">Корзинка</a>
+              <a class="menu__list-count" href="#">
+                <span @addProductToCard="addCart">{{ cardCount }}</span>
+              </a>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
 
@@ -82,8 +80,23 @@
 
 </template>
 
+<script>
+export default {
+  name: "TheHeader",
+  data() {
+    return {
+      cardCount: 0,
+    }
+  },
+  methods: {
+    addCart() {
+      this.cardCount++
+    },
+  }
+}
+</script>
 
-<style scoped>
+<style lang="scss" scoped>
 .header__top {
   border-bottom: 1px solid #E5E5E5;
 }
@@ -144,6 +157,8 @@
   align-items: center;
   padding: 22px 0px;
   justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 25px;
 }
 
 .search {
@@ -182,7 +197,12 @@
 .menu__list {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 36px;
+
+  @media screen and (max-width: 1280px) {
+    width: 100%;
+  }
 }
 
 .menu__list li {

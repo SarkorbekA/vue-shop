@@ -3,9 +3,11 @@
 import TheHeader from './components/TheHeader.vue'
 import TheNavbar from './components/TheNavbar.vue'
 import TheSlider from './components/TheSlider.vue'
-import ProductCard from './components/ProductCard.vue'
+import Products from './components/Products.vue'
 // import BuyProduct from './components/BuyProduct.vue'
 import Partners from './components/Partners.vue'
+import Advantage from './components/TheAdvantage.vue'
+import Footer from './components/TheFooter.vue'
 
 </script>
 
@@ -19,7 +21,7 @@ import Partners from './components/Partners.vue'
 
   <section class="product">
     <div class="product__title"><span>Популярные</span> товары</div>
-    <ProductCard />
+    <Products />
   </section>
 
   <div class="buy__product">
@@ -41,7 +43,7 @@ import Partners from './components/Partners.vue'
 
   <section class="product">
     <div class="product__title"><span>Новые</span> товары</div>
-    <ProductCard />
+    <Products />
   </section>
 
   <section class="partners">
@@ -49,106 +51,17 @@ import Partners from './components/Partners.vue'
       <h1 class="partners__title">
         Наши преимущества
       </h1>
-      <Partners />
+      <Advantage />
     </div>
   </section>
+
+  <Footer />
+
 </template>
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-
-* {
-  padding: 0;
-  margin: 0;
-  border: 0;
-  font-family: 'Montserrat', sans-serif;
-}
-
-*,
-*:before,
-*:after {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-:focus,
-:active {
-  outline: none;
-}
-
-a:focus,
-a:active {
-  outline: none;
-}
-
-nav,
-footer,
-header,
-aside {
-  display: block;
-}
-
-html,
-body {
-  position: relative;
-  width: 100%;
-  font-size: 100%;
-  line-height: 1;
-  font-size: 14px;
-  -ms-text-size-adjust: 100%;
-  -moz-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-}
-
-input,
-button,
-textarea {
-  font-family: inherit;
-}
-
-input::-ms-clear {
-  display: none;
-}
-
-button {
-  cursor: pointer;
-}
-
-button::-moz-focus-inner {
-  padding: 0;
-  border: 0;
-}
-
-a,
-a:visited {
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: none;
-}
-
-ul li {
-  list-style: none;
-}
-
-img {
-  vertical-align: top;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-size: inherit;
-  font-weight: inherit;
-}
-
 .container {
-  padding: 0px 15px;
+  padding: 0px 5px;
   margin: auto;
   // max-width: 1200px;
   // width: 100%;
@@ -201,6 +114,10 @@ h6 {
   padding: 40px 0px 50px 0px;
   text-align: center;
   background: #F5F7FA;
+
+  @media (max-width: 576px) {
+    padding: 30px 0px 20px 0px;
+  }
 
   &__title {
     font-weight: 700;

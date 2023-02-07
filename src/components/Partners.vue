@@ -94,12 +94,18 @@ export default {
 <style lang="scss" scoped>
 .partner {
     margin-top: 30px;
+    @media (max-width: 576px) {
+        margin-top: 0px;
+    }
 }
 
 .swiper {
     width: 100%;
     height: 200px;
     padding: 0px 50px;
+    @media (max-width: 576px) {
+        height: 140px;
+    }
 }
 
 .swiper-slide {
@@ -128,6 +134,7 @@ export default {
     /* transform: translateY(-50%); */
     color: #FFD600 !important;
 }
+
 
 
 .swiper-pagination-bullet {

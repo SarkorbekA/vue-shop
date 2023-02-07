@@ -1,63 +1,94 @@
 <template>
     <nav>
         <div class="container">
-            <div class="navbar">
+            <div class="menu">
                 <div class="burger__menu">
                     <img src="../assets/img/burgermenu.svg" alt="burger">
                     <p>ВСЕ КАТЕГОРИИ</p>
                 </div>
-                <ul class="navbar-list">
-                    <li>
-                        <a href="#">О нас</a>
-                    </li>
-                    <li>
-                        <a href="#">Оплата и доставка</a>
-                    </li>
-                    <li>
-                        <a href="#">Услуги</a>
-                    </li>
-                    <li>
-                        <a href="#">Контакты</a>
-                    </li>
-                    <li>
-                        <a href="#">Отзывы</a>
-                    </li>
-                    <li>
-                        <a href="#">Новинки</a>
-                    </li>
-                    <li>
-                        <a href="#">Вакансии</a>
-                    </li>
-                </ul>
+                <a href="#" class="favorite">
+                    <img width="20" height="auto" src="../assets/img/like.svg" alt="like">
+                    <p>Избранное</p>
+                    <span class="favorite__count">
+                        1
+                    </span>
+                </a>
             </div>
+            <!-- <div class="navbar"> -->
+            <ul class="navbar-list">
+                <li>
+                    <a href="#">О нас</a>
+                </li>
+                <li>
+                    <a href="#">Оплата и доставка</a>
+                </li>
+                <li>
+                    <a href="#">Услуги</a>
+                </li>
+                <li>
+                    <a href="#">Контакты</a>
+                </li>
+                <li>
+                    <a href="#">Отзывы</a>
+                </li>
+                <li>
+                    <a href="#">Новинки</a>
+                </li>
+                <li>
+                    <a href="#">Вакансии</a>
+                </li>
+            </ul>
             <a href="#" class="favorite">
-                <img src="../assets/img/like.svg" alt="like">
+                <img width="20" height="auto" src="../assets/img/like.svg" alt="like">
                 <p>Избранное</p>
                 <span class="favorite__count">
                     1
                 </span>
             </a>
+            <!-- </div> -->
+
         </div>
     </nav>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 nav {
     padding: 20px 0px 22px;
     box-shadow: 0px 0px 10px rgba(41, 121, 255, 0.1);
 }
 
 nav .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 130px 1fr 112px;
+    gap: 20px;
+
+    /* align-items: center;
+    justify-content: space-between; */
+    @media (max-width: 1024px) {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* ===== navbar ===== */
 
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .favorite {
+        display: none;
+
+        @media (max-width: 1024px) {
+            display: flex !important;
+        }
+    }
+}
+
 .burger__menu {
     display: flex;
     align-items: center;
+    height: 28px;
     gap: 8px;
     font-weight: 700;
     font-size: 12px;
@@ -67,28 +98,43 @@ nav .container {
     cursor: pointer;
 }
 
-.navbar {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-}
+// .navbar {
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-between;
+//     gap: 30px;
+
+//     @media (max-width: 1280px) {
+//         flex-direction: column-reverse;
+//         align-items: flex-end;
+//     }
+// }
 
 .navbar-list {
     display: flex;
     align-items: center;
-    gap: 40px;
-}
+    justify-content: space-evenly;
 
-.navbar-list a {
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 100%;
-    color: #323234;
-}
+    @media (max-width: 1280px) {
+        gap: 20px;
+    }
 
-.navbar-list a:hover {
-    transition: .3s;
-    color: #FFD600;
+    @media (max-width: 1024px) {
+        justify-content: space-between;
+    }
+
+    a {
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 100%;
+        white-space: nowrap;
+        color: #323234;
+
+        &:hover {
+            transition: .3s;
+            color: #FFD600;
+        }
+    }
 }
 
 /* ===== favorite ===== */
@@ -96,8 +142,14 @@ nav .container {
 .favorite {
     display: flex;
     align-items: center;
+    justify-content: end;
     gap: 10px;
     position: relative;
+    width: fit-content;
+
+    @media (max-width: 1024px) {
+        display: none;
+    }
 }
 
 .favorite p {
@@ -121,10 +173,10 @@ nav .container {
     height: 14px;
     position: absolute;
     top: -2px;
-    left: -5px;
+    left: -6px;
 }
 
-.favorite:hover .favorite__count{
+.favorite:hover .favorite__count {
     color: white;
     transition: .3s;
 }

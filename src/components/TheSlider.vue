@@ -31,6 +31,14 @@
                     </a>
                 </div>
             </swiper-slide>
+            <swiper-slide>
+                <div class="box box__white">
+                    <p>Мотивационные декоры</p>
+                    <a href="#" class="right">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </a>
+                </div>
+            </swiper-slide>
         </swiper>
     </div>
 
@@ -65,7 +73,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .swiper {
     width: 100%;
     height: 500px;
@@ -82,7 +90,7 @@ export default {
     align-items: flex-end;
     padding: 0px 35px;
     padding-bottom: 50px;
-    background: url(../assets/img/swiper.png);
+    background: url(../assets/img/swiper.webp);
 }
 
 .swiper-slide img {
@@ -99,77 +107,77 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    p {
+        font-weight: 700;
+        font-size: 28px;
+        line-height: 100%;
+    }
+
+    .right {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
 }
 
 .box__yellow {
     background: rgba(255, 214, 0, 0.66);
+
+    .right {
+        background: #FFD600;
+        transition: .4s
+    }
+
+    .right:hover {
+        background: white;
+        transition: .3s;
+    }
+
+    .right:hover i {
+        color: #FFD600;
+        transition: .3s;
+    }
+
+    p {
+        color: #FFFFFF;
+    }
+
+    i {
+        color: white;
+    }
+
+
 }
 
 .box__white {
     background: rgba(255, 255, 255, 0.66);
-}
 
-.box__yellow .right {
-    background: #FFD600;
-    transition: .4s
-}
+    .right {
+        background: white;
+        transition: .4s
+    }
 
-.box__white .right {
-    background: white;
-    transition: .4s
-}
+    .right:hover {
+        background: black;
+        transition: .3s;
+    }
 
-.box__yellow .right:hover {
-    background: white;
-    transition: .3s;
-}
+    .right:hover i {
+        color: white;
+        transition: .3s;
+    }
 
-.box__yellow .right:hover i {
-    color: #FFD600;
-    transition: .3s;
-}
+    p {
+        color: #232323;
+    }
 
-.box__white .right:hover {
-    background: black;
-    transition: .3s;
-}
-
-.box__white .right:hover i {
-    color: white;
-    transition: .3s;
-}
-
-.box p {
-    font-weight: 700;
-    font-size: 34px;
-    line-height: 100%;
-}
-
-.box__yellow p {
-    color: #FFFFFF;
-}
-
-.box__white p {
-    color: #232323;
-}
-
-
-.right {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 54px;
-    height: 54px;
-    border-radius: 50%;
-}
-
-
-.box__yellow i {
-    color: white;
-}
-
-.box__white i {
-    color: #232323;
+    i {
+        color: #232323;
+    }
 }
 </style>
 
