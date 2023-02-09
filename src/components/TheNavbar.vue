@@ -3,11 +3,11 @@
         <div class="container">
             <div class="menu">
                 <div class="burger__menu">
-                    <img src="../assets/img/burgermenu.svg" alt="burger">
+                    <img src="../assets/img/icons/burgermenu.svg" alt="burger">
                     <p>ВСЕ КАТЕГОРИИ</p>
                 </div>
-                <a href="#" class="favorite">
-                    <img width="20" height="auto" src="../assets/img/like.svg" alt="like">
+                <a aria-label="link" href="#" class="favorite">
+                    <img width="20" height="auto" src="../assets/img/icons/like.svg" alt="like">
                     <p>Избранное</p>
                     <span class="favorite__count">
                         1
@@ -17,29 +17,29 @@
             <!-- <div class="navbar"> -->
             <ul class="navbar-list">
                 <li>
-                    <a href="#">О нас</a>
+                    <a aria-label="link" href="#">О нас</a>
                 </li>
                 <li>
-                    <a href="#">Оплата и доставка</a>
+                    <a aria-label="link" href="#">Оплата и доставка</a>
                 </li>
                 <li>
-                    <a href="#">Услуги</a>
+                    <a aria-label="link" href="#">Услуги</a>
                 </li>
                 <li>
-                    <a href="#">Контакты</a>
+                    <a aria-label="link" href="#">Контакты</a>
                 </li>
                 <li>
-                    <a href="#">Отзывы</a>
+                    <a aria-label="link" href="#">Отзывы</a>
                 </li>
                 <li>
-                    <a href="#">Новинки</a>
+                    <a aria-label="link" href="#">Новинки</a>
                 </li>
                 <li>
-                    <a href="#">Вакансии</a>
+                    <a aria-label="link" href="#">Вакансии</a>
                 </li>
             </ul>
-            <a href="#" class="favorite">
-                <img width="20" height="auto" src="../assets/img/like.svg" alt="like">
+            <a aria-label="link" href="#" class="favorite">
+                <img width="20" height="auto" src="../assets/img/icons/like.svg" alt="like">
                 <p>Избранное</p>
                 <span class="favorite__count">
                     1
@@ -62,8 +62,6 @@ nav .container {
     grid-template-columns: 130px 1fr 112px;
     gap: 20px;
 
-    /* align-items: center;
-    justify-content: space-between; */
     @media (max-width: 1024px) {
         grid-template-columns: 1fr;
     }
@@ -123,6 +121,12 @@ nav .container {
         justify-content: space-between;
     }
 
+    @media (max-width: 768px) {
+        overflow-y: hidden;
+        overflow-x: auto;
+        padding-bottom: 8px;
+    }
+
     a {
         font-weight: 700;
         font-size: 16px;
@@ -137,12 +141,15 @@ nav .container {
     }
 }
 
+.navbar-list::-webkit-scrollbar {
+    height: 2px;
+}
+
 /* ===== favorite ===== */
 
 .favorite {
     display: flex;
     align-items: center;
-    justify-content: end;
     gap: 10px;
     position: relative;
     width: fit-content;

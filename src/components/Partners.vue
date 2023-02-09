@@ -3,9 +3,9 @@
         <div class="container">
 
             <swiper :slidesPerView="1" :spaceBetween="10" :autoplay="{
-    delay: 3000,
-    disableOnInteraction: false,
-}" :loop="true" :navigation="true" :modules="modules" :breakpoints="{
+                delay: 3000,
+                disableOnInteraction: false,
+            }" :loop="true" :navigation="true" :modules="modules" :breakpoints="{
     '@0.00': {
         slidesPerView: 3,
         spaceBetween: 10,
@@ -24,40 +24,40 @@
     },
 }" class="mySwiper">
                 <swiper-slide>
-                    <img src="../assets/img/companies/apple.png" alt="apple">
+                    <img width="100%" height="100%" src="../assets/img/companies/apple.webp" alt="apple">
                 </swiper-slide>
                 <swiper-slide>
-                    <img src="../assets/img/companies/asus.png" alt="asus">
+                    <img width="100%" height="100%" src="../assets/img/companies/asus.webp" alt="asus">
                 </swiper-slide>
                 <swiper-slide>
-                    <img src="../assets/img/companies/hp.png" alt="hp">
+                    <img width="100%" height="100%" src="../assets/img/companies/hp.webp" alt="hp">
                 </swiper-slide>
                 <swiper-slide>
-                    <img src="../assets/img/companies/huawei.png" alt="huawei">
+                    <img width="100%" height="100%" src="../assets/img/companies/huawei.webp" alt="huawei">
                 </swiper-slide>
                 <swiper-slide>
-                    <img src="../assets/img/companies/lg.png" alt="lg">
+                    <img width="100%" height="100%" src="../assets/img/companies/lg.webp" alt="lg">
                 </swiper-slide>
                 <swiper-slide>
-                    <img src="../assets/img/companies/samsung.png" alt="samsung">
+                    <img width="100%" height="100%" src="../assets/img/companies/samsung.webp" alt="samsung">
                 </swiper-slide>
                 <swiper-slide>
-                    <img src="../assets/img/companies/apple.png" alt="apple">
+                    <img width="100%" height="100%" src="../assets/img/companies/apple.webp" alt="apple">
                 </swiper-slide>
                 <swiper-slide>
-                    <img src="../assets/img/companies/asus.png" alt="asus">
+                    <img width="100%" height="100%" src="../assets/img/companies/asus.webp" alt="asus">
                 </swiper-slide>
                 <swiper-slide>
-                    <img src="../assets/img/companies/hp.png" alt="hp">
+                    <img width="100%" height="100%" src="../assets/img/companies/hp.webp" alt="hp">
                 </swiper-slide>
                 <swiper-slide>
-                    <img src="../assets/img/companies/huawei.png" alt="huawei">
+                    <img width="100%" height="100%" src="../assets/img/companies/huawei.webp" alt="huawei">
                 </swiper-slide>
                 <swiper-slide>
-                    <img src="../assets/img/companies/lg.png" alt="lg">
+                    <img width="100%" height="100%" src="../assets/img/companies/lg.webp" alt="lg">
                 </swiper-slide>
                 <swiper-slide>
-                    <img src="../assets/img/companies/samsung.png" alt="samsung">
+                    <img width="100%" height="100%" src="../assets/img/companies/samsung.webp" alt="samsung">
                 </swiper-slide>
             </swiper>
 
@@ -94,6 +94,7 @@ export default {
 <style lang="scss" scoped>
 .partner {
     margin-top: 30px;
+
     @media (max-width: 576px) {
         margin-top: 0px;
     }
@@ -103,6 +104,7 @@ export default {
     width: 100%;
     height: 200px;
     padding: 0px 50px;
+
     @media (max-width: 576px) {
         height: 140px;
     }

@@ -5,39 +5,56 @@
         }" :autoplay="{
     delay: 4000,
     disableOnInteraction: false,
+}" :breakpoints="{
+    '@0.00': {
+        slidesPerView: 1,
+        spaceBetween: 10,
+    },
+    '@0.75': {
+        slidesPerView: 1,
+        spaceBetween: 20,
+    },
+    '@1.00': {
+        slidesPerView: 1,
+        spaceBetween: 20,
+    },
+    '@1.50': {
+        slidesPerView: 2,
+        spaceBetween: 20,
+    },
 }" :loop="true" :navigation="true" :modules="modules" class="mySwiper">
 
             <swiper-slide>
-                <div class="box box__yellow">
+                <a href="#" class="box box__yellow">
                     <p>Хозяйственные товары</p>
-                    <a href="#" class="right">
+                    <span class="right">
                         <i class="fa-solid fa-chevron-right"></i>
-                    </a>
-                </div>
+                    </span>
+                </a>
             </swiper-slide>
             <swiper-slide>
-                <div class="box box__white">
+                <a href="#" class="box box__white">
                     <p>Мотивационные декоры</p>
-                    <a href="#" class="right">
+                    <span class="right">
                         <i class="fa-solid fa-chevron-right"></i>
-                    </a>
-                </div>
+                    </span>
+                </a>
             </swiper-slide>
             <swiper-slide>
-                <div class="box box__yellow">
+                <a href="#" class="box box__yellow">
                     <p>Хозяйственные товары</p>
-                    <a href="#" class="right">
+                    <span class="right">
                         <i class="fa-solid fa-chevron-right"></i>
-                    </a>
-                </div>
+                    </span>
+                </a>
             </swiper-slide>
             <swiper-slide>
-                <div class="box box__white">
+                <a href="#" class="box box__white">
                     <p>Мотивационные декоры</p>
-                    <a href="#" class="right">
+                    <span class="right">
                         <i class="fa-solid fa-chevron-right"></i>
-                    </a>
-                </div>
+                    </span>
+                </a>
             </swiper-slide>
         </swiper>
     </div>
@@ -77,6 +94,10 @@ export default {
 .swiper {
     width: 100%;
     height: 500px;
+
+    @media (max-width: 576px) {
+        height: 400px;
+    }
 }
 
 .swiper-slide {
@@ -91,6 +112,10 @@ export default {
     padding: 0px 35px;
     padding-bottom: 50px;
     background: url(../assets/img/swiper.webp);
+
+    @media (max-width: 576px) {
+        padding: 0px;
+    }
 }
 
 .swiper-slide img {
@@ -107,20 +132,37 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 8px;
 
     p {
         font-weight: 700;
         font-size: 28px;
         line-height: 100%;
+
+        @media (max-width: 576px) {
+            font-size: 24px;
+        }
+
+        @media (max-width: 576px) {
+            font-size: 20px;
+        }
     }
 
     .right {
         display: flex;
         justify-content: center;
         align-items: center;
+        min-width: 50px;
         width: 50px;
         height: 50px;
         border-radius: 50%;
+
+        @media (max-width: 576px) {
+            width: 30px;
+            min-width: 30px;
+            height: 30px;
+            font-size: 10px;
+        }
     }
 }
 

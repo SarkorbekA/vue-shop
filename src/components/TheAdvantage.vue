@@ -3,7 +3,7 @@
         <div class="container">
             <div class="card">
                 <div class="card__img">
-                    <img src="../assets/img/card.svg" alt="card">
+                    <img width="60" height="auto" src="../assets/img/card.svg" alt="card">
                 </div>
                 <h1 class="card__title">
                     Моментальная ОПЛАТА
@@ -15,7 +15,7 @@
             </div>
             <div class="card">
                 <div class="card__img">
-                    <img src="../assets/img/card.svg" alt="card">
+                    <img width="60" height="auto" src="../assets/img/card.svg" alt="card">
                 </div>
                 <h1 class="card__title">
                     Моментальная ОПЛАТА
@@ -27,7 +27,7 @@
             </div>
             <div class="card">
                 <div class="card__img">
-                    <img src="../assets/img/card.svg" alt="card">
+                    <img width="60" height="auto" src="../assets/img/card.svg" alt="card">
                 </div>
                 <h1 class="card__title">
                     Моментальная ОПЛАТА
@@ -39,7 +39,7 @@
             </div>
             <div class="card">
                 <div class="card__img">
-                    <img src="../assets/img/card.svg" alt="card">
+                    <img width="60" height="auto" src="../assets/img/card.svg" alt="card">
                 </div>
                 <h1 class="card__title">
                     Моментальная ОПЛАТА

@@ -9,16 +9,16 @@
         <nav class="nav">
           <ul class="nav__menu">
             <li class="nav__items">
-              <a href="#">Контакты</a>
+              <a aria-label="link" href="#">Контакты</a>
             </li>
             <li class="nav__items">
-              <a href="#">Помощь</a>
+              <a aria-label="link" href="#">Помощь</a>
             </li>
             <li class="nav__items">
               <a href="#">Услуги и сервис</a>
             </li>
             <li class="nav__items">
-              <a href="#">Стать партнером</a>
+              <a aria-label="link" href="#">Стать партнером</a>
             </li>
           </ul>
         </nav>
@@ -27,16 +27,16 @@
             <img src="../assets/img/user-logo.svg" alt="user logo">
           </div>
           <div class="login__items">
-            <a href="#">Вход </a>
+            <a aria-label="link" href="#">Вход </a>
             <span> | </span>
-            <a href="#"> Регистрация</a>
+            <a aria-label="link" href="#"> Регистрация</a>
           </div>
         </div>
       </div>
     </div>
     <div class="container">
       <div class="header">
-        <a href="#" class="logo">
+        <a aria-label="link" href="#" class="logo">
           <img width="100" height="auto" src="../assets/img/Logo.svg" alt="logo">
         </a>
         <div class="search">
@@ -57,8 +57,8 @@
               <img width="20" height="auto" src="../assets/img/tel.svg" alt="tel">
             </div>
             <div class="menu__list-text">
-              <a class="menu__list-contact" href="tel:+998991001879">+998 90 000 00 00</a>
-              <a class="menu__list-contact" href="tel:+998991001879">Заказать звонок</a>
+              <a aria-label="link" class="menu__list-contact" href="tel:+998991001879">+998 90 000 00 00</a>
+              <a aria-label="link" class="menu__list-contact" href="tel:+998991001879">Заказать звонок</a>
             </div>
           </li>
           <li class="cart">
@@ -66,8 +66,8 @@
               <img width="22" height="auto" src="../assets/img/shop.svg" alt="shop cart">
             </div>
             <div class="menu__list-text">
-              <a class="menu__list-cart" href="#">Корзинка</a>
-              <a class="menu__list-count" href="#">
+              <a aria-label="link" class="menu__list-cart" href="#">Корзинка</a>
+              <a aria-label="link" class="menu__list-count" href="#">
                 <span @addProductToCard="addCart">{{ cardCount }}</span>
               </a>
             </div>
@@ -75,7 +75,6 @@
         </ul>
       </div>
     </div>
-
   </header>
 
 </template>
@@ -101,17 +100,38 @@ export default {
   border-bottom: 1px solid #E5E5E5;
 }
 
+.logo{
+  width: 100px;
+  height: auto;
+}
+
 .header__top .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 16px 15px 12px;
+  flex-wrap: wrap;
+  gap: 10px;
+  row-gap: 18px;
+}
+
+.nav {
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 }
 
 .nav__menu {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 35px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    justify-content: space-between;
+    gap: 15px;
+  }
 }
 
 
@@ -132,6 +152,13 @@ export default {
   display: flex;
   align-items: center;
   gap: 10px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    justify-content: center;
+    padding: 10px 0px;
+    background: #e5e5e560;
+  }
 }
 
 .login__items>* {
@@ -158,16 +185,22 @@ export default {
   padding: 22px 0px;
   justify-content: space-between;
   flex-wrap: wrap;
-  row-gap: 25px;
+  column-gap: 10px;
+  row-gap: 20px;
 }
 
 .search {
-  width: 370px;
+  width: 100%;
+  max-width: 370px;
   background: #F9F9F9;
   border-radius: 4px;
   padding: 14px 34px 16px 21px;
   position: relative;
   height: 46px;
+
+  @media (max-width: 576px) {
+    max-width: 100%;
+  }
 }
 
 .search input {
@@ -197,8 +230,9 @@ export default {
 .menu__list {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   gap: 36px;
+  flex-wrap: wrap;
 
   @media screen and (max-width: 1280px) {
     width: 100%;
@@ -209,6 +243,11 @@ export default {
   display: flex;
   align-items: center;
   gap: 15px;
+
+  @media screen and (max-width: 400px) {
+    width: 100%;
+    justify-content: space-between;
+  }
 }
 
 .menu__list-text {
@@ -222,6 +261,7 @@ export default {
   font-size: 14px;
   line-height: 150%;
   color: #000000;
+  text-align: right;
 }
 
 .menu__list-text a:hover {

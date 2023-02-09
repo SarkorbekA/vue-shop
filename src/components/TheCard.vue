@@ -1,11 +1,11 @@
 <template>
     <div class="product__item">
-        <img src="../assets/img/products/product.png" alt="product">
+        <img width="100%" height="auto" class="product__img" src="../assets/img/products/product.webp" alt="product">
         <p class="type">{{ type }}</p>
         <p class="title">{{ title }} </p>
         <p class="price">{{ price }} UZS</p>
         <div class="favorite">
-            <img width="100%" height="auto" src="../assets/img/like.svg" alt="like">
+            <img width="80%" height="auto" src="../assets/img/icons/like.svg" alt="like">
         </div>
         <div @click="addToCard" class="addCart">
             <i class="fa-solid fa-cart-shopping"></i>
@@ -34,10 +34,18 @@ export default {
     padding-bottom: 8px;
     background: white;
     border: 1px solid transparent;
+    @media (max-width: 450px) {
+            width: 80%;
+            margin: auto;
+        }
 
-    img {
+    .product__img {
         width: 100%;
         height: auto;
+        @media (max-width: 450px) {
+            width: 80% !important;
+            margin: auto;
+        }
     }
 
     .type {
@@ -84,7 +92,8 @@ export default {
         border-radius: 6px;
 
         img {
-            width: 80%;
+            width: 80% !important;
+            height: auto;
         }
 
         &:hover {
@@ -102,10 +111,10 @@ export default {
         height: 40px;
         display: flex;
         align-items: center;
-        justify-content: space-around;
+        justify-content: center;
+        gap: 20px;
         color: white;
         background: #FFD600;
-        padding: 0px 25px;
         cursor: pointer;
         transition: .6s;
         transform: translateY(30px);

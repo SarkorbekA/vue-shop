@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <h1>{{ count }}</h1>
+        <!-- <h1>{{ count }}</h1> -->
         <div class="product__list">
             <the-card v-for="(card, index) in products" :key="index" :title="card.title" :type="card.type"
                 :price="card.price" @addProductToCard="AddCart(card)" />

@@ -9,6 +9,10 @@ import Partners from './components/Partners.vue'
 import Advantage from './components/TheAdvantage.vue'
 import Footer from './components/TheFooter.vue'
 
+
+// Contact page
+import Contacts from './components/Contacts.vue'
+
 </script>
 
 
@@ -57,11 +61,26 @@ import Footer from './components/TheFooter.vue'
 
   <Footer />
 
+
+  <div class="contact__page">
+    <TheHeader />
+    <TheNavbar />
+    <div class="contact container">
+      <div class="page__router">
+        <a href="#">Главная</a>
+        <span> / Каталог</span>
+      </div>
+      <Contacts />
+    </div>
+    <Footer />
+  </div>
+
+
 </template>
 
 <style lang="scss">
 .container {
-  padding: 0px 5px;
+  padding: 0px 15px;
   margin: auto;
   // max-width: 1200px;
   // width: 100%;
@@ -80,12 +99,20 @@ import Footer from './components/TheFooter.vue'
     color: black;
     white-space: pre;
     margin-bottom: 50px;
+
+    @media (max-width: 576px) {
+      font-size: 22px;
+    }
   }
 
   &__title span {
     padding: 9px 5px 9px 100px;
     background: #FFD600;
     color: white;
+
+    @media (max-width: 576px) {
+      padding: 9px 5px 9px 50px;
+    }
   }
 }
 
@@ -100,12 +127,20 @@ import Footer from './components/TheFooter.vue'
     color: black;
     white-space: pre;
     margin-bottom: 40px;
+
+    @media (max-width: 576px) {
+      font-size: 22px;
+    }
   }
 
   &-title span {
     padding: 9px 160px 9px 5px;
     background: #FFD600;
     color: white;
+
+    @media (max-width: 576px) {
+      padding: 9px 70px 9px 5px;
+    }
   }
 }
 
@@ -132,6 +167,34 @@ import Footer from './components/TheFooter.vue'
     font-size: 14px;
     line-height: 100%;
     color: #000000;
+  }
+}
+
+
+.contact__page {
+  margin-top: 300px;
+
+  .contact {
+    color: #232323;
+    .page__router {
+      padding-top: 34px;
+
+      a:hover {
+        transition: .3s;
+        color: #FFD600;
+      }
+
+      span {
+        color: #90989F;
+      }
+
+      &>* {
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 13px;
+        color: #232323;
+      }
+    }
   }
 }
 </style>

@@ -2,7 +2,7 @@
     <section class="buy">
         <div class="container">
             <div class="buy__main">
-                <img src="../assets/img/products/product2.png" alt="product">
+                <img src="../assets/img/products/product2.webp" alt="product">
                 <p class="category">
                     Комплект
                 </p>
@@ -26,140 +26,7 @@
             </div>
             <ul class="buy__list">
                 <li class="product__item">
-                    <img src="../assets/img/products/product.png" alt="product">
-                    <p class="category">
-                        Комплект
-                    </p>
-                    <p class="info">
-                        10-летняя девочка в рубашке,
-                    </p>
-                    <p class="price">
-                        от 1 000 000 UZS
-                    </p>
-                    <div class="favorite">
-                        <img src="../assets/img/like.svg" alt="like">
-                    </div>
-                    <div class="addCart">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                        <p>В Корзину</p>
-                    </div>
-                </li>
-                <li class="product__item">
-                    <img src="../assets/img/products/product.png" alt="product">
-                    <p class="category">
-                        Комплект
-                    </p>
-                    <p class="info">
-                        10-летняя девочка в рубашке,
-                    </p>
-                    <p class="price">
-                        от 1 000 000 UZS
-                    </p>
-                    <div class="favorite">
-                        <img src="../assets/img/like.svg" alt="like">
-                    </div>
-                    <div class="addCart">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                        <p>В Корзину</p>
-                    </div>
-                </li>
-                <li class="product__item">
-                    <img src="../assets/img/products/product.png" alt="product">
-                    <p class="category">
-                        Комплект
-                    </p>
-                    <p class="info">
-                        10-летняя девочка в рубашке,
-                    </p>
-                    <p class="price">
-                        от 1 000 000 UZS
-                    </p>
-                    <div class="favorite">
-                        <img src="../assets/img/like.svg" alt="like">
-                    </div>
-                    <div class="addCart">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                        <p>В Корзину</p>
-                    </div>
-                </li>
-                <li class="product__item">
-                    <img src="../assets/img/products/product.png" alt="product">
-                    <p class="category">
-                        Комплект
-                    </p>
-                    <p class="info">
-                        10-летняя девочка в рубашке,
-                    </p>
-                    <p class="price">
-                        от 1 000 000 UZS
-                    </p>
-                    <div class="favorite">
-                        <img src="../assets/img/like.svg" alt="like">
-                    </div>
-                    <div class="addCart">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                        <p>В Корзину</p>
-                    </div>
-                </li>
-                <li class="product__item">
-                    <img src="../assets/img/products/product.png" alt="product">
-                    <p class="category">
-                        Комплект
-                    </p>
-                    <p class="info">
-                        10-летняя девочка в рубашке,
-                    </p>
-                    <p class="price">
-                        от 1 000 000 UZS
-                    </p>
-                    <div class="favorite">
-                        <img src="../assets/img/like.svg" alt="like">
-                    </div>
-                    <div class="addCart">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                        <p>В Корзину</p>
-                    </div>
-                </li>
-                <li class="product__item">
-                    <img src="../assets/img/products/product.png" alt="product">
-                    <p class="category">
-                        Комплект
-                    </p>
-                    <p class="info">
-                        10-летняя девочка в рубашке,
-                    </p>
-                    <p class="price">
-                        от 1 000 000 UZS
-                    </p>
-                    <div class="favorite">
-                        <img src="../assets/img/like.svg" alt="like">
-                    </div>
-                    <div class="addCart">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                        <p>В Корзину</p>
-                    </div>
-                </li>
-                <li class="product__item">
-                    <img src="../assets/img/products/product.png" alt="product">
-                    <p class="category">
-                        Комплект
-                    </p>
-                    <p class="info">
-                        10-летняя девочка в рубашке,
-                    </p>
-                    <p class="price">
-                        от 1 000 000 UZS
-                    </p>
-                    <div class="favorite">
-                        <img src="../assets/img/like.svg" alt="like">
-                    </div>
-                    <div class="addCart">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                        <p>В Корзину</p>
-                    </div>
-                </li>
-                <li class="product__item">
-                    <img src="../assets/img/products/product.png" alt="product">
+                    <img src="../assets/img/products/product.webp" alt="product">
                     <p class="category">
                         Комплект
                     </p>
