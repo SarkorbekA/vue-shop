@@ -63,8 +63,8 @@ import Contacts from './components/Contacts.vue'
 
 
   <div class="contact__page">
-    <TheHeader />
-    <TheNavbar />
+    <!-- <TheHeader />
+    <TheNavbar /> -->
     <div class="contact container">
       <div class="page__router">
         <a href="#">Главная</a>
@@ -72,7 +72,7 @@ import Contacts from './components/Contacts.vue'
       </div>
       <Contacts />
     </div>
-    <Footer />
+    <!-- <Footer /> -->
   </div>
 
 
