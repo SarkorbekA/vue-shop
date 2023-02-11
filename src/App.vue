@@ -13,6 +13,9 @@ import Footer from './components/TheFooter.vue'
 // Contact page
 import Contacts from './components/Contacts.vue'
 
+// About Product page
+import AboutProduct from './components/AboutProduct.vue'
+
 </script>
 
 
@@ -23,17 +26,17 @@ import Contacts from './components/Contacts.vue'
   <TheNavbar />
   <TheSlider />
 
-  <section class="product">
+  <!-- <section class="product">
     <div class="product__title"><span>Популярные</span> товары</div>
     <Products />
-  </section>
+  </section> -->
 
   <div class="buy__product">
     <div class="buy__product-title">Успейте <span>купить</span></div>
     <!-- <BuyProduct /> -->
   </div>
 
-  <section class="partners">
+  <!-- <section class="partners">
     <div class="container">
       <h1 class="partners__title">
         Наши партнеры
@@ -59,21 +62,46 @@ import Contacts from './components/Contacts.vue'
     </div>
   </section>
 
-  <Footer />
+  <Footer /> -->
 
 
-  <div class="contact__page">
-    <!-- <TheHeader />
-    <TheNavbar /> -->
-    <div class="contact container">
+
+
+
+
+
+  <!-- <div class="contact__page">
+    <TheHeader />
+    <TheNavbar />
+    <div class="content container">
       <div class="page__router">
         <a href="#">Главная</a>
         <span> / Каталог</span>
       </div>
       <Contacts />
     </div>
-    <!-- <Footer /> -->
+  </div> -->
+
+
+
+
+  <div class="about__page">
+    <TheHeader />
+    <TheNavbar />
+    <div class="content container">
+      <div class="page__router">
+        <a href="#">Главная</a>
+        <span> / </span>
+        <a href="#">Каталог</a>
+        <span> / New Year Candle, Christmas Gift Idea</span>
+      </div>
+      <AboutProduct />
+    </div>
+    <Footer />
+
   </div>
+
+
 
 
 </template>
@@ -86,7 +114,7 @@ import Contacts from './components/Contacts.vue'
   // width: 100%;
 }
 
-.product {
+.product__box {
   margin-top: 120px;
 
   &__title {
@@ -171,29 +199,31 @@ import Contacts from './components/Contacts.vue'
 }
 
 
-.contact__page {
+.contact__page , .about__page {
   margin-top: 300px;
+}
 
-  .contact {
-    color: #232323;
-    .page__router {
-      padding-top: 34px;
+.content {
+  color: #232323;
+  padding: 30px 0px;
 
-      a:hover {
-        transition: .3s;
-        color: #FFD600;
-      }
+  .page__router {
+    margin-top: 34px;
 
-      span {
-        color: #90989F;
-      }
+    a:hover {
+      transition: .3s;
+      color: #FFD600;
+    }
 
-      &>* {
-        font-weight: 600;
-        font-size: 14px;
-        line-height: 13px;
-        color: #232323;
-      }
+    span {
+      color: #90989F;
+    }
+
+    &>* {
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 13px;
+      color: #232323;
     }
   }
 }

@@ -1,5 +1,6 @@
 <template>
     <div class="product__item">
+        <!-- <img width="100%" height="auto" class="product__img" src="../assets/img/products/product.webp" alt="product"> -->
         <img width="100%" height="auto" class="product__img" src="../assets/img/products/product.webp" alt="product">
         <p class="type">{{ type }}</p>
         <p class="title">{{ title }} </p>
