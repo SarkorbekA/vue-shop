@@ -68,7 +68,7 @@
             <div class="menu__list-text">
               <a aria-label="link" class="menu__list-cart" href="#">Корзинка</a>
               <a aria-label="link" class="menu__list-count" href="#">
-                <span @addProductToCard="addCart">{{ cardCount }}</span>
+                {{ $store.state.orderCount }}
               </a>
             </div>
           </li>
@@ -290,14 +290,15 @@ export default {
 }
 
 .menu__list-count {
-  display: inline-block;
   width: 14px;
   height: 14px;
+  padding: 1px;
   background: #FFD600;
   border-radius: 50%;
   font-size: 10px;
   display: flex;
   align-items: center;
+  padding: 8px;
   margin: auto;
   justify-content: center;
 }

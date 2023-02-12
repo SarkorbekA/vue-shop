@@ -10,7 +10,7 @@
                     <img width="20" height="auto" src="../assets/img/icons/like.svg" alt="like">
                     <p>Избранное</p>
                     <span class="favorite__count">
-                        1
+                        {{ $store.state.likesCount }}
                     </span>
                 </a>
             </div>
@@ -42,7 +42,7 @@
                 <img width="20" height="auto" src="../assets/img/icons/like.svg" alt="like">
                 <p>Избранное</p>
                 <span class="favorite__count">
-                    1
+                    {{ $store.state.likesCount }}
                 </span>
             </a>
             <!-- </div> -->
@@ -50,6 +50,9 @@
         </div>
     </nav>
 </template>
+
+<!-- <script>
+</script> -->
 
 <style lang="scss" scoped>
 nav {
@@ -152,7 +155,6 @@ nav .container {
     align-items: center;
     gap: 10px;
     position: relative;
-    width: fit-content;
 
     @media (max-width: 1024px) {
         display: none;
@@ -169,10 +171,10 @@ nav .container {
 .favorite__count {
     font-weight: 400;
     font-size: 10px;
-    line-height: 150%;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 1px;
     color: #232323;
     background: #FFD600;
     border-radius: 50%;

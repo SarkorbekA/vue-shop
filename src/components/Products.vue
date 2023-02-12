@@ -3,7 +3,8 @@
         <!-- <h1>{{ count }}</h1> -->
         <div class="product__list">
             <the-card v-for="(card, index) in products" :key="index" :title="card.title" :type="card.type"
-                :price="card.price" @addProductToCard="AddCart(card)" />
+                :price="card.price" :like="card.like" @addProductToCard="AddCart(card)"
+                @addToFavorites="AddToLikes(card)" />
 
         </div>
     </div>
@@ -21,62 +22,74 @@ export default {
                 {
                     type: "Complect",
                     title: "Telefon",
-                    price: 15000
+                    price: 15000,
+                    like: false
                 },
                 {
                     type: "Complect",
                     title: "Telefon",
-                    price: 15000
+                    price: 15000,
+                    like: false
                 },
                 {
                     type: "Complect",
                     title: "Telefon",
-                    price: 15000
+                    price: 15000,
+                    like: false
                 },
                 {
                     type: "Complect",
                     title: "Telefon",
-                    price: 15000
+                    price: 15000,
+                    like: false
                 },
                 {
                     type: "Complect",
                     title: "Telefon",
-                    price: 15000
+                    price: 15000,
+                    like: false
                 },
                 {
                     type: "Complect",
                     title: "Telefon",
-                    price: 15000
+                    price: 15000,
+                    like: false
                 },
                 {
                     type: "Complect",
                     title: "Telefon",
-                    price: 15000
+                    price: 15000,
+                    like: false
                 },
                 {
                     type: "Complect",
                     title: "Telefon",
-                    price: 15000
+                    price: 15000,
+                    like: false
                 },
                 {
                     type: "Complect",
                     title: "Telefon",
-                    price: 15000
+                    price: 15000,
+                    like: false
                 },
                 {
                     type: "Complect",
                     title: "Telefon",
-                    price: 15000
+                    price: 15000,
+                    like: false
                 },
                 {
                     type: "Complect",
                     title: "Telefon",
-                    price: 15000
+                    price: 15000,
+                    like: false
                 },
                 {
                     type: "Complect",
                     title: "Telefon",
-                    price: 15000
+                    price: 15000,
+                    like: false
                 },
             ]
         }
@@ -94,6 +107,17 @@ export default {
                 type: data.type,
                 price: data.price,
             })
+            this.$store.commit('ADD_ORDER', data)
+            this.$store.commit('CHANGE_ORDER_COUNT')
+            
+        },
+        AddToLikes(data) {
+            data.like = !data.like
+            if (data.like) {
+                this.$store.commit('ADD_LIKES')
+            } else{
+                this.$store.commit('SUBTRACT_LIKES')
+            }
         }
     }
 }

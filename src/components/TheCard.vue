@@ -5,8 +5,11 @@
         <p class="type">{{ type }}</p>
         <p class="title">{{ title }} </p>
         <p class="price">{{ price }} UZS</p>
-        <div class="favorite">
+        <div v-if="!like" @click="addToFavorites" :class="like ? 'add-like' : ''" class="favorite">
             <img width="80%" height="auto" src="../assets/img/icons/like.svg" alt="like">
+        </div>
+        <div v-else @click="addToFavorites" :class="like ? 'add-like' : ''" class="favorite">
+            <img width="80%" height="auto" src="../assets/img/icons/liked.svg" alt="like">
         </div>
         <div @click="addToCard" class="addCart">
             <i class="fa-solid fa-cart-shopping"></i>
@@ -18,10 +21,13 @@
 <script>
 export default {
     name: 'TheCard',
-    props: ['type', 'title', 'price'],
+    props: ['type', 'title', 'price', 'like'],
     methods: {
         addToCard() {
             this.$emit('addProductToCard')
+        },
+        addToFavorites() {
+            this.$emit('addToFavorites')
         }
     }
 }
@@ -35,14 +41,16 @@ export default {
     padding-bottom: 8px;
     background: white;
     border: 1px solid transparent;
+
     @media (max-width: 450px) {
-            width: 80%;
-            margin: auto;
-        }
+        width: 80%;
+        margin: auto;
+    }
 
     .product__img {
         width: 100%;
         height: auto;
+
         @media (max-width: 450px) {
             width: 80% !important;
             margin: auto;
@@ -81,8 +89,7 @@ export default {
         top: 7px;
         right: 7px;
         width: 30px;
-        height: 28px;
-        padding: 1px;
+        height: 30px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -130,8 +137,7 @@ export default {
             line-height: 100%;
         }
 
-        &:hover {
-            transition: .3s;
+        &:active {
             box-shadow: 0px 0px 5px 1px rgba(128, 128, 128, 0.5);
             color: black;
             background: white;
@@ -166,5 +172,12 @@ export default {
 
         }
     }
+}
+
+
+.add-like {
+    visibility: visible !important;
+    opacity: 1 !important;
+    background: rgba(255, 255, 255, 0.9) !important;
 }
 </style>

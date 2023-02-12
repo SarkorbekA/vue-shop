@@ -14,19 +14,19 @@ import Footer from './components/TheFooter.vue'
 import Contacts from './components/Contacts.vue'
 
 // About Product page
-import AboutProduct from './components/AboutProduct.vue'
+import ProductDetail from './components/ProductDetail.vue'
 
 </script>
 
 
 
 <template>
-
+<!-- 
   <TheHeader />
   <TheNavbar />
   <TheSlider />
 
-  <!-- <section class="product">
+  <section class="product">
     <div class="product__title"><span>Популярные</span> товары</div>
     <Products />
   </section> -->
@@ -95,7 +95,7 @@ import AboutProduct from './components/AboutProduct.vue'
         <a href="#">Каталог</a>
         <span> / New Year Candle, Christmas Gift Idea</span>
       </div>
-      <AboutProduct />
+      <ProductDetail />
     </div>
     <Footer />
 
@@ -114,7 +114,7 @@ import AboutProduct from './components/AboutProduct.vue'
   // width: 100%;
 }
 
-.product__box {
+.product {
   margin-top: 120px;
 
   &__title {
@@ -199,7 +199,8 @@ import AboutProduct from './components/AboutProduct.vue'
 }
 
 
-.contact__page , .about__page {
+.contact__page,
+.about__page {
   margin-top: 300px;
 }
 
