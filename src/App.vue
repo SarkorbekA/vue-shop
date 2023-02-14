@@ -24,7 +24,7 @@ import CartPage from './components/CartPage.vue'
 
 <template>
 
-  <!-- <TheHeader />
+  <TheHeader />
   <TheNavbar />
   <TheSlider />
 
@@ -66,7 +66,7 @@ import CartPage from './components/CartPage.vue'
   </section>
 
   <Footer />
-    -->
+   
 
 
 
@@ -111,7 +111,7 @@ import CartPage from './components/CartPage.vue'
   </div> -->
 
 
-  <section class="cart__page">
+  <!-- <section class="cart__page">
     <TheHeader />
     <TheNavbar />
     <div class="container content">
@@ -123,7 +123,7 @@ import CartPage from './components/CartPage.vue'
       <CartPage />
     </div>
     <Footer />
-  </section>
+  </section> -->
 
 
 
@@ -194,6 +194,7 @@ import CartPage from './components/CartPage.vue'
     }
   }
 }
+
 
 .partners {
   margin-top: 65px;

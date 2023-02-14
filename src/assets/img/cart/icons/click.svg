@@ -3,7 +3,7 @@
 <path d="M70.9722 0H2.02778C0.907867 0 0 0.89543 0 2V30C0 31.1046 0.907867 32 2.02778 32H70.9722C72.0921 32 73 31.1046 73 30V2C73 0.89543 72.0921 0 70.9722 0Z" fill="white"/>
 <path d="M62.8609 -10H10.1387V42H62.8609V-10Z" fill="url(#pattern0)"/>
 </g>
-<rect x="0.5" y="0.5" width="72" height="31" stroke="#E7E7E7"/>
+<!-- <rect x="0.5" y="0.5" width="72" height="31" stroke="#E7E7E7"/> -->
 <defs>
 <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
 <use xlink:href="#image0_56_61" transform="scale(0.00195312)"/>
