@@ -4,7 +4,7 @@ import TheHeader from './components/TheHeader.vue'
 import TheNavbar from './components/TheNavbar.vue'
 import TheSlider from './components/TheSlider.vue'
 import Products from './components/Products.vue'
-// import BuyProduct from './components/BuyProduct.vue'
+import BuyProduct from './components/BuyProduct.vue'
 import Partners from './components/Partners.vue'
 import Advantage from './components/TheAdvantage.vue'
 import Footer from './components/TheFooter.vue'
@@ -16,27 +16,30 @@ import Contacts from './components/Contacts.vue'
 // About Product page
 import ProductDetail from './components/ProductDetail.vue'
 
+// Cart page
+import CartPage from './components/CartPage.vue'
 </script>
 
 
 
 <template>
-<!-- 
-  <TheHeader />
+
+  <!-- <TheHeader />
   <TheNavbar />
   <TheSlider />
 
   <section class="product">
     <div class="product__title"><span>Популярные</span> товары</div>
     <Products />
-  </section> -->
+  </section>
+
 
   <div class="buy__product">
     <div class="buy__product-title">Успейте <span>купить</span></div>
-    <!-- <BuyProduct /> -->
+    <BuyProduct />
   </div>
 
-  <!-- <section class="partners">
+  <section class="partners">
     <div class="container">
       <h1 class="partners__title">
         Наши партнеры
@@ -62,7 +65,8 @@ import ProductDetail from './components/ProductDetail.vue'
     </div>
   </section>
 
-  <Footer /> -->
+  <Footer />
+    -->
 
 
 
@@ -85,7 +89,9 @@ import ProductDetail from './components/ProductDetail.vue'
 
 
 
-  <div class="about__page">
+
+
+  <!-- <div class="about__page">
     <TheHeader />
     <TheNavbar />
     <div class="content container">
@@ -97,10 +103,27 @@ import ProductDetail from './components/ProductDetail.vue'
       </div>
       <ProductDetail />
     </div>
+    <section class="product">
+      <div class="product__title"><span>Новые</span> товары</div>
+      <Products />
+    </section>
     <Footer />
+  </div> -->
 
-  </div>
 
+  <section class="cart__page">
+    <TheHeader />
+    <TheNavbar />
+    <div class="container content">
+      <div class="page__router">
+        <a href="#">Главная</a>
+        <span> / </span>
+        <span>Корзина</span>
+      </div>
+      <CartPage />
+    </div>
+    <Footer />
+  </section>
 
 
 
@@ -115,7 +138,7 @@ import ProductDetail from './components/ProductDetail.vue'
 }
 
 .product {
-  margin-top: 120px;
+  margin-top: 80px;
 
   &__title {
     max-width: 1600px;
@@ -145,7 +168,7 @@ import ProductDetail from './components/ProductDetail.vue'
 }
 
 .buy__product {
-  margin-top: 100px;
+  margin-top: 80px;
 
   &-title {
     text-align: center;
@@ -200,13 +223,14 @@ import ProductDetail from './components/ProductDetail.vue'
 
 
 .contact__page,
-.about__page {
+.about__page,
+.cart__page {
   margin-top: 300px;
 }
 
 .content {
   color: #232323;
-  padding: 30px 0px;
+  padding: 30px 15px;
 
   .page__router {
     margin-top: 34px;

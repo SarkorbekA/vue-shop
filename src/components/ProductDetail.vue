@@ -192,17 +192,346 @@
                 </div>
             </div>
         </div>
-        <div class="about__product-side"></div>
+        <div class="about__product-side">
+            <div class="buy__box">
+                <h3 class="buy__box-title">
+                    Самая низкая цена
+                </h3>
+                <h3 class="buy__box-price">1 000 000 UZS</h3>
+                <div class="buy__box-service">
+                    <div class="item">
+                        <div class="item__img">
+                            <img src="../assets/img/about_page/delivery.svg" alt="delivery image">
+                        </div>
+                        <p><span href="#">Бесплатно курьером</span>, 2-3 дня</p>
+                    </div>
+                    <div class="item">
+                        <div class="item__img">
+                            <img src="../assets/img/about_page/card.svg" alt="delivery image">
+                        </div>
+                        <p>Картой на сайте/курьеру, наличными</p>
+                    </div>
+                </div>
+                <div class="buy__box-btn">
+                    <button @click="addToCard" class="addCart">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <p>В Корзину</p>
+                    </button>
+                </div>
+                <div class="buy__box-rating">
+                    <div class="product__recall">
+                        <div class="product__stars">
+                            <img src="../assets/img/about_page/star.svg" alt="star">
+                            <img src="../assets/img/about_page/star.svg" alt="star">
+                            <img src="../assets/img/about_page/star.svg" alt="star">
+                            <img src="../assets/img/about_page/star.svg" alt="star">
+                            <img src="../assets/img/about_page/white__star.svg" alt="star">
+                        </div>
+                        <h3 class="product__review">5 отзывов</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion">
+                <div v-for="(section, index) in sections" :key="index" class="accordion__section">
+                    <button :class="section.open ? 'accordion__header-border' : ''" class="accordion__header"
+                        @click="toggleSection(index)">
+                        <h1 class="accordion-title">{{ section.header }}</h1>
+                        <div class="accordion-arrow">
+                            <img :class="section.open ? 'accordion-arrow__open' : 'accordion-arrow__close'"
+                                src="../assets/img/about_page/arrow.svg" alt="arrow">
+                        </div>
+                    </button>
+                    <div v-if="index == 4" class="accordion__content" :class="section.open ? 'accordion__open' : ''">
+                        <div class="accordion__content-related">
+                            <div class="item">Товары для дома</div>
+                            <div class="item">Декор для дома</div>
+                            <div class="item">Свечи и подсвечники</div>
+                            <div class="item">Идея новогодного подарка</div>
+                        </div>
+                    </div>
+                    <div v-else-if="index == 3" class="accordion__content"
+                        :class="section.open ? 'accordion__open' : ''">
+                        <div class="accordion__content-seller">
+                            <div class="seller__header">
+                                <div class="seller__header-img">
+                                    <img src="../assets/img/about_page/seller.svg" alt="seller image">
+                                </div>
+                                <div class="seller__header-content">
+                                    <h3 class="company-name">Makeawishcandle</h3>
+                                    <p class="owner-name">Владелец: <a href="#"> MakeAWishCandleCo</a></p>
+                                </div>
+                            </div>
+                            <button class="seller__btn addCart">
+                                <p>Написать сообщение</p>
+                            </button>
+                            <p class="seller__about">Этот продавец обычно отвечает в течение нескольких часов</p>
+                        </div>
+                    </div>
+                    <div v-else class="accordion__content" :class="section.open ? 'accordion__open' : ''">
+                        hello
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
+<script>
+export default {
+    name: 'ProductDetail',
+    data() {
+        return {
+            sections: [
+                {
+                    header: "Описание",
+                    open: false
+                },
+                {
+                    header: "Основные моменты",
+                    open: false
+                },
+                {
+                    header: "Доставки и возврат",
+                    open: false
+                },
+                {
+                    header: "Познакомьтесь со своими продавцами",
+                    open: false
+                },
+                {
+                    header: "Связанные категории и поисковые запросы",
+                    open: false
+                }
+            ]
+        };
+    },
+    methods: {
+        addToCard() {
+            this.$store.commit('CHANGE_ORDER_COUNT')
+        },
+        toggleSection(index) {
+            this.sections.forEach((section, i) => {
+                if (i === index) {
+                    section.open = !section.open;
+                } // else {
+                //     section.open = false;
+                // }
+            });
+        }
+    }
+}
+</script>
+
 <style lang="scss" scoped>
+.accordion {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+
+    &__section {
+        background: #FFFFFF;
+        box-shadow: 0px 5px 15px rgba(204, 204, 204, 0.25);
+        border-radius: 4px;
+        padding: 0px 18px;
+    }
+
+    // accordion header
+    &__header {
+        padding: 14px 0px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        justify-content: space-between;
+        width: 100%;
+        border-bottom: 1px solid transparent;
+
+        &-border {
+            border-bottom: 1px solid #E5E5E5;
+        }
+    }
+
+    &-title {
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 150%;
+        color: #454346;
+        text-align: left;
+        max-width: 240px;
+        width: 100%;
+    }
+
+    &-arrow {
+        min-width: 27px;
+        height: 27px;
+        border-radius: 50%;
+        background: rgba(255, 214, 0, 0.27);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 3s;
+
+        &__open {
+            transform: rotate(180deg);
+            transition: .3s;
+        }
+
+        &__close {
+            transform: rotate(0deg);
+            transition: .3s;
+        }
+    }
+
+    // accordion content
+    &__content {
+        height: 0;
+        visibility: hidden;
+        opacity: 0;
+        transition: .2s;
+
+        &-related {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+
+            .item {
+                background: #E5E5E5;
+                border-radius: 4px;
+                padding: 14px 10px;
+                font-weight: 400;
+                font-size: 12px;
+                color: #232323;
+            }
+        }
+
+        &-seller {
+            .seller__header {
+                display: flex;
+                align-items: center;
+                gap: 16px;
+
+                &-img {
+                    border: 1px solid #E5E5E5;
+                    width: 64px;
+                    height: 64px;
+                    border-radius: 4px;
+
+                    img {
+                        border-radius: 4px;
+                        width: 100%;
+                        height: auto;
+                        object-fit: contain;
+                    }
+                }
+
+                &-content {
+                    .company-name {
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 150%;
+                        color: #90989F;
+                    }
+
+                    .owner-name {
+                        font-weight: 400;
+                        font-size: 12px;
+                        line-height: 150%;
+                        color: #232323;
+
+                        a {
+                            text-decoration: 1px solid underline #90989F;
+
+                            &:hover {
+                                transition: .3s;
+                                color: #FFD600;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .seller__btn {
+                padding: 12px 0px;
+                display: block;
+                width: 100%;
+                border: 1px solid #FFD600;
+                border-radius: 4px;
+                font-weight: 700;
+                font-size: 18px;
+                text-align: center;
+                margin-top: 18px;
+                color: white;
+                background: #FFD600;
+                cursor: pointer;
+
+                &:hover {
+                    transition: .3s;
+                    background: white;
+                    color: #FFD600;
+                }
+
+                &:active {
+                    box-shadow: 0px 0px 5px 3px rgba(128, 128, 128, 0.5);
+                }
+            }
+
+            .seller__about {
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 100%;
+                display: block;
+                margin: auto;
+                text-align: center;
+                color: #90989F;
+                max-width: 238px;
+                margin-top: 10px;
+            }
+        }
+    }
+
+    &__open {
+        transition: .1s linear;
+        height: auto;
+        visibility: visible;
+        opacity: 1;
+        padding: 14px 0px;
+    }
+}
+
 .about__product {
     display: grid;
     grid-template-columns: 7fr 4fr;
     gap: 30px;
     margin-top: 60px;
     color: #232323;
+
+    @media (max-width: 1024px) {
+        gap: 15px;
+    }
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
+
+    .product__recall {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-top: 24px;
+
+        .product__stars {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .prodcut_review {
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 100%;
+        }
+    }
 
     &-content {
         width: 100%;
@@ -217,6 +546,18 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 30px;
+
+            @media (max-width: 1024px) {
+                gap: 15px;
+            }
+
+            @media (max-width: 768px) {
+                gap: 25px;
+            }
+
+            @media (max-width: 576px) {
+                grid-template-columns: 1fr;
+            }
 
             &-img {
                 width: 100%;
@@ -233,8 +574,8 @@
                 .select__img {
                     display: grid;
                     grid-template-columns: 1fr 1fr 1fr 1fr;
-                    gap: 25px;
-                    margin-top: 20px;
+                    gap: 15px;
+                    margin-top: 15px;
 
                     .select__item {
                         border: 2px solid transparent;
@@ -336,25 +677,6 @@
                         }
                     }
                 }
-
-                .product__recall {
-                    display: flex;
-                    align-items: center;
-                    gap: 14px;
-                    margin-top: 34px;
-
-                    .product__stars {
-                        display: flex;
-                        align-items: center;
-                        gap: 4px;
-                    }
-
-                    .prodcut_review {
-                        font-weight: 400;
-                        font-size: 12px;
-                        line-height: 100%;
-                    }
-                }
             }
         }
 
@@ -371,7 +693,7 @@
                 display: flex;
                 margin-top: 22px;
                 gap: 22px;
-                align-items: center;
+                align-items: flex-start;
 
                 &-title {
                     font-weight: 400;
@@ -382,6 +704,8 @@
                 &-box {
                     display: flex;
                     gap: 22px;
+                    justify-content: space-evenly;
+                    flex-wrap: wrap;
 
                     span {
                         cursor: pointer;
@@ -408,7 +732,6 @@
             }
 
             .comments__box {
-                margin-bottom: 40px;
                 .comments__person {
                     margin-top: 30px;
                     margin-bottom: 15px;
@@ -432,6 +755,8 @@
                         display: flex;
                         gap: 15px;
                         align-items: center;
+                        gap: 10px;
+                        flex-wrap: wrap;
 
                         h3 {
                             font-weight: 400;
@@ -444,6 +769,10 @@
 
                 .comments__text {
                     padding-left: 52px;
+
+                    @media (max-width: 576px) {
+                        padding: 0;
+                    }
 
                     &-content {
                         margin-bottom: 25px;
@@ -464,9 +793,14 @@
 
                 .comments__add {
                     padding-left: 52px;
+
+                    @media (max-width: 576px) {
+                        padding: 0;
+                    }
+
                     margin-top: 28px;
                     display: flex;
-                    align-items: center;
+                    align-items: flex-start;
                     justify-content: space-between;
                     width: 100%;
 
@@ -474,6 +808,7 @@
                         display: flex;
                         gap: 24px;
                         align-items: center;
+                        flex-wrap: wrap;
 
                         .add__comment {
                             font-weight: 400;
@@ -519,6 +854,112 @@
 
     &-side {
         width: 100%;
+
+        .buy__box {
+            padding: 25px 28px;
+            background: white;
+            box-shadow: 0px 5px 15px 6px rgba(204, 204, 204, 0.25);
+            border-radius: 8px;
+
+            &-title {
+                font-weight: 700;
+                font-size: 12px;
+                text-transform: uppercase;
+                color: #90989F;
+            }
+
+            &-price {
+                margin-top: 10px;
+                font-weight: 700;
+                font-size: 20px;
+                color: #333333;
+            }
+
+            &-service {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 14px;
+                margin-top: 22px;
+
+                .item {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+
+                    &__img {
+                        width: 18px;
+
+                        img {
+                            object-fit: cover;
+                            width: 100%;
+                        }
+                    }
+
+                    span {
+                        color: #553280;
+
+                    }
+
+                    p {
+                        font-weight: 400;
+                        font-size: 13px;
+                        line-height: 100%;
+                        color: #333333;
+                    }
+                }
+            }
+
+            &-btn {
+                margin-top: 25px;
+
+                .addCart {
+                    width: 100%;
+                    border-radius: 4px;
+                    height: 40px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 20px;
+                    color: white;
+                    background: #FFD600;
+                    border: 1px solid #FFD600;
+
+                    i {
+                        font-size: 18px;
+                    }
+
+                    p {
+                        font-weight: 700;
+                        font-size: 14px;
+                    }
+
+                    &:active {
+                        box-shadow: 0px 0px 5px 3px rgba(128, 128, 128, 0.5);
+                    }
+
+                    &:hover {
+                        transition: .3s;
+                        background: white;
+                        color: #FFD600;
+                    }
+                }
+
+            }
+
+            &-rating {
+                .product__recall {
+                    margin-top: 18px;
+                }
+
+                .product__review {
+                    font-weight: 700;
+                    font-size: 13px;
+                    line-height: 100%;
+                    color: #90989F;
+                }
+            }
+        }
     }
 }
 </style>

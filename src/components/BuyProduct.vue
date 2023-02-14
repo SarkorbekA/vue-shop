@@ -4,203 +4,195 @@
             <div class="buy__main">
                 <img src="../assets/img/products/product2.webp" alt="product">
                 <p class="category">
-                    Комплект
+                    {{ this.bestProduct.type }}
                 </p>
                 <p class="info">
-                    10-летняя девочка в рубашке,
+                    {{ this.bestProduct.title }}
                 </p>
                 <p class="price">
-                    от 1 000 000 UZS
+                    {{ this.bestProduct.price }} UZS
                 </p>
                 <div class="time__box">
                     <img src="../assets/img/clock.svg" alt="">
                     <p class="time">01 : 30 : 15</p>
                 </div>
-                <div class="favorite">
-                    <img src="../assets/img/like.svg" alt="like">
+                <div v-if="!this.bestProduct.like" @click="AddToLikes(this.bestProduct)"
+                    :class="this.bestProduct.like ? 'add-like' : ''" class="favorite">
+                    <img src="../assets/img/icons/like.svg" alt="like">
                 </div>
-                <div class="addCart">
+                <div v-else @click="AddToLikes(card)" :class="this.bestProduct.like ? 'add-like' : ''" class="favorite">
+                    <img src="../assets/img/icons/liked.svg" alt="like">
+                </div>
+                <div @click="AddCart(this.bestProduct)" class="addCart">
                     <i class="fa-solid fa-cart-shopping"></i>
                     <p>В Корзину</p>
                 </div>
             </div>
-            <ul class="buy__list">
-                <li class="product__item">
-                    <img src="../assets/img/products/product.webp" alt="product">
-                    <p class="category">
-                        Комплект
-                    </p>
-                    <p class="info">
-                        10-летняя девочка в рубашке,
-                    </p>
-                    <p class="price">
-                        от 1 000 000 UZS
-                    </p>
-                    <div class="favorite">
-                        <img src="../assets/img/like.svg" alt="like">
-                    </div>
-                    <div class="addCart">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                        <p>В Корзину</p>
-                    </div>
-                </li>
-            </ul>
+            <div class="product__list">
+                <the-card v-for="(card, index) in products" :key="index" :title="card.title" :type="card.type"
+                    :price="card.price" :like="card.like" @addProductToCard="AddCart(card)"
+                    @addToFavorites="AddToLikes(card)" />
+
+            </div>
         </div>
     </section>
 </template>
 
+<script>
+import TheCard from "./TheCard.vue";
+export default {
+    name: "BuyProduct",
+    components: { TheCard },
+    data() {
+        return {
+            orderCard: [],
+            products: [
+                {
+                    type: "Complect",
+                    title: "Telefon",
+                    price: 15000,
+                    like: false
+                },
+                {
+                    type: "Complect",
+                    title: "Telefon",
+                    price: 15000,
+                    like: false
+                },
+                {
+                    type: "Complect",
+                    title: "Telefon",
+                    price: 15000,
+                    like: false
+                },
+                {
+                    type: "Complect",
+                    title: "Telefon",
+                    price: 15000,
+                    like: false
+                },
+                {
+                    type: "Complect",
+                    title: "Telefon",
+                    price: 15000,
+                    like: false
+                },
+                {
+                    type: "Complect",
+                    title: "Telefon",
+                    price: 15000,
+                    like: false
+                },
+                {
+                    type: "Complect",
+                    title: "Telefon",
+                    price: 15000,
+                    like: false
+                },
+                {
+                    type: "Complect",
+                    title: "Telefon",
+                    price: 15000,
+                    like: false
+                }
+            ],
+            bestProduct: {
+                type: "Complect",
+                title: "Telefon",
+                price: 15000,
+                like: false
+            }
+        }
+    },
+    computed: {
+        count() {
+            return this.orderCard.length
+        }
+    },
+    methods: {
+        AddCart(data) {
+            this.orderCard.push({
+                title: data.title,
+                type: data.type,
+                price: data.price,
+            })
+            this.$store.commit('ADD_ORDER', data)
+            this.$store.commit('CHANGE_ORDER_COUNT')
+        },
+        AddToLikes(data) {
+            data.like = !data.like
+            if (data.like) {
+                this.$store.commit('ADD_LIKES')
+            } else {
+                this.$store.commit('SUBTRACT_LIKES')
+            }
+        }
+    }
+}
+</script>
+
 <style lang="scss" scoped>
+.add-like {
+    visibility: visible !important;
+    opacity: 1 !important;
+    background: rgba(255, 255, 255, 0.9) !important;
+}
+
 .buy {
+    padding: 20px 0px;
     .container {
-        display: flex;
-        align-items: center;
+        display: grid;
+        grid-template-columns: 370px 1fr;
+        align-items: flex-start;
         justify-content: space-between;
         gap: 30px;
+
+        @media (max-width: 1024px) {
+            grid-template-columns: 1fr;
+        }
     }
 
-    .buy__list {
-        width: calc(100% - 500px);
-        // display: flex;
-        // flex-wrap: wrap;
-        // column-gap: 30px;
-        // row-gap: 20px;
+    .product__list {
+        width: 100%;
         display: grid;
-        grid-gap: 20px;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 20px;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 
-        .product__item {
-            text-align: center;
-            width: 170px;
-            position: relative;
-            background: white;
-            transition: .3s;
-            position: relative;
-            cursor: pointer;
-            z-index: 1;
-            border: 1px solid rgba(0, 0, 0, 0.1);
+        @media (max-width: 1280px) {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
 
-            img {
-                width: 100%;
-            }
+        @media (max-width: 992px) {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
 
-            .category {
-                margin-top: 14px;
-                font-weight: 400;
-                font-size: 12px;
-                line-height: 100%;
-                color: #90989F;
-            }
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr 1fr;
+        }
 
-            .info {
-                margin-top: 8px;
-                font-weight: 400;
-                font-size: 12px;
-                line-height: 100%;
-                color: #333333;
-                padding: 0px 14px;
-            }
-
-            .price {
-                font-weight: 700;
-                font-size: 16px;
-                line-height: 100%;
-                color: #000000;
-                margin-top: 10px;
-                margin-bottom: 8px;
-            }
-
-            .favorite {
-                position: absolute;
-                cursor: pointer;
-                top: 7px;
-                right: 7px;
-                width: 30px;
-                height: 28px;
-                padding: 1px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                background: rgba(201, 201, 201, 0.2);
-                visibility: hidden;
-                opacity: 0;
-                transition: .3s;
-                border-radius: 6px;
-
-                img {
-                    width: 80%;
-                }
-
-                &:hover {
-                    background: rgba(201, 201, 201, 0.6);
-                }
-            }
-
-            .addCart {
-                opacity: 0;
-                display: none;
-                visibility: hidden;
-                width: 100%;
-                height: 36px;
-                display: flex;
-                align-items: center;
-                justify-content: space-around;
-                color: white;
-                background: #FFD600;
-                padding: 0px 25px;
-                cursor: pointer;
-                transform: translateY(30px);
-                transition: .6s;
-
-                i {
-                    font-size: 18px;
-                }
-
-                p {
-                    font-weight: 700;
-                    font-size: 14px;
-                    line-height: 100%;
-                }
-
-                &:hover {
-                    transition: .3s;
-                    box-shadow: 0px 0px 5px 1px rgba(128, 128, 128, 0.5);
-                    color: black;
-                    background: white;
-                }
-            }
-
-            &:hover {
-                z-index: 2;
-                transform: scale(1.3);
-                transition: .3s;
-                box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.1);
-                border: 1px solid rgba(0, 0, 0, 0.1);
-
-                .favorite {
-                    visibility: visible;
-                    opacity: 1;
-                    transition: .4s;
-                }
-
-                .addCart {
-                    transition: .7s;
-                    opacity: 1;
-                    visibility: visible;
-                    transform: translateY(0px);
-                    display: flex;
-                }
-            }
+        @media (max-width: 450px) {
+            grid-template-columns: 1fr;
         }
     }
 }
 
 .buy__main {
-    width: 370px;
+    width: 100%;
     box-shadow: 0px 0px 40px rgba(41, 121, 255, 0.1);
     position: relative;
     padding: 20px 0px 10px 0px;
     background: white;
     text-align: center;
+    height: auto;
+
+    @media (max-width: 1024px) {
+        width: 80%;
+        margin: auto;
+    }
+
+    @media (max-width: 450px) {
+        width: 100%;
+    }
 
     img {
         width: 80%;
@@ -292,8 +284,8 @@
         color: white;
         background: #FFD600;
         cursor: pointer;
-        // transform: translateY(30px);
-
+        border: 1px solid #FFD600;
+        margin-top: 10px;
         i {
             font-size: 24px;
         }
@@ -306,9 +298,13 @@
 
         &:hover {
             transition: .3s;
-            box-shadow: 0px 0px 5px 1px rgba(128, 128, 128, 0.5);
-            color: black;
+            color: #FFD600;
             background: white;
+        }
+
+        &:active {
+            color: black;
+            box-shadow: 0px 0px 10px 2px rgba(128, 128, 128, 0.5);
         }
     }
 }

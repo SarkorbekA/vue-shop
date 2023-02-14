@@ -11,10 +11,10 @@
         <div v-else @click="addToFavorites" :class="like ? 'add-like' : ''" class="favorite">
             <img width="80%" height="auto" src="../assets/img/icons/liked.svg" alt="like">
         </div>
-        <div @click="addToCard" class="addCart">
+        <button @click="addToCard" class="addCart">
             <i class="fa-solid fa-cart-shopping"></i>
-            <button>В Корзину</button>
-        </div>
+            <p>В Корзину</p>
+        </button>
     </div>
 </template>
 
@@ -107,11 +107,16 @@ export default {
         &:hover {
             background: rgba(201, 201, 201, 0.6);
         }
+
+        @media (max-width: 992px) {
+            visibility: visible;
+            opacity: 1;
+            transition: .4s;
+        }
     }
 
     .addCart {
         opacity: 0;
-        display: none;
         visibility: hidden;
         margin: auto;
         width: 95%;
@@ -123,9 +128,9 @@ export default {
         gap: 20px;
         color: white;
         background: #FFD600;
-        cursor: pointer;
         transition: .6s;
         transform: translateY(30px);
+        border: 1px solid #FFD600;
 
         i {
             font-size: 18px;
@@ -134,13 +139,25 @@ export default {
         p {
             font-weight: 700;
             font-size: 14px;
-            line-height: 100%;
         }
 
         &:active {
-            box-shadow: 0px 0px 5px 1px rgba(128, 128, 128, 0.5);
-            color: black;
-            background: white;
+            box-shadow: 0px 0px 5px 3px rgba(128, 128, 128, 0.5);
+        }
+
+        @media (min-width: 992px) {
+            &:hover {
+                transition: .3s;
+                background: white;
+                color: #FFD600;
+            }
+        }
+
+
+        @media (max-width: 992px) {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0px);
         }
     }
 
@@ -148,28 +165,28 @@ export default {
     position: relative;
     z-index: 1;
 
-    &:hover {
-        border-bottom-left-radius: 8px;
-        border-bottom-right-radius: 8px;
-        z-index: 2;
-        transform: scale(1.1);
-        transition: .3s;
-        box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.1);
-        border: 1px solid rgba(0, 0, 0, 0.1);
+    @media (min-width: 992px) {
+        &:hover {
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            z-index: 2;
+            transform: scale(1.1);
+            transition: .3s;
+            box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.1);
 
-        .favorite {
-            visibility: visible;
-            opacity: 1;
-            transition: .4s;
-        }
+            .favorite {
+                visibility: visible;
+                opacity: 1;
+                transition: .4s;
+            }
 
-        .addCart {
-            transition: .7s;
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0px);
-            display: flex;
-
+            .addCart {
+                transition: .7s;
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0px);
+            }
         }
     }
 }

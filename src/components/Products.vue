@@ -97,7 +97,6 @@ export default {
     computed: {
         count() {
             return this.orderCard.length
-
         }
     },
     methods: {
@@ -109,7 +108,6 @@ export default {
             })
             this.$store.commit('ADD_ORDER', data)
             this.$store.commit('CHANGE_ORDER_COUNT')
-            
         },
         AddToLikes(data) {
             data.like = !data.like

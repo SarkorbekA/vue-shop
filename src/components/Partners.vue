@@ -7,7 +7,7 @@
                 disableOnInteraction: false,
             }" :loop="true" :navigation="true" :modules="modules" :breakpoints="{
     '@0.00': {
-        slidesPerView: 3,
+        slidesPerView: 2,
         spaceBetween: 10,
     },
     '@0.75': {
@@ -96,7 +96,7 @@ export default {
     margin-top: 30px;
 
     @media (max-width: 576px) {
-        margin-top: 0px;
+        margin-top: 10px;
     }
 }
 
