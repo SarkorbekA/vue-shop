@@ -414,7 +414,7 @@ export default {
                 &-img {
                     border: 1px solid #E5E5E5;
                     width: 64px;
-                    height: 64px;
+                    height: auto;
                     border-radius: 4px;
 
                     img {
@@ -479,8 +479,7 @@ export default {
             .seller__about {
                 font-weight: 400;
                 font-size: 12px;
-                line-height: 100%;
-                display: block;
+                                display: block;
                 margin: auto;
                 text-align: center;
                 color: #90989F;
@@ -512,6 +511,7 @@ export default {
 
     @media (max-width: 768px) {
         grid-template-columns: 1fr;
+        gap: 45px;
     }
 
     .product__recall {
@@ -529,8 +529,7 @@ export default {
         .prodcut_review {
             font-weight: 400;
             font-size: 12px;
-            line-height: 100%;
-        }
+                    }
     }
 
     &-content {
@@ -613,8 +612,7 @@ export default {
                         h3 {
                             font-weight: 400;
                             font-size: 14px;
-                            line-height: 100%;
-                        }
+                                                    }
 
                         .delete__btn {
                             cursor: pointer;
@@ -657,8 +655,7 @@ export default {
                     h3 {
                         font-weight: 700;
                         font-size: 14px;
-                        line-height: 100%;
-                    }
+                                            }
 
                     ul {
                         margin-left: 16px;
@@ -671,8 +668,7 @@ export default {
                             span {
                                 font-weight: 400;
                                 font-size: 14px;
-                                line-height: 100%;
-                                color: #232323;
+                                                                color: #232323;
                             }
                         }
                     }
@@ -686,8 +682,7 @@ export default {
             .comments__title {
                 font-weight: 700;
                 font-size: 28px;
-                line-height: 100%;
-            }
+                            }
 
             .comments__filter {
                 display: flex;
@@ -698,8 +693,7 @@ export default {
                 &-title {
                     font-weight: 400;
                     font-size: 14px;
-                    line-height: 100%;
-                }
+                                    }
 
                 &-box {
                     display: flex;
@@ -711,8 +705,7 @@ export default {
                         cursor: pointer;
                         font-weight: 400;
                         font-size: 14px;
-                        line-height: 100%;
-                        color: #FFD600;
+                                                color: #FFD600;
 
                         &:hover {
                             color: #232323;
@@ -748,8 +741,7 @@ export default {
                     &-name {
                         font-weight: 700;
                         font-size: 14px;
-                        line-height: 100%;
-                    }
+                                            }
 
                     &-grade {
                         display: flex;
@@ -761,8 +753,7 @@ export default {
                         h3 {
                             font-weight: 400;
                             font-size: 12px;
-                            line-height: 100%;
-                            color: #999999;
+                                                        color: #999999;
                         }
                     }
                 }
@@ -778,8 +769,7 @@ export default {
                         margin-bottom: 25px;
                         font-weight: 400;
                         font-size: 14px;
-                        line-height: 100%;
-
+                        
                         h3 {
                             margin-bottom: 15px;
                         }
@@ -819,8 +809,7 @@ export default {
                         .comments__date {
                             font-weight: 400;
                             font-size: 13px;
-                            line-height: 100%;
-                            color: #90989F
+                                                        color: #90989F
                         }
                     }
 
@@ -837,8 +826,7 @@ export default {
                             span {
                                 font-weight: 400;
                                 font-size: 13px;
-                                line-height: 100%;
-                            }
+                                                            }
 
                             &.dislike {
                                 img {
@@ -904,8 +892,7 @@ export default {
                     p {
                         font-weight: 400;
                         font-size: 13px;
-                        line-height: 100%;
-                        color: #333333;
+                                                color: #333333;
                     }
                 }
             }
@@ -955,8 +942,7 @@ export default {
                 .product__review {
                     font-weight: 700;
                     font-size: 13px;
-                    line-height: 100%;
-                    color: #90989F;
+                                        color: #90989F;
                 }
             }
         }

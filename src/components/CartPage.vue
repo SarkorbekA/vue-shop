@@ -274,11 +274,10 @@ export default {
             font-weight: 700;
             font-size: 36px;
             line-height: 44px;
-            color: #232323;
         }
 
         &-box {
-            margin-top: 35px;
+            margin-top: 20px;
             display: flex;
             flex-direction: column;
             gap: 40px;
@@ -289,7 +288,7 @@ export default {
                 // justify-content: space-between;
                 row-gap: 20px;
                 column-gap: 20px;
-                padding-bottom: 10px;
+                padding: 0px 20px;
                 border-bottom: 1px solid #FFD600;
 
                 // left box
@@ -352,6 +351,10 @@ export default {
                         padding-right: 0;
                     }
 
+                    @media (max-width: 768px) {
+                        border: none;
+                    }
+
                     @media (max-width:500px) {
                         width: 100%;
                     }
@@ -369,7 +372,6 @@ export default {
                     h3 {
                         font-weight: 700;
                         font-size: 14px;
-                        line-height: 100%;
                     }
 
                     ul {
@@ -411,14 +413,12 @@ export default {
                 &-sale {
                     font-weight: 700;
                     font-size: 18px;
-                    line-height: 100%;
                     color: #333333;
                 }
 
                 &-price {
                     font-weight: 400;
                     font-size: 14px;
-                    line-height: 100%;
                     text-decoration-line: line-through;
                     text-transform: uppercase;
                     color: #B9B9B9;
@@ -430,7 +430,6 @@ export default {
                     font-weight: 700;
                     height: 34px;
                     font-size: 14px;
-                    line-height: 100%;
                     text-transform: uppercase;
                     color: #FFFFFF;
                     display: inline-block;
@@ -490,7 +489,6 @@ export default {
                     .price {
                         font-weight: 700;
                         font-size: 18px;
-                        line-height: 100%;
                         text-transform: uppercase;
                     }
                 }
@@ -511,7 +509,6 @@ export default {
                     font-weight: 700;
                     font-size: 20px;
                     line-height: 24px;
-                    color: #232323;
                     padding: 0px 25px;
                 }
 
@@ -593,7 +590,6 @@ export default {
                         border-radius: 5px;
                         font-weight: 700;
                         font-size: 14px;
-                        line-height: 100%;
                         color: #232323;
                     }
                 }
@@ -611,7 +607,6 @@ export default {
                         text-align: center;
                         font-weight: 700;
                         font-size: 18px;
-                        line-height: 100%;
                         color: #FFFFFF;
                     }
                 }

@@ -61,24 +61,21 @@ export default {
         margin-top: 14px;
         font-weight: 400;
         font-size: 12px;
-        line-height: 100%;
-        color: #90989F;
+                color: #90989F;
     }
 
     .title {
         margin-top: 10px;
         font-weight: 400;
         font-size: 12px;
-        line-height: 100%;
-        color: #333333;
+                color: #333333;
         padding: 0px 14px;
     }
 
     .price {
         font-weight: 700;
         font-size: 16px;
-        line-height: 100%;
-        color: #000000;
+                color: #000000;
         margin-top: 14px;
         margin-bottom: 10px;
     }
@@ -108,7 +105,7 @@ export default {
             background: rgba(201, 201, 201, 0.6);
         }
 
-        @media (max-width: 992px) {
+        @media (max-width: 1024px) {
             visibility: visible;
             opacity: 1;
             transition: .4s;
@@ -145,7 +142,7 @@ export default {
             box-shadow: 0px 0px 5px 3px rgba(128, 128, 128, 0.5);
         }
 
-        @media (min-width: 992px) {
+        @media (min-width: 1024px) {
             &:hover {
                 transition: .3s;
                 background: white;
@@ -154,7 +151,7 @@ export default {
         }
 
 
-        @media (max-width: 992px) {
+        @media (max-width: 1024px) {
             opacity: 1;
             visibility: visible;
             transform: translateY(0px);

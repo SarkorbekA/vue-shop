@@ -18,13 +18,16 @@ import ProductDetail from './components/ProductDetail.vue'
 
 // Cart page
 import CartPage from './components/CartPage.vue'
+
+// Catalog page
+import Catalog from './components/Catalog.vue'
 </script>
 
 
 
 <template>
 
-  <TheHeader />
+  <!-- <TheHeader />
   <TheNavbar />
   <TheSlider />
 
@@ -66,7 +69,6 @@ import CartPage from './components/CartPage.vue'
   </section>
 
   <Footer />
-   
 
 
 
@@ -74,7 +76,8 @@ import CartPage from './components/CartPage.vue'
 
 
 
-  <!-- <div class="contact__page">
+
+  <div class="contact__page">
     <TheHeader />
     <TheNavbar />
     <div class="content container">
@@ -84,14 +87,14 @@ import CartPage from './components/CartPage.vue'
       </div>
       <Contacts />
     </div>
-  </div> -->
+  </div>
 
 
 
 
 
 
-  <!-- <div class="about__page">
+  <div class="about__page">
     <TheHeader />
     <TheNavbar />
     <div class="content container">
@@ -108,10 +111,10 @@ import CartPage from './components/CartPage.vue'
       <Products />
     </section>
     <Footer />
-  </div> -->
+  </div>
 
 
-  <!-- <section class="cart__page">
+  <section class="cart__page">
     <TheHeader />
     <TheNavbar />
     <div class="container content">
@@ -127,14 +130,25 @@ import CartPage from './components/CartPage.vue'
 
 
 
+  <TheHeader />
+  <TheNavbar />
+  <div class="container content">
+    <div class="page__router">
+      <a href="#">Главная</a>
+      <span> / </span>
+      <span>Каталог</span>
+    </div>
+    <Catalog />
+  </div>
+  <Footer />
+
+
 </template>
 
 <style lang="scss">
 .container {
   padding: 0px 15px;
   margin: auto;
-  // max-width: 1200px;
-  // width: 100%;
 }
 
 .product {
@@ -146,8 +160,7 @@ import CartPage from './components/CartPage.vue'
     margin: auto;
     font-weight: 700;
     font-size: 28px;
-    line-height: 100%;
-    color: black;
+        color: black;
     white-space: pre;
     margin-bottom: 50px;
 
@@ -174,8 +187,7 @@ import CartPage from './components/CartPage.vue'
     text-align: center;
     font-weight: 700;
     font-size: 28px;
-    line-height: 100%;
-    color: black;
+        color: black;
     white-space: pre;
     margin-bottom: 40px;
 
@@ -209,16 +221,14 @@ import CartPage from './components/CartPage.vue'
   &__title {
     font-weight: 700;
     font-size: 28px;
-    line-height: 100%;
-    color: #232323;
+        color: #232323;
   }
 
   &__subtitle {
     margin-top: 25px;
     font-weight: 400;
     font-size: 14px;
-    line-height: 100%;
-    color: #000000;
+        color: #000000;
   }
 }
 
@@ -246,7 +256,7 @@ import CartPage from './components/CartPage.vue'
     }
 
     &>* {
-      font-weight: 600;
+      font-weight: 700;
       font-size: 14px;
       line-height: 13px;
       color: #232323;

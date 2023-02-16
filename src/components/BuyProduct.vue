@@ -203,8 +203,7 @@ export default {
         margin-top: 5px;
         font-weight: 400;
         font-size: 18px;
-        line-height: 100%;
-        color: #90989F;
+                color: #90989F;
     }
 
     .info {
@@ -232,16 +231,14 @@ export default {
             display: inline-block;
             font-weight: 400;
             font-size: 18px;
-            line-height: 100%;
-            color: #FFD600;
+                        color: #FFD600;
         }
     }
 
     .price {
         font-weight: 700;
         font-size: 24px;
-        line-height: 100%;
-        color: #000000;
+                color: #000000;
         margin-top: 10px;
         margin-bottom: 10px;
     }
@@ -293,8 +290,7 @@ export default {
         p {
             font-weight: 700;
             font-size: 24px;
-            line-height: 100%;
-        }
+                    }
 
         &:hover {
             transition: .3s;

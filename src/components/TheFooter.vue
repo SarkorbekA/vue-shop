@@ -192,8 +192,7 @@ footer {
             a {
                 font-weight: 700;
                 font-size: 16px;
-                line-height: 100%;
-                color: #232323;
+                                color: #232323;
                 transition: .3s;
 
                 &:hover {
@@ -220,8 +219,7 @@ footer {
             &-title {
                 font-weight: 700;
                 font-size: 16px;
-                line-height: 100%;
-                color: #232323;
+                                color: #232323;
             }
 
             &-list {
@@ -270,8 +268,7 @@ footer {
             &-title {
                 font-weight: 700;
                 font-size: 16px;
-                line-height: 100%;
-                color: #232323;
+                                color: #232323;
             }
 
             &-list {

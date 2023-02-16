@@ -93,8 +93,7 @@ nav .container {
     gap: 8px;
     font-weight: 700;
     font-size: 12px;
-    line-height: 100%;
-    text-transform: uppercase;
+        text-transform: uppercase;
     color: #553280;
     cursor: pointer;
 }
@@ -133,8 +132,7 @@ nav .container {
     a {
         font-weight: 700;
         font-size: 16px;
-        line-height: 100%;
-        white-space: nowrap;
+                white-space: nowrap;
         color: #323234;
 
         &:hover {

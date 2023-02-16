@@ -137,8 +137,7 @@ export default {
     p {
         font-weight: 700;
         font-size: 28px;
-        line-height: 100%;
-
+        
         @media (max-width: 576px) {
             font-size: 24px;
         }

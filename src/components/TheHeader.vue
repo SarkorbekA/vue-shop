@@ -138,8 +138,7 @@ export default {
 .nav__items a {
   font-weight: 400;
   font-size: 12px;
-  line-height: 100%;
-  color: #90989F;
+    color: #90989F;
   transition: .3s;
 }
 

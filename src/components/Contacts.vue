@@ -72,7 +72,7 @@
                     Оставьте ваши контактные данные и мы обязательно свяжемся с вами в течении 2 часов.
                 </p>
                 <input required class="questions__input" placeholder="Ваше имя" id="name" name="name" type="text">
-                <input required class="questions__input" placeholder="Номер телефона" id="phone" name="name" type="tel">
+                <input required class="questions__input" placeholder="Номер телефона" id="phone" name="name" type="number">
                 <label class="privacy__label" for="privacy">
                     <input required id="privacy" type="checkbox">
                     <span>Нажимая “Отправить” вы соглашаетесь с политикой конфиденциальности и условиями. </span>
