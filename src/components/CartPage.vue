@@ -238,7 +238,7 @@
                     </div>
                     <form class="payment__promocode">
                         <input type="text" placeholder="Промокоды">
-                        <input type="submit" value="Применить">
+                        <input type="button" value="Применить">
                     </form>
                     <div class="payment__pay">
                         <button>Перейти к оплате</button>
@@ -582,7 +582,7 @@ export default {
                         width: 100%;
                     }
 
-                    input[type="submit"] {
+                    input[type="button"] {
                         cursor: pointer;
                         padding: 12px 14px;
                         background: #FFFFFF;

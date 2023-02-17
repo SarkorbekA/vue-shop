@@ -16,8 +16,8 @@
                 </div>
             </div>
             <div class="catalog__filter-count">
-                <label class="filter__all">
-                    <input type="checkbox" name="all__product" id="all__product">
+                <label :class="selectAll == true ? 'active' : ''" class="filter__all">
+                    <input @change="filterList()" type="checkbox" name="all__product" id="all__product">
                     Все товары
                 </label>
                 <div class="filter__btn">
@@ -32,8 +32,8 @@
         </div>
         <div class="catalog__body">
             <div class="catalog__body-content">
-                <div class="cart__item">
-                    <input type="checkbox">
+                <div :class="selectedItem == true ? 'active' : ''" class="cart__item">
+                    <input v-model="checked" @change="selectItem()" type="checkbox">
                     <div class="cart__item-content">
                         <div class="cart__item-left">
                             <div class="cart__item-img">
@@ -127,10 +127,74 @@
                     </div>
                 </div>
             </div>
-            <div class="catalog__body-side"></div>
+            <div class="catalog__body-side">
+                <div class="side__item">
+                    <div class="payment">
+                        <h1 class="payment__title">
+                            Выберите способ оплаты
+                        </h1>
+                        <div class="payment__info">
+                            <div class="payment__info-item">
+                                <div class="payment__info-left">
+                                    Товары <span></span>
+                                </div>
+                                <div class="payment__info-price">4</div>
+                            </div>
+                            <div class="payment__info-item">
+                                <div class="payment__info-left">
+                                    Общая стоимость <span></span>
+                                </div>
+                                <div class="payment__info-price">10 655 940 сум</div>
+                            </div>
+                            <div class="payment__info-item">
+                                <div class="payment__info-left">
+                                    Скидки на товары <span></span>
+                                </div>
+                                <div class="payment__info-price">213 118 сум</div>
+                            </div>
+                            <div class="payment__info-item">
+                                <div class="payment__info-left">
+                                    Доставка <span></span>
+                                </div>
+                                <div class="payment__info-price"><span>Бесплатно</span></div>
+                            </div>
+                        </div>
+                        <form class="payment__promocode">
+                            <input type="text" placeholder="Промокоды">
+                            <input type="button" value="Применить">
+                        </form>
+                        <div class="payment__pay">
+                            <button>Перенести всё в корзину</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </section>
+</section>
 </template>
+
+<script>
+export default {
+    name: 'Catalog',
+    data() {
+        return {
+            selectAll: false,
+            selectedItem: false,
+            checked: false
+        }
+    },
+    methods: {
+        filterList() {
+            this.selectAll = !this.selectAll
+            this.selectedItem = !this.selectedItem
+            this.checked = !this.checked
+        },
+        selectItem() {
+            this.selectedItem = !this.selectedItem
+        }
+    }
+}
+</script>
 
 <style lang="scss" scoped>
 .catalog {
@@ -148,6 +212,7 @@
 
         &-sort {
             display: flex;
+            flex-wrap: wrap;
             gap: 20px;
             font-weight: 500;
             font-size: 16px;
@@ -159,6 +224,7 @@
 
             .items {
                 display: flex;
+                flex-wrap: wrap;
                 gap: 22px;
                 align-items: center;
 
@@ -199,6 +265,10 @@
                 border-radius: 2px;
                 padding: 12px 15px;
                 gap: 10px;
+
+                &.active {
+                    border: 1px solid #FFD600;
+                }
             }
 
             .filter__btn {
@@ -214,6 +284,10 @@
                     background: #FFFFFF;
                     border: 1px solid #AFB0B4;
                     border-radius: 2px;
+
+                    &.active {
+                        border: 1px solid #FFD600;
+                    }
                 }
             }
         }
@@ -222,7 +296,7 @@
     &__body {
         display: grid;
         grid-template-columns: 10fr 4fr;
-        gap: 30px;
+        gap: 20px;
         margin-top: 24px;
         color: #232323;
 
@@ -240,8 +314,12 @@
                 align-items: flex-start;
                 gap: 10px;
                 padding: 20px 10px;
-                border: 1px solid #FFD600;
+                border: 1px solid #AFB0B4;
                 border-radius: 6px;
+
+                &.active {
+                    border: 1px solid #FFD600;
+                }
 
 
                 // content
@@ -251,7 +329,7 @@
                     // justify-content: space-between;
                     row-gap: 20px;
                     column-gap: 15px;
-                    max-height: 230px;
+                    // max-height: 230px;
                 }
 
                 // left box
@@ -453,6 +531,125 @@
                         font-weight: 700;
                         font-size: 18px;
                         text-transform: uppercase;
+                    }
+                }
+            }
+        }
+
+        &-side {
+            width: 100%;
+
+            .side__item {
+                .payment {
+                    box-shadow: 0px 5px 15px 3px rgba(204, 204, 204, 0.25);
+                    border-radius: 4px;
+                    padding: 25px 0px;
+
+                    &__title {
+                        font-weight: 700;
+                        font-size: 20px;
+                        line-height: 24px;
+                        padding: 0px 25px;
+                    }
+
+                    &__box {
+                        display: flex;
+                        flex-wrap: wrap;
+                        column-gap: 6px;
+                        row-gap: 10px;
+                        margin-top: 15px;
+                        padding: 0px 25px;
+
+                        .item {
+                            display: inline-block;
+                            border-radius: 4px;
+                            border: 1px solid #E7E7E7;
+
+                            &:hover {
+                                transition: .3s;
+                                border: 1px solid #FFD600;
+                            }
+                        }
+                    }
+
+                    &__info {
+                        padding: 15px 0px;
+                        margin-top: 20px;
+                        border-top: 1px solid #E7E7E7;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 20px;
+                        padding: 15px 0px 15px 10px;
+
+                        &-item {
+                            display: flex;
+                            max-width: 600px;
+                        }
+
+
+                        &-left {
+                            font-size: 14px;
+                            width: 60%;
+                            display: flex;
+                            white-space: nowrap;
+
+                            span {
+                                width: 100%;
+                                border-bottom: 1px dashed #AFB0B4;
+                            }
+                        }
+
+                        &-price {
+                            span {
+                                font-weight: 700;
+                                color: #FFD600;
+                            }
+                        }
+                    }
+
+                    &__promocode {
+                        margin-top: 10px;
+                        padding: 0px 15px;
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                        justify-content: space-between;
+
+                        input[type="text"] {
+                            padding: 12px;
+                            background: #F5F7FA;
+                            border-radius: 5px;
+                            font-weight: 700;
+                            width: 100%;
+                        }
+
+                        input[type="button"] {
+                            cursor: pointer;
+                            padding: 12px 14px;
+                            background: #FFFFFF;
+                            border: 1px solid #232323;
+                            border-radius: 5px;
+                            font-weight: 700;
+                            font-size: 14px;
+                            color: #232323;
+                        }
+                    }
+
+                    &__pay {
+                        padding: 0px 15px;
+                        margin-top: 14px;
+
+                        button {
+                            width: 100%;
+                            background: #FFD600;
+                            border-radius: 4px;
+                            border: 1px solid #FFD600;
+                            padding: 11px;
+                            text-align: center;
+                            font-weight: 700;
+                            font-size: 18px;
+                            color: #FFFFFF;
+                        }
                     }
                 }
             }
