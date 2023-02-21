@@ -35,7 +35,7 @@ export default {
   padding: 30px 15px;
 
   .page__router {
-    margin-top: 34px;
+    margin-top: 24px;
 
     a:hover {
       transition: .3s;

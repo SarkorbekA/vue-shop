@@ -251,7 +251,7 @@
 
 <script>
 export default {
-    name: "CartPage"
+    name: "TheCart"
 }
 </script>
 
@@ -288,7 +288,7 @@ export default {
                 // justify-content: space-between;
                 row-gap: 20px;
                 column-gap: 20px;
-                padding: 0px 20px;
+                padding: 20px 0px;
                 border-bottom: 1px solid #FFD600;
 
                 // left box

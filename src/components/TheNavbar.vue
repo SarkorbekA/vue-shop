@@ -26,13 +26,16 @@
                     <a aria-label="link" href="#">Услуги</a>
                 </li>
                 <li>
-                    <a aria-label="link" href="#">Контакты</a>
+                    <a @click="$router.push('/contact')" aria-label="link" href="#">Контакты</a>
                 </li>
                 <li>
                     <a aria-label="link" href="#">Отзывы</a>
                 </li>
-                <li>
+                <!-- <li>
                     <a aria-label="link" href="#">Новинки</a>
+                </li> -->
+                <li>
+                    <a @click="$router.push('/cart')" aria-label="link" href="#">Корзина</a>
                 </li>
                 <li>
                     <a aria-label="link" href="#">Вакансии</a>
@@ -93,7 +96,7 @@ nav .container {
     gap: 8px;
     font-weight: 700;
     font-size: 12px;
-        text-transform: uppercase;
+    text-transform: uppercase;
     color: #553280;
     cursor: pointer;
 }
@@ -132,7 +135,7 @@ nav .container {
     a {
         font-weight: 700;
         font-size: 16px;
-                white-space: nowrap;
+        white-space: nowrap;
         color: #323234;
 
         &:hover {

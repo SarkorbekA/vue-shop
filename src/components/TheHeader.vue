@@ -36,7 +36,7 @@
     </div>
     <div class="container">
       <div class="header">
-        <a aria-label="link" href="#" class="logo">
+        <a @click="$router.push('/')" aria-label="link" href="#" class="logo">
           <img width="100" height="auto" src="../assets/img/Logo.svg" alt="logo">
         </a>
         <div class="search">
@@ -52,16 +52,18 @@
               <a href="#">Работаем по всему Узбекистану</a>
             </div>
           </li>
-          <li class="contact">
-            <div class="menu__list-img">
-              <img width="20" height="auto" src="../assets/img/tel.svg" alt="tel">
-            </div>
-            <div class="menu__list-text">
-              <a aria-label="link" class="menu__list-contact" href="tel:+998991001879">+998 90 000 00 00</a>
-              <a aria-label="link" class="menu__list-contact" href="tel:+998991001879">Заказать звонок</a>
-            </div>
+          <li>
+            <a class="contact" aria-label="link" href="tel:+998991001879">
+              <div class="menu__list-img">
+                <img width="20" height="auto" src="../assets/img/tel.svg" alt="tel">
+              </div>
+              <div class="menu__list-text">
+                <h3 class="menu__list-contact">+998 90 000 00 00</h3>
+                <h3 class="menu__list-contact">Заказать звонок</h3>
+              </div>
+            </a>
           </li>
-          <li class="cart">
+          <li @click="$router.push('/cart')" class="cart">
             <div class="menu__list-img">
               <img width="22" height="auto" src="../assets/img/shop.svg" alt="shop cart">
             </div>
@@ -76,7 +78,6 @@
       </div>
     </div>
   </header>
-
 </template>
 
 <script>
@@ -100,7 +101,7 @@ export default {
   border-bottom: 1px solid #E5E5E5;
 }
 
-.logo{
+.logo {
   width: 100px;
   height: auto;
 }
@@ -138,7 +139,7 @@ export default {
 .nav__items a {
   font-weight: 400;
   font-size: 12px;
-    color: #90989F;
+  color: #90989F;
   transition: .3s;
 }
 
@@ -242,6 +243,13 @@ export default {
   display: flex;
   align-items: center;
   gap: 15px;
+  cursor: pointer;
+
+  .contact {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
 
   @media screen and (max-width: 400px) {
     width: 100%;
@@ -263,10 +271,10 @@ export default {
   text-align: right;
 }
 
-.menu__list-text a:hover {
-  color: #FFD600;
-  transition: .3s;
-}
+// .menu__list-text a:hover {
+//   color: #FFD600;
+//   transition: .3s;
+// }
 
 .menu__list-contact {
   text-align: end;
@@ -302,13 +310,13 @@ export default {
   justify-content: center;
 }
 
-.menu__list-text:last-child:hover .menu__list-count {
-  color: white !important;
-  transition: .3s;
-}
+// .menu__list-text:last-child:hover .menu__list-count {
+//   color: white !important;
+//   transition: .3s;
+// }
 
-.menu__list-text:last-child:hover .menu__list-cart {
-  color: #FFD600;
-  transition: .3s;
-}
+// .menu__list-text:last-child:hover .menu__list-cart {
+//   color: #FFD600;
+//   transition: .3s;
+// }
 </style>
