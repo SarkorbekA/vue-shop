@@ -1,9 +1,9 @@
 <template>
     <section class="cart">
         <div class="cart__content">
-            <h1 class="cart__content-title">Всего 4 товара</h1>
-            <div class="cart__content-box">
-                <div class="cart__item">
+            <h1 class="cart__content-title">Всего {{ $store.state.ordersData.length }} товара</h1>
+            <div v-if="$store.state.ordersData.length" class="cart__content-box">
+                <div v-for="(cart, index) in $store.state.ordersData" :key="index" class="cart__item">
                     <div class="cart__item-left">
                         <div class="cart__item-img">
                             <img src="../assets/img/cart/cart__img.png" alt="item">
@@ -26,12 +26,11 @@
                                 <li><span>Доступно только 4 штуки, и сейчас это есть у более 20 человек</span></li>
                             </ul>
                         </div>
-
                     </div>
                     <div class="cart__item-right">
                         <div class="prices">
                             <h1 class="cart__item-sale">
-                                1 000 000 UZS
+                                {{ cart.price }} UZS
                             </h1>
                             <h2 class="cart__item-price"> 1 000 000 UZS</h2>
                         </div>
@@ -47,138 +46,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="cart__item">
-                    <div class="cart__item-left">
-                        <div class="cart__item-img">
-                            <img src="../assets/img/cart/cart__img.png" alt="item">
-                        </div>
-                        <div class="cart__item-buttons">
-                            <button class="btn">В избранное</button>
-                            <button class="btn">Удалить</button>
-                        </div>
-                    </div>
-                    <div class="cart__item-center">
-                        <h1 class="cart__item-name">
-                            New Year Candle, Christmas Gift Idea
-                        </h1>
-                        <div class="cart__item-facts">
-                            <h3>Коротко о товаре</h3>
-                            <ul>
-                                <li><span>Handmade</span></li>
-                                <li><span>Handmade</span></li>
-                                <li><span>Handmade</span></li>
-                                <li><span>Доступно только 4 штуки, и сейчас это есть у более 20 человек</span></li>
-                            </ul>
-                        </div>
-
-                    </div>
-                    <div class="cart__item-right">
-                        <div class="prices">
-                            <h1 class="cart__item-sale">
-                                1 000 000 UZS
-                            </h1>
-                            <h2 class="cart__item-price"> 1 000 000 UZS</h2>
-                        </div>
-                        <h3 class="cart__item-discount">Sale: 10%</h3>
-                        <div class="cart__item-count">
-                            <button class="minus">-</button>
-                            <div class="count">10</div>
-                            <button class="plus">+</button>
-                        </div>
-                        <div class="cart__item-total">
-                            <div class="title">Общая цена:</div>
-                            <div class="price">100 000 000 UZS</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="cart__item">
-                    <div class="cart__item-left">
-                        <div class="cart__item-img">
-                            <img src="../assets/img/cart/cart__img.png" alt="item">
-                        </div>
-                        <div class="cart__item-buttons">
-                            <button class="btn">В избранное</button>
-                            <button class="btn">Удалить</button>
-                        </div>
-                    </div>
-                    <div class="cart__item-center">
-                        <h1 class="cart__item-name">
-                            New Year Candle, Christmas Gift Idea
-                        </h1>
-                        <div class="cart__item-facts">
-                            <h3>Коротко о товаре</h3>
-                            <ul>
-                                <li><span>Handmade</span></li>
-                                <li><span>Handmade</span></li>
-                                <li><span>Handmade</span></li>
-                                <li><span>Доступно только 4 штуки, и сейчас это есть у более 20 человек</span></li>
-                            </ul>
-                        </div>
-
-                    </div>
-                    <div class="cart__item-right">
-                        <div class="prices">
-                            <h1 class="cart__item-sale">
-                                1 000 000 UZS
-                            </h1>
-                            <h2 class="cart__item-price"> 1 000 000 UZS</h2>
-                        </div>
-                        <h3 class="cart__item-discount">Sale: 10%</h3>
-                        <div class="cart__item-count">
-                            <button class="minus">-</button>
-                            <div class="count">10</div>
-                            <button class="plus">+</button>
-                        </div>
-                        <div class="cart__item-total">
-                            <div class="title">Общая цена:</div>
-                            <div class="price">100 000 000 UZS</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="cart__item">
-                    <div class="cart__item-left">
-                        <div class="cart__item-img">
-                            <img src="../assets/img/cart/cart__img.png" alt="item">
-                        </div>
-                        <div class="cart__item-buttons">
-                            <button class="btn">В избранное</button>
-                            <button class="btn">Удалить</button>
-                        </div>
-                    </div>
-                    <div class="cart__item-center">
-                        <h1 class="cart__item-name">
-                            New Year Candle, Christmas Gift Idea
-                        </h1>
-                        <div class="cart__item-facts">
-                            <h3>Коротко о товаре</h3>
-                            <ul>
-                                <li><span>Handmade</span></li>
-                                <li><span>Handmade</span></li>
-                                <li><span>Handmade</span></li>
-                                <li><span>Доступно только 4 штуки, и сейчас это есть у более 20 человек</span></li>
-                            </ul>
-                        </div>
-
-                    </div>
-                    <div class="cart__item-right">
-                        <div class="prices">
-                            <h1 class="cart__item-sale">
-                                1 000 000 UZS
-                            </h1>
-                            <h2 class="cart__item-price"> 1 000 000 UZS</h2>
-                        </div>
-                        <h3 class="cart__item-discount">Sale: 10%</h3>
-                        <div class="cart__item-count">
-                            <button class="minus">-</button>
-                            <div class="count">10</div>
-                            <button class="plus">+</button>
-                        </div>
-                        <div class="cart__item-total">
-                            <div class="title">Общая цена:</div>
-                            <div class="price">100 000 000 UZS</div>
-                        </div>
-                    </div>
-                </div>
+            </div>
+            <div class="empty" v-else>
+                Пусто
             </div>
         </div>
         <div class="cart__side">
@@ -215,7 +85,7 @@
                             <div class="payment__info-left">
                                 Товары <span></span>
                             </div>
-                            <div class="payment__info-price">4</div>
+                            <div class="payment__info-price">{{  $store.state.ordersData.length }}</div>
                         </div>
                         <div class="payment__info-item">
                             <div class="payment__info-left">
@@ -251,7 +121,20 @@
 
 <script>
 export default {
-    name: "TheCart"
+    name: "TheCart",
+    // data() {
+    //     return {
+    //         cartItems: []
+    //     }
+    // },
+    // methods: {
+
+    // },
+    // mounted: {
+    //     addItemToCart() {
+    //         this.cartItems.push($store.state.ordersData)
+    //     }
+    // }
 }
 </script>
 
@@ -269,13 +152,19 @@ export default {
 
     &__content {
         width: 100%;
-
+.empty{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    font-size: 30px;
+    color: gray;
+}
         &-title {
             font-weight: 700;
             font-size: 36px;
             line-height: 44px;
         }
-
         &-box {
             margin-top: 20px;
             display: flex;

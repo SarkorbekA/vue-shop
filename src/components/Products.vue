@@ -2,10 +2,9 @@
     <div class="container">
         <!-- <h1>{{ count }}</h1> -->
         <div class="product__list">
-            <the-card @click="$router.push('/details')" v-for="(card, index) in products" :key="index" :title="card.title" :type="card.type"
+            <the-card v-for="(card, index) in products" :key="index" :title="card.title" :type="card.type"
                 :price="card.price" :like="card.like" @addProductToCard="AddCart(card)"
                 @addToFavorites="AddToLikes(card)" />
-
         </div>
     </div>
 </template>

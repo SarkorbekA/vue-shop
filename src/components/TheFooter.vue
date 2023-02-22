@@ -2,7 +2,7 @@
     <footer>
         <div class="container footer">
             <div class="footer__item">
-                <a class="footer__logo" href="#">
+                <a @click="$router.push('/')" class="footer__logo" href="#">
                     <img width="110" src="../assets/img/Logo.svg" alt="logo">
                 </a>
                 <h1 class="footer__title">
@@ -192,7 +192,7 @@ footer {
             a {
                 font-weight: 700;
                 font-size: 16px;
-                                color: #232323;
+                color: #232323;
                 transition: .3s;
 
                 &:hover {
@@ -219,7 +219,7 @@ footer {
             &-title {
                 font-weight: 700;
                 font-size: 16px;
-                                color: #232323;
+                color: #232323;
             }
 
             &-list {
@@ -268,7 +268,7 @@ footer {
             &-title {
                 font-weight: 700;
                 font-size: 16px;
-                                color: #232323;
+                color: #232323;
             }
 
             &-list {

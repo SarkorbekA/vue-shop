@@ -14,7 +14,7 @@ export default {
 <template>
     <div class="container content">
         <div class="page__router">
-            <a href="#">Главная</a>
+            <a @click="$router.push('/')" href="#">Главная</a>
             <span> / </span>
             <span>Каталог</span>
         </div>

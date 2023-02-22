@@ -1,7 +1,8 @@
 <template>
     <div class="product__item">
         <!-- <img width="100%" height="auto" class="product__img" src="../assets/img/products/product.webp" alt="product"> -->
-        <img width="100%" height="auto" class="product__img" src="../assets/img/products/product.webp" alt="product">
+        <img @click="$router.push('/details')" width="100%" height="auto" class="product__img"
+            src="../assets/img/products/product.webp" alt="product">
         <p class="type">{{ type }}</p>
         <p class="title">{{ title }} </p>
         <p class="price">{{ price }} UZS</p>
@@ -50,6 +51,7 @@ export default {
     .product__img {
         width: 100%;
         height: auto;
+        cursor: pointer;
 
         @media (max-width: 450px) {
             width: 80% !important;
@@ -61,21 +63,21 @@ export default {
         margin-top: 14px;
         font-weight: 400;
         font-size: 12px;
-                color: #90989F;
+        color: #90989F;
     }
 
     .title {
         margin-top: 10px;
         font-weight: 400;
         font-size: 12px;
-                color: #333333;
+        color: #333333;
         padding: 0px 14px;
     }
 
     .price {
         font-weight: 700;
         font-size: 16px;
-                color: #000000;
+        color: #000000;
         margin-top: 14px;
         margin-bottom: 10px;
     }

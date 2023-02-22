@@ -180,9 +180,9 @@ export default {
 
 <style lang="scss" scoped>
 .swiper {
-    padding: 30px 10px;
+    padding: 50px 10px;
     width: 100%;
-    height: 290px;
+    height: 330px;
 
     .swiper-slide {
         text-align: center;
