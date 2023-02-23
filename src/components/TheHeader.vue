@@ -9,7 +9,7 @@
         <nav class="nav">
           <ul class="nav__menu">
             <li class="nav__items">
-              <a aria-label="link" href="#">Контакты</a>
+              <a @click="$router.push('/contact')" aria-label="link" href="#">Контакты</a>
             </li>
             <li class="nav__items">
               <a aria-label="link" href="#">Помощь</a>

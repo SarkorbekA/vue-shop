@@ -55,7 +55,7 @@
 
 <style lang="scss" scoped>
 .advantage {
-    margin-top: 40px;
+    margin-top: 20px;
     padding-bottom: 20px;
 
     .container {

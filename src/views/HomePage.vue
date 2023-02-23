@@ -132,6 +132,9 @@ export default {
         font-weight: 700;
         font-size: 28px;
         color: #232323;
+        @media(max-width: 400px){
+            font-size: 24px;
+        }
     }
 
     &__subtitle {

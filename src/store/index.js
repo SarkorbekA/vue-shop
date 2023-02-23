@@ -13,16 +13,19 @@ const store = createStore({
         CHANGE_ORDER_COUNT(state) {
             state.orderCount++
         },
+        MINUS_ORDER_COUNT(state) {
+            state.orderCount--
+        },
         ADD_LIKES(state) {
             state.likesCount++
         },
-        SUBTRACT_LIKES(state){
+        SUBTRACT_LIKES(state) {
             state.likesCount--
         },
-        ADD_ORDER(state,payload){
+        ADD_ORDER(state, payload) {
             state.ordersData.push(payload)
         }
-        
+
     }
 })
 

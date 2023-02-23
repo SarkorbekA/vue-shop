@@ -6,12 +6,15 @@
         <p class="type">{{ type }}</p>
         <p class="title">{{ title }} </p>
         <p class="price">{{ price }} UZS</p>
-        <div v-if="!like" @click="addToFavorites" :class="like ? 'add-like' : ''" class="favorite">
-            <img width="80%" height="auto" src="../assets/img/icons/like.svg" alt="like">
+        <div class="favorite">
+            <div v-if="!like" @click="addToFavorites" :class="like ? 'add-like' : ''" class="favorite__item">
+                <img width="80%" height="auto" src="../assets/img/icons/like.svg" alt="like">
+            </div>
+            <div v-else @click="addToFavorites" :class="like ? 'add-like' : ''" class="favorite__item">
+                <img width="80%" height="auto" src="../assets/img/icons/liked.svg" alt="like">
+            </div>
         </div>
-        <div v-else @click="addToFavorites" :class="like ? 'add-like' : ''" class="favorite">
-            <img width="80%" height="auto" src="../assets/img/icons/liked.svg" alt="like">
-        </div>
+        <div v-if="discount" class="discount">- {{ discount }} %</div>
         <button @click="addToCard" class="addCart">
             <i class="fa-solid fa-cart-shopping"></i>
             <p>В Корзину</p>
@@ -22,7 +25,7 @@
 <script>
 export default {
     name: 'TheCard',
-    props: ['type', 'title', 'price', 'like'],
+    props: ['type', 'title', 'price', 'like', 'discount'],
     methods: {
         addToCard() {
             this.$emit('addProductToCard')
@@ -42,6 +45,9 @@ export default {
     padding-bottom: 8px;
     background: white;
     border: 1px solid transparent;
+    transition: .3s;
+    position: relative;
+    z-index: 1;
 
     @media (max-width: 450px) {
         width: 80%;
@@ -82,35 +88,51 @@ export default {
         margin-bottom: 10px;
     }
 
+    .discount {
+        position: absolute;
+        cursor: pointer;
+        padding: 6px 12px;
+        top: 0;
+        left: 0;
+        font-size: 18px;
+        font-weight: 700;
+        background: #E01A22;
+        border-bottom-right-radius: 12px;
+        color: white;
+    }
+
     .favorite {
         position: absolute;
         cursor: pointer;
         top: 7px;
         right: 7px;
-        width: 30px;
-        height: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: rgba(201, 201, 201, 0.2);
-        visibility: hidden;
-        opacity: 0;
-        transition: .3s;
-        border-radius: 6px;
 
-        img {
-            width: 80% !important;
-            height: auto;
-        }
+        &__item {
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(201, 201, 201, 0.2);
+            visibility: hidden;
+            opacity: 0;
+            transition: .3s;
+            border-radius: 6px;
 
-        &:hover {
-            background: rgba(201, 201, 201, 0.6);
-        }
+            img {
+                width: 70% !important;
+                height: auto;
+            }
 
-        @media (max-width: 1024px) {
-            visibility: visible;
-            opacity: 1;
-            transition: .4s;
+            &:hover {
+                background: rgba(201, 201, 201, 0.6);
+            }
+
+            @media (max-width: 1024px) {
+                visibility: visible;
+                opacity: 1;
+                transition: .4s;
+            }
         }
     }
 
@@ -141,12 +163,12 @@ export default {
         }
 
         &:active {
-            box-shadow: 0px 0px 5px 3px rgba(128, 128, 128, 0.5);
+            box-shadow: 0px 0px 5px 1px rgba(128, 128, 128, 0.5);
         }
 
         @media (min-width: 1024px) {
             &:hover {
-                transition: .3s;
+                transition: .2s;
                 background: white;
                 color: #FFD600;
             }
@@ -160,10 +182,6 @@ export default {
         }
     }
 
-    transition: .3s;
-    position: relative;
-    z-index: 1;
-
     @media (min-width: 992px) {
         &:hover {
             border-bottom-left-radius: 8px;
@@ -174,14 +192,14 @@ export default {
             box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.1);
             border: 1px solid rgba(0, 0, 0, 0.1);
 
-            .favorite {
+            .favorite__item {
                 visibility: visible;
                 opacity: 1;
                 transition: .4s;
             }
 
             .addCart {
-                transition: .7s;
+                transition: opacity .7s, visibility .7s, transform .7s;
                 opacity: 1;
                 visibility: visible;
                 transform: translateY(0px);
@@ -194,6 +212,6 @@ export default {
 .add-like {
     visibility: visible !important;
     opacity: 1 !important;
-    background: rgba(255, 255, 255, 0.9) !important;
+    // background: rgba(255, 255, 255, 0.9) !important;
 }
 </style>

@@ -3,7 +3,7 @@
         <!-- <h1>{{ count }}</h1> -->
         <div class="product__list">
             <the-card v-for="(card, index) in products" :key="index" :title="card.title" :type="card.type"
-                :price="card.price" :like="card.like" @addProductToCard="AddCart(card)"
+                :price="card.price" :discount="card.discount" :like="card.like" @addProductToCard="AddCart(card)"
                 @addToFavorites="AddToLikes(card)" />
         </div>
     </div>
@@ -22,19 +22,22 @@ export default {
                     type: "Complect",
                     title: "Telefon",
                     price: 15000,
-                    like: false
+                    like: false,
+                    discount: 10
                 },
                 {
                     type: "Complect",
                     title: "Telefon",
                     price: 15000,
-                    like: false
+                    like: false,
+                    discount: 50
                 },
                 {
                     type: "Complect",
                     title: "Telefon",
                     price: 15000,
-                    like: false
+                    like: false,
+                    discount: 70
                 },
                 {
                     type: "Complect",
@@ -104,6 +107,7 @@ export default {
                 title: data.title,
                 type: data.type,
                 price: data.price,
+                sale: data.sale
             })
             this.$store.commit('ADD_ORDER', data)
             this.$store.commit('CHANGE_ORDER_COUNT')

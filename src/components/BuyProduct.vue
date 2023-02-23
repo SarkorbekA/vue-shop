@@ -20,7 +20,8 @@
                     :class="this.bestProduct.like ? 'add-like' : ''" class="favorite">
                     <img src="../assets/img/icons/like.svg" alt="like">
                 </div>
-                <div v-else @click="AddToLikes(card)" :class="this.bestProduct.like ? 'add-like' : ''" class="favorite">
+                <div v-else @click="AddToLikes(this.bestProduct)" :class="this.bestProduct.like ? 'add-like' : ''"
+                    class="favorite">
                     <img src="../assets/img/icons/liked.svg" alt="like">
                 </div>
                 <div @click="AddCart(this.bestProduct)" class="addCart">
@@ -140,13 +141,17 @@ export default {
 
 .buy {
     padding: 20px 0px;
+
     .container {
         display: grid;
-        grid-template-columns: 370px 1fr;
+        grid-template-columns: 2fr 4fr;
         align-items: flex-start;
         justify-content: space-between;
         gap: 30px;
 
+        @media (max-width: 1280px){
+            grid-template-columns: 3fr 4fr;
+        }
         @media (max-width: 1024px) {
             grid-template-columns: 1fr;
         }
@@ -155,8 +160,8 @@ export default {
     .product__list {
         width: 100%;
         display: grid;
-        gap: 20px;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        gap: 30px;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
 
         @media (max-width: 1280px) {
             grid-template-columns: 1fr 1fr 1fr;
@@ -200,14 +205,14 @@ export default {
     }
 
     .category {
-        margin-top: 5px;
+        margin-top: 10px;
         font-weight: 400;
         font-size: 18px;
-                color: #90989F;
+        color: #90989F;
     }
 
     .info {
-        margin-top: 8px;
+        margin-top: 10px;
         font-weight: 400;
         font-size: 18px;
         line-height: 140%;
@@ -220,7 +225,7 @@ export default {
         justify-content: center;
         gap: 16px;
         align-items: center;
-        margin-bottom: 6px;
+        margin-bottom: 10px;
 
         img {
             width: 26px;
@@ -231,16 +236,16 @@ export default {
             display: inline-block;
             font-weight: 400;
             font-size: 18px;
-                        color: #FFD600;
+            color: #FFD600;
         }
     }
 
     .price {
         font-weight: 700;
         font-size: 24px;
-                color: #000000;
+        color: #000000;
         margin-top: 10px;
-        margin-bottom: 10px;
+        margin-bottom: 12px;
     }
 
 
@@ -283,6 +288,7 @@ export default {
         cursor: pointer;
         border: 1px solid #FFD600;
         margin-top: 10px;
+
         i {
             font-size: 24px;
         }
@@ -290,7 +296,7 @@ export default {
         p {
             font-weight: 700;
             font-size: 24px;
-                    }
+        }
 
         &:hover {
             transition: .3s;

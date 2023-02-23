@@ -10,7 +10,7 @@
                         </div>
                         <div class="cart__item-buttons">
                             <button class="btn">В избранное</button>
-                            <button class="btn">Удалить</button>
+                            <button @click="removeItem(cart)" class="btn">Удалить</button>
                         </div>
                     </div>
                     <div class="cart__item-center">
@@ -58,46 +58,46 @@
                         Выберите способ оплаты
                     </h1>
                     <div class="payment__box">
-                        <a href="#" class="item">
+                        <div class="item">
                             <img src="../assets/img/cart/icons/payme.svg" alt="payme">
-                        </a>
-                        <a href="#" class="item">
+                        </div>
+                        <div class="item">
                             <img src="../assets/img/cart/icons/click.svg" alt="click">
-                        </a>
-                        <a href="#" class="item">
+                        </div>
+                        <div class="item">
                             <img src="../assets/img/cart/icons/uzcard.svg" alt="uzcard">
-                        </a>
-                        <a href="#" class="item">
+                        </div>
+                        <div class="item">
                             <img src="../assets/img/cart/icons/apelsin.svg" alt="apelsin">
-                        </a>
-                        <a href="#" class="item">
+                        </div>
+                        <div class="item">
                             <img src="../assets/img/cart/icons/humo.svg" alt="humo">
-                        </a>
-                        <a href="#" class="item">
+                        </div>
+                        <div class="item">
                             <img src="../assets/img/cart/icons/mastercard.svg" alt="mastercard">
-                        </a>
-                        <a href="#" class="item">
+                        </div>
+                        <div class="item">
                             <img src="../assets/img/cart/icons/visacard.svg" alt="visacard">
-                        </a>
+                        </div>
                     </div>
                     <div class="payment__info">
                         <div class="payment__info-item">
                             <div class="payment__info-left">
                                 Товары <span></span>
                             </div>
-                            <div class="payment__info-price">{{  $store.state.ordersData.length }}</div>
+                            <div class="payment__info-price">{{ $store.state.ordersData.length }}</div>
                         </div>
                         <div class="payment__info-item">
                             <div class="payment__info-left">
                                 Общая стоимость <span></span>
                             </div>
-                            <div class="payment__info-price">10 655 940 сум</div>
+                            <div class="payment__info-price">{{ this.cartPrice }} сум</div>
                         </div>
                         <div class="payment__info-item">
                             <div class="payment__info-left">
                                 Скидки на товары <span></span>
                             </div>
-                            <div class="payment__info-price">213 118 сум</div>
+                            <div class="payment__info-price">{{ this.cartDiscount }} сум</div>
                         </div>
                         <div class="payment__info-item">
                             <div class="payment__info-left">
@@ -122,19 +122,34 @@
 <script>
 export default {
     name: "TheCart",
-    // data() {
-    //     return {
-    //         cartItems: []
+    data() {
+        return {
+            cartPrice: 0,
+            cartDiscount: 0,
+            allPrice: {},
+        }
+    },
+    methods: {
+        removeItem(item) {
+            const index = this.$store.state.ordersData.findIndex(el => el.id === item.id)
+            this.$store.state.ordersData.splice(index, 1);
+            this.$store.commit('MINUS_ORDER_COUNT')
+            // console.log(item)
+            // console.log(this.$store.state.ordersData)
+            this.cartPrice -= item.price
+        },
+    },
+    mounted() {
+        for (const item in this.$store.state.ordersData) {
+            this.cartPrice += this.$store.state.ordersData[item].price
+        }
+        // console.log(this.cartPrice)
+    },
+    // computed: {
+    //     countAcceptedTodo() {
+    //         return {}
     //     }
     // },
-    // methods: {
-
-    // },
-    // mounted: {
-    //     addItemToCart() {
-    //         this.cartItems.push($store.state.ordersData)
-    //     }
-    // }
 }
 </script>
 
@@ -152,19 +167,22 @@ export default {
 
     &__content {
         width: 100%;
-.empty{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 40vh;
-    font-size: 30px;
-    color: gray;
-}
+
+        .empty {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 45vh;
+            font-size: 30px;
+            color: gray;
+        }
+
         &-title {
             font-weight: 700;
             font-size: 36px;
             line-height: 44px;
         }
+
         &-box {
             margin-top: 20px;
             display: flex;
@@ -410,6 +428,7 @@ export default {
                     padding: 0px 25px;
 
                     .item {
+                        cursor: pointer;
                         display: inline-block;
                         border-radius: 4px;
                         border: 1px solid #E7E7E7;
@@ -469,6 +488,7 @@ export default {
                         border-radius: 5px;
                         font-weight: 700;
                         width: 100%;
+                        text-transform: uppercase;
                     }
 
                     input[type="button"] {

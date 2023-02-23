@@ -41,7 +41,7 @@
                     <a aria-label="link" href="#">Вакансии</a>
                 </li>
             </ul>
-            <a aria-label="link" href="#" class="favorite">
+            <a @click="$router.push('/favorites')" aria-label="link" href="#" class="favorite">
                 <img width="20" height="auto" src="../assets/img/icons/like.svg" alt="like">
                 <p>Избранное</p>
                 <span class="favorite__count">
