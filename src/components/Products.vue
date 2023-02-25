@@ -19,6 +19,7 @@ export default {
             orderCard: [],
             products: [
                 {
+                    id: 1,
                     type: "Complect",
                     title: "Telefon",
                     price: 15000,
@@ -26,6 +27,7 @@ export default {
                     discount: 10
                 },
                 {
+                    id: 2,
                     type: "Complect",
                     title: "Telefon",
                     price: 15000,
@@ -33,6 +35,7 @@ export default {
                     discount: 50
                 },
                 {
+                    id: 3,
                     type: "Complect",
                     title: "Telefon",
                     price: 15000,
@@ -40,54 +43,63 @@ export default {
                     discount: 70
                 },
                 {
+                    id: 4,
                     type: "Complect",
                     title: "Telefon",
                     price: 15000,
                     like: false
                 },
                 {
+                    id: 5,
                     type: "Complect",
                     title: "Telefon",
                     price: 15000,
                     like: false
                 },
                 {
+                    id: 6,
                     type: "Complect",
                     title: "Telefon",
                     price: 15000,
                     like: false
                 },
                 {
+                    id: 7,
                     type: "Complect",
                     title: "Telefon",
                     price: 15000,
                     like: false
                 },
                 {
+                    id: 8,
                     type: "Complect",
                     title: "Telefon",
                     price: 15000,
                     like: false
                 },
                 {
+                    id: 9,
                     type: "Complect",
                     title: "Telefon",
                     price: 15000,
                     like: false
                 },
                 {
+                    id: 10,
                     type: "Complect",
                     title: "Telefon",
                     price: 15000,
                     like: false
                 },
                 {
+                    id: 11,
                     type: "Complect",
                     title: "Telefon",
                     price: 15000,
                     like: false
                 },
                 {
+                    id: 12,
                     type: "Complect",
                     title: "Telefon",
                     price: 15000,
@@ -102,25 +114,18 @@ export default {
         }
     },
     methods: {
-        AddCart(data) {
-            this.orderCard.push({
-                title: data.title,
-                type: data.type,
-                price: data.price,
-                sale: data.sale
-            })
-            this.$store.commit('ADD_ORDER', data)
-            this.$store.commit('CHANGE_ORDER_COUNT')
+        AddCart(card) {
+            this.$store.dispatch('addOrder', card)
         },
         AddToLikes(data) {
             data.like = !data.like
             if (data.like) {
                 this.$store.commit('ADD_LIKES')
-            } else{
+            } else {
                 this.$store.commit('SUBTRACT_LIKES')
             }
         }
-    }
+    },
 }
 </script>
 

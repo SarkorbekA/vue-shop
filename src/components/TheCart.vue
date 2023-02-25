@@ -9,13 +9,14 @@
                             <img src="../assets/img/cart/cart__img.png" alt="item">
                         </div>
                         <div class="cart__item-buttons">
-                            <button class="btn">В избранное</button>
+                            <button @click="cartLike(cart)"  :class="cart.like == true ? 'active' : ''" class="btn">В
+                                избранное</button>
                             <button @click="removeItem(cart)" class="btn">Удалить</button>
                         </div>
                     </div>
                     <div class="cart__item-center">
                         <h1 class="cart__item-name">
-                            New Year Candle, Christmas Gift Idea
+                            {{ cart.title }}
                         </h1>
                         <div class="cart__item-facts">
                             <h3>Коротко о товаре</h3>
@@ -36,13 +37,13 @@
                         </div>
                         <h3 class="cart__item-discount">Sale: 10%</h3>
                         <div class="cart__item-count">
-                            <button class="minus">-</button>
-                            <div class="count">10</div>
-                            <button class="plus">+</button>
+                            <button @click="minusCount(cart)" class="minus">-</button>
+                            <div class="count">{{ cart.count }}</div>
+                            <button @click="plusCount(cart)" class="plus">+</button>
                         </div>
                         <div class="cart__item-total">
                             <div class="title">Общая цена:</div>
-                            <div class="price">100 000 000 UZS</div>
+                            <div class="price">{{ cart.price * cart.count }} UZS</div>
                         </div>
                     </div>
                 </div>
@@ -133,17 +134,36 @@ export default {
         removeItem(item) {
             const index = this.$store.state.ordersData.findIndex(el => el.id === item.id)
             this.$store.state.ordersData.splice(index, 1);
-            this.$store.commit('MINUS_ORDER_COUNT')
-            // console.log(item)
-            // console.log(this.$store.state.ordersData)
-            this.cartPrice -= item.price
+            this.cartPrice -= item.price * item.count
         },
+        plusCount(item) {
+            this.cartPrice += item.price
+            item.count++
+        },
+        minusCount(item) {
+            if (item.count <= 1) {
+                const index = this.$store.state.ordersData.findIndex(el => el.id === item.id)
+                this.$store.state.ordersData.splice(index, 1);
+                this.cartPrice -= item.price
+            } else {
+                this.cartPrice -= item.price
+                item.count--
+            }
+        },
+        cartLike(cart) {
+            cart.like = !cart.like
+            if (cart.like) {
+                this.$store.commit('ADD_LIKES')
+            } else {
+                this.$store.commit('SUBTRACT_LIKES')
+            }
+        }
     },
     mounted() {
         for (const item in this.$store.state.ordersData) {
-            this.cartPrice += this.$store.state.ordersData[item].price
+            let oneItem = this.$store.state.ordersData[item]
+            this.cartPrice += oneItem.price * oneItem.count
         }
-        // console.log(this.cartPrice)
     },
     // computed: {
     //     countAcceptedTodo() {
@@ -241,6 +261,10 @@ export default {
                         &:hover {
                             transition: .3s;
                             color: #232323;
+                        }
+
+                        &.active {
+                            color: #E01A22;
                         }
                     }
                 }

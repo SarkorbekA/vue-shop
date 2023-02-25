@@ -70,7 +70,7 @@
             <div class="menu__list-text">
               <a aria-label="link" class="menu__list-cart" href="#">Корзинка</a>
               <a aria-label="link" class="menu__list-count" href="#">
-                {{ $store.state.orderCount }}
+                {{ $store.state.ordersData.length }}
               </a>
             </div>
           </li>
@@ -83,16 +83,16 @@
 <script>
 export default {
   name: "TheHeader",
-  data() {
-    return {
-      cardCount: 0,
-    }
-  },
-  methods: {
-    addCart() {
-      this.cardCount++
-    },
-  }
+  // data() {
+  //   return {
+  //     cardCount: 0,
+  //   }
+  // },
+  // methods: {
+  //   addCart() {
+  //     this.cardCount++
+  //   },
+  // }
 }
 </script>
 

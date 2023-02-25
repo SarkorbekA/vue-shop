@@ -4,18 +4,11 @@ import { createStore } from 'vuex'
 const store = createStore({
     state() {
         return {
-            orderCount: 0,
             likesCount: 0,
             ordersData: []
         }
     },
     mutations: {
-        CHANGE_ORDER_COUNT(state) {
-            state.orderCount++
-        },
-        MINUS_ORDER_COUNT(state) {
-            state.orderCount--
-        },
         ADD_LIKES(state) {
             state.likesCount++
         },
@@ -24,8 +17,26 @@ const store = createStore({
         },
         ADD_ORDER(state, payload) {
             state.ordersData.push(payload)
+        },
+        ADD_COUNT_ORDER(state, index) {
+            state.ordersData[index].count += 1
         }
-
+    },
+    actions: {
+        addOrder({ state, commit }, payload) {
+            let has = state.ordersData.findIndex(el => el.id == payload.id)
+            if (has == -1) {
+                commit('ADD_ORDER', {
+                    id: payload.id,
+                    price: payload.price,
+                    title: payload.title,
+                    like: payload.like,
+                    count: 1
+                })
+            } else if (has != -1) {
+                commit('ADD_COUNT_ORDER', has)
+            }
+        }
     }
 })
 
