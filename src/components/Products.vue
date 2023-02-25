@@ -24,7 +24,8 @@ export default {
                     title: "Telefon",
                     price: 15000,
                     like: false,
-                    discount: 10
+                    discount: 10,
+                    about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                 },
                 {
                     id: 2,
@@ -32,6 +33,7 @@ export default {
                     title: "Telefon",
                     price: 15000,
                     like: false,
+                    about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     discount: 50
                 },
                 {
@@ -40,6 +42,7 @@ export default {
                     title: "Telefon",
                     price: 15000,
                     like: false,
+                    about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     discount: 70
                 },
                 {
@@ -47,6 +50,7 @@ export default {
                     type: "Complect",
                     title: "Telefon",
                     price: 15000,
+                    about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false
                 },
                 {
@@ -54,6 +58,7 @@ export default {
                     type: "Complect",
                     title: "Telefon",
                     price: 15000,
+                    about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false
                 },
                 {
@@ -61,6 +66,7 @@ export default {
                     type: "Complect",
                     title: "Telefon",
                     price: 15000,
+                    about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false
                 },
                 {
@@ -68,6 +74,7 @@ export default {
                     type: "Complect",
                     title: "Telefon",
                     price: 15000,
+                    about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false
                 },
                 {
@@ -75,6 +82,7 @@ export default {
                     type: "Complect",
                     title: "Telefon",
                     price: 15000,
+                    about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false
                 },
                 {
@@ -82,6 +90,7 @@ export default {
                     type: "Complect",
                     title: "Telefon",
                     price: 15000,
+                    about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false
                 },
                 {
@@ -89,6 +98,7 @@ export default {
                     type: "Complect",
                     title: "Telefon",
                     price: 15000,
+                    about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false
                 },
                 {
@@ -96,6 +106,7 @@ export default {
                     type: "Complect",
                     title: "Telefon",
                     price: 15000,
+                    about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false
                 },
                 {
@@ -103,6 +114,7 @@ export default {
                     type: "Complect",
                     title: "Telefon",
                     price: 15000,
+                    about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false
                 },
             ]

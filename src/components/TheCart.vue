@@ -9,7 +9,7 @@
                             <img src="../assets/img/cart/cart__img.png" alt="item">
                         </div>
                         <div class="cart__item-buttons">
-                            <button @click="cartLike(cart)"  :class="cart.like == true ? 'active' : ''" class="btn">В
+                            <button @click="cartLike(cart)" :class="cart.like == true ? 'active' : ''" class="btn">В
                                 избранное</button>
                             <button @click="removeItem(cart)" class="btn">Удалить</button>
                         </div>
@@ -21,10 +21,7 @@
                         <div class="cart__item-facts">
                             <h3>Коротко о товаре</h3>
                             <ul>
-                                <li><span>Handmade</span></li>
-                                <li><span>Handmade</span></li>
-                                <li><span>Handmade</span></li>
-                                <li><span>Доступно только 4 штуки, и сейчас это есть у более 20 человек</span></li>
+                                <li><span>{{ cart.about }}</span></li>
                             </ul>
                         </div>
                     </div>
@@ -165,11 +162,6 @@ export default {
             this.cartPrice += oneItem.price * oneItem.count
         }
     },
-    // computed: {
-    //     countAcceptedTodo() {
-    //         return {}
-    //     }
-    // },
 }
 </script>
 
@@ -307,11 +299,11 @@ export default {
 
                     ul {
                         margin-left: 16px;
+                        margin-top: 16px;
 
                         li {
                             list-style: disc;
                             color: #999999;
-                            margin-top: 16px;
 
                             span {
                                 font-weight: 400;

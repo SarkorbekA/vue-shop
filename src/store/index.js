@@ -31,6 +31,7 @@ const store = createStore({
                     price: payload.price,
                     title: payload.title,
                     like: payload.like,
+                    about: payload.about,
                     count: 1
                 })
             } else if (has != -1) {

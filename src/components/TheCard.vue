@@ -7,7 +7,7 @@
         <p class="title">{{ title }} </p>
         <p class="price">{{ price }} UZS</p>
         <div class="favorite">
-            <div v-if="!like" @click="addToFavorites" :class="like ? 'add-like' : ''" class="favorite__item">
+            <div v-if="!like" @click="addToFavorites" class="favorite__item">
                 <img width="80%" height="auto" src="../assets/img/icons/like.svg" alt="like">
             </div>
             <div v-else @click="addToFavorites" :class="like ? 'add-like' : ''" class="favorite__item">
@@ -182,7 +182,7 @@ export default {
         }
     }
 
-    @media (min-width: 992px) {
+    @media (min-width: 1024px) {
         &:hover {
             border-bottom-left-radius: 8px;
             border-bottom-right-radius: 8px;
