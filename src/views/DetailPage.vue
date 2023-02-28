@@ -1,6 +1,6 @@
 <script setup>
 import ProductDetail from '../components/ProductDetail.vue'
-import Products from '../components/Products.vue'
+import DetailProducts from '../components/DetailPage/DetailProducts.vue'
 
 </script>
 
@@ -8,7 +8,7 @@ import Products from '../components/Products.vue'
 export default {
     component: {
         ProductDetail,
-        Products,
+        DetailProducts,
     }
 }
 </script>
@@ -26,7 +26,7 @@ export default {
     </div>
     <section class="product">
         <div class="product__title"><span>Новые</span> товары</div>
-        <Products />
+        <DetailProducts />
     </section>
 </template>
 

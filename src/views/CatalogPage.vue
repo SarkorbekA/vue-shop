@@ -1,6 +1,6 @@
 <script setup>
 import Catalog from '../components/Catalog.vue'
-import Products from '../components/Products.vue'
+import TheCard from '../components/TheCard.vue'
 
 </script>
 
@@ -8,9 +8,23 @@ import Products from '../components/Products.vue'
 export default {
     component: {
         Catalog,
-        Products,
-    }
+        TheCard,
+    },
+    methods: {
+        AddCart(data) {
+            this.$store.dispatch('addOrder', data)
+        },
+        AddToLikes(data) {
+            data.like = !data.like
+            if (data.like) {
+                this.$store.commit('ADD_LIKES')
+            } else {
+                this.$store.commit('SUBTRACT_LIKES')
+            }
+        }
+    },
 }
+
 </script>
 
 <template>
@@ -26,7 +40,17 @@ export default {
     <section class="show__product">
         <div class="container">
             <div class="show__product-title">Вы <span> смотрели</span></div>
-            <Products />
+            <div class="show__product-list">
+                <the-card v-for="(card, index) in $store.state.products.slice(60,72)"
+                    :key="index"
+                    :title="card.title"
+                    :type="card.type"
+                    :price="card.price"
+                    :discount="card.discount"
+                    :like="card.like"
+                    @addProductToCard="AddCart(card)"
+                    @addToFavorites="AddToLikes(card)" />
+            </div>
         </div>
     </section>
 </template>
@@ -57,6 +81,32 @@ export default {
 
         @media (max-width: 576px) {
             padding: 9px 70px 9px 5px;
+        }
+    }
+
+    &-list {
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+
+        @media (max-width: 1280px) {
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        }
+
+        @media (max-width: 1024px) {
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        @media (max-width: 576px) {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @media (max-width: 450px) {
+            grid-template-columns: 1fr;
         }
     }
 }

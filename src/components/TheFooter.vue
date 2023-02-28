@@ -2,8 +2,12 @@
     <footer>
         <div class="container footer">
             <div class="footer__item">
-                <a @click="$router.push('/')" class="footer__logo" href="#">
-                    <img width="110" src="../assets/img/Logo.svg" alt="logo">
+                <a @click="$router.push('/')"
+                    class="footer__logo"
+                    href="#">
+                    <img width="110"
+                        src="../assets/img/Logo.svg"
+                        alt="logo">
                 </a>
                 <h1 class="footer__title">
                     Интернет-магазин Крафтовые ручные поделки
@@ -71,32 +75,38 @@
                     <ul class="footer__payment-list">
                         <li>
                             <a href="#">
-                                <img src="../assets/img/payment/payme.svg" alt="payme">
+                                <img src="../assets/img/payment/payme.svg"
+                                    alt="payme">
                             </a>
                         </li>
                         <li>
                             <a href="#">
-                                <img src="../assets/img/payment/mastercard.svg" alt="master">
+                                <img src="../assets/img/payment/mastercard.svg"
+                                    alt="master">
                             </a>
                         </li>
                         <li>
                             <a href="#">
-                                <img src="../assets/img/payment/click.svg" alt="click">
+                                <img src="../assets/img/payment/click.svg"
+                                    alt="click">
                             </a>
                         </li>
                         <li>
                             <a href="#">
-                                <img src="../assets/img/payment/apelsin.svg" alt="apelsin">
+                                <img src="../assets/img/payment/apelsin.svg"
+                                    alt="apelsin">
                             </a>
                         </li>
                         <li>
                             <a href="#">
-                                <img src="../assets/img/payment/visa.svg" alt="visa">
+                                <img src="../assets/img/payment/visa.svg"
+                                    alt="visa">
                             </a>
                         </li>
                         <li>
                             <a href="#">
-                                <img src="../assets/img/payment/uzcard.svg" alt="uzcard">
+                                <img src="../assets/img/payment/uzcard.svg"
+                                    alt="uzcard">
                             </a>
                         </li>
                     </ul>
@@ -108,17 +118,20 @@
                     </h1>
                     <ul class="footer__social-list">
                         <li>
-                            <a href="#">
+                            <a aria-label="link"
+                                href="#">
                                 <i class="fa-brands fa-facebook facebook"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a aria-label="link"
+                                href="#">
                                 <i class="fa-brands fa-instagram instagram"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a aria-label="link"
+                                href="#">
                                 <i class="fa-brands fa-telegram telegram"></i>
                             </a>
                         </li>
@@ -318,5 +331,4 @@ footer {
             }
         }
     }
-}
-</style>
+}</style>

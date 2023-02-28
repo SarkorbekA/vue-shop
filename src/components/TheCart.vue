@@ -1,17 +1,25 @@
 <template>
     <section class="cart">
         <div class="cart__content">
-            <h1 class="cart__content-title">Всего {{ $store.state.ordersData.length }} товара</h1>
-            <div v-if="$store.state.ordersData.length" class="cart__content-box">
-                <div v-for="(cart, index) in $store.state.ordersData" :key="index" class="cart__item">
+            <h1 class="cart__content-title">Всего {{ $store.state.products.filter(el => el.cart == true).length }} товара
+            </h1>
+            <div v-if="$store.state.products.filter(el => el.cart == true)"
+                class="cart__content-box">
+                <div v-for="(cart, index) in $store.state.products.filter(el => el.cart == true)"
+                    :key="index"
+                    class="cart__item">
                     <div class="cart__item-left">
                         <div class="cart__item-img">
-                            <img src="../assets/img/cart/cart__img.png" alt="item">
+                            <img src="../assets/img/cart/cart__img.png"
+                                alt="item">
                         </div>
                         <div class="cart__item-buttons">
-                            <button @click="cartLike(cart)" :class="cart.like == true ? 'active' : ''" class="btn">В
+                            <button @click="cartLike(cart)"
+                                :class="cart.like == true ? 'active' : ''"
+                                class="btn">В
                                 избранное</button>
-                            <button @click="removeItem(cart)" class="btn">Удалить</button>
+                            <button @click="removeItem(cart)"
+                                class="btn">Удалить</button>
                         </div>
                     </div>
                     <div class="cart__item-center">
@@ -34,9 +42,11 @@
                         </div>
                         <h3 class="cart__item-discount">Sale: 10%</h3>
                         <div class="cart__item-count">
-                            <button @click="minusCount(cart)" class="minus">-</button>
+                            <button @click="minusCount(cart)"
+                                class="minus">-</button>
                             <div class="count">{{ cart.count }}</div>
-                            <button @click="plusCount(cart)" class="plus">+</button>
+                            <button @click="plusCount(cart)"
+                                class="plus">+</button>
                         </div>
                         <div class="cart__item-total">
                             <div class="title">Общая цена:</div>
@@ -45,7 +55,8 @@
                     </div>
                 </div>
             </div>
-            <div class="empty" v-else>
+            <div class="empty"
+                v-else>
                 Пусто
             </div>
         </div>
@@ -57,25 +68,32 @@
                     </h1>
                     <div class="payment__box">
                         <div class="item">
-                            <img src="../assets/img/cart/icons/payme.svg" alt="payme">
+                            <img src="../assets/img/cart/icons/payme.svg"
+                                alt="payme">
                         </div>
                         <div class="item">
-                            <img src="../assets/img/cart/icons/click.svg" alt="click">
+                            <img src="../assets/img/cart/icons/click.svg"
+                                alt="click">
                         </div>
                         <div class="item">
-                            <img src="../assets/img/cart/icons/uzcard.svg" alt="uzcard">
+                            <img src="../assets/img/cart/icons/uzcard.svg"
+                                alt="uzcard">
                         </div>
                         <div class="item">
-                            <img src="../assets/img/cart/icons/apelsin.svg" alt="apelsin">
+                            <img src="../assets/img/cart/icons/apelsin.svg"
+                                alt="apelsin">
                         </div>
                         <div class="item">
-                            <img src="../assets/img/cart/icons/humo.svg" alt="humo">
+                            <img src="../assets/img/cart/icons/humo.svg"
+                                alt="humo">
                         </div>
                         <div class="item">
-                            <img src="../assets/img/cart/icons/mastercard.svg" alt="mastercard">
+                            <img src="../assets/img/cart/icons/mastercard.svg"
+                                alt="mastercard">
                         </div>
                         <div class="item">
-                            <img src="../assets/img/cart/icons/visacard.svg" alt="visacard">
+                            <img src="../assets/img/cart/icons/visacard.svg"
+                                alt="visacard">
                         </div>
                     </div>
                     <div class="payment__info">
@@ -83,7 +101,8 @@
                             <div class="payment__info-left">
                                 Товары <span></span>
                             </div>
-                            <div class="payment__info-price">{{ $store.state.ordersData.length }}</div>
+                            <div class="payment__info-price">{{ $store.state.products.filter(item => item.cart ==
+                                true).length }}</div>
                         </div>
                         <div class="payment__info-item">
                             <div class="payment__info-left">
@@ -105,8 +124,10 @@
                         </div>
                     </div>
                     <form class="payment__promocode">
-                        <input type="text" placeholder="Промокоды">
-                        <input type="button" value="Применить">
+                        <input type="text"
+                            placeholder="Промокоды">
+                        <input type="button"
+                            value="Применить">
                     </form>
                     <div class="payment__pay">
                         <button>Перейти к оплате</button>
@@ -129,8 +150,7 @@ export default {
     },
     methods: {
         removeItem(item) {
-            const index = this.$store.state.ordersData.findIndex(el => el.id === item.id)
-            this.$store.state.ordersData.splice(index, 1);
+            item.cart = false
             this.cartPrice -= item.price * item.count
         },
         plusCount(item) {
@@ -139,8 +159,7 @@ export default {
         },
         minusCount(item) {
             if (item.count <= 1) {
-                const index = this.$store.state.ordersData.findIndex(el => el.id === item.id)
-                this.$store.state.ordersData.splice(index, 1);
+                item.cart = false;
                 this.cartPrice -= item.price
             } else {
                 this.cartPrice -= item.price
@@ -157,8 +176,8 @@ export default {
         }
     },
     mounted() {
-        for (const item in this.$store.state.ordersData) {
-            let oneItem = this.$store.state.ordersData[item]
+        for (const item in this.$store.state.products.filter(item => item.cart == true)) {
+            let oneItem = this.$store.state.products[item]
             this.cartPrice += oneItem.price * oneItem.count
         }
     },
@@ -218,8 +237,8 @@ export default {
                     align-content: space-between;
 
                     @media (max-width: 1535px) {
-                        width: 170px;
-                        min-width: 170px;
+                        width: 200px;
+                        min-width: 200px;
                     }
 
                     @media (max-width:500px) {
@@ -263,14 +282,14 @@ export default {
 
                 // center box
                 &-center {
-                    width: 450px;
+                    width: 430px;
                     border-right: 1px solid #E5E5E5;
                     height: 100%;
                     padding-right: 20px;
 
                     @media (max-width: 1280px) {
-                        min-width: 280px;
-                        width: 285px;
+                        min-width: 250px;
+                        width: 250px;
                         padding-right: 0;
                     }
 
@@ -278,9 +297,9 @@ export default {
                         border: none;
                     }
 
-                    @media (max-width:500px) {
-                        width: 100%;
-                    }
+                    // @media (max-width:500px) {
+                    //     width: 100%;
+                    // }
                 }
 
                 &-name {
@@ -328,7 +347,8 @@ export default {
                     @media (max-width: 768px) {
                         width: 100%;
                         gap: 20px;
-                        flex-direction: column;
+                        justify-content: space-around;
+                        // flex-direction: column;
                         max-height: 250px;
                     }
                 }

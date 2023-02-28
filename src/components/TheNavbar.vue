@@ -3,59 +3,81 @@
         <div class="container">
             <div class="menu">
                 <div class="burger__menu">
-                    <img src="../assets/img/icons/burgermenu.svg" alt="burger">
+                    <img src="../assets/img/icons/burgermenu.svg"
+                        alt="burger">
                     <p>ВСЕ КАТЕГОРИИ</p>
                 </div>
-                <a aria-label="link" href="#" class="favorite">
-                    <img width="20" height="auto" src="../assets/img/icons/like.svg" alt="like">
+                <a aria-label="link"
+                    href="#"
+                    class="favorite">
+                    <img width="20"
+                        height="auto"
+                        src="../assets/img/icons/like.svg"
+                        alt="like">
                     <p>Избранное</p>
                     <span class="favorite__count">
                         {{ $store.state.likesCount }}
                     </span>
                 </a>
             </div>
-            <!-- <div class="navbar"> -->
             <ul class="navbar-list">
                 <li>
-                    <a aria-label="link" href="#">О нас</a>
+                    <a aria-label="link"
+                        href="#">О нас</a>
                 </li>
                 <li>
-                    <a aria-label="link" href="#">Оплата и доставка</a>
+                    <a @click="$router.push('/contact')"
+                        aria-label="link"
+                        href="#">Оплата и доставка</a>
                 </li>
                 <li>
-                    <a aria-label="link" href="#">Услуги</a>
+                    <a aria-label="link"
+                        href="#">Услуги</a>
                 </li>
                 <li>
-                    <a @click="$router.push('/contact')" aria-label="link" href="#">Контакты</a>
+                    <a @click="$router.push('/contact')"
+                        aria-label="link"
+                        href="#">Контакты</a>
                 </li>
                 <li>
-                    <a aria-label="link" href="#">Отзывы</a>
+                    <a aria-label="link"
+                        href="#">Отзывы</a>
                 </li>
                 <!-- <li>
                     <a aria-label="link" href="#">Новинки</a>
                 </li> -->
                 <li>
-                    <a @click="$router.push('/cart')" aria-label="link" href="#">Корзина</a>
+                    <a @click="$router.push('/cart')"
+                        aria-label="link"
+                        href="#">Корзина</a>
                 </li>
                 <li>
-                    <a aria-label="link" href="#">Вакансии</a>
+                    <a aria-label="link"
+                        href="#">Вакансии</a>
                 </li>
             </ul>
-            <a @click="$router.push('/favorites')" aria-label="link" href="#" class="favorite">
-                <img width="20" height="auto" src="../assets/img/icons/like.svg" alt="like">
+            <a @click="$router.push('/favorites')"
+                aria-label="link"
+                href="#"
+                class="favorite">
+                <img width="20"
+                    height="auto"
+                    src="../assets/img/icons/like.svg"
+                    alt="like">
                 <p>Избранное</p>
                 <span class="favorite__count">
                     {{ $store.state.likesCount }}
                 </span>
             </a>
-            <!-- </div> -->
-
         </div>
     </nav>
 </template>
 
-<!-- <script>
-</script> -->
+<script>
+export default {
+    name: 'TheNavbar',
+}
+</script>
 
 <style lang="scss" scoped>
 nav {
@@ -100,18 +122,6 @@ nav .container {
     color: #553280;
     cursor: pointer;
 }
-
-// .navbar {
-//     display: flex;
-//     align-items: center;
-//     justify-content: space-between;
-//     gap: 30px;
-
-//     @media (max-width: 1280px) {
-//         flex-direction: column-reverse;
-//         align-items: flex-end;
-//     }
-// }
 
 .navbar-list {
     display: flex;

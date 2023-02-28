@@ -1,5 +1,5 @@
 <template>
-    <section class="catalog container">
+    <section class="catalog">
         <aside class="catalog__side">
             <ul>
                 <li>
@@ -80,7 +80,7 @@
                     :navigation="true"
                     :modules="modules"
                     class="mySwiper">
-                    <swiper-slide v-for="(card, index) in productsOne">
+                    <swiper-slide v-for="(card, index) in $store.state.products.slice(24, 36)">
                         <the-card :key="index"
                             :title="card.title"
                             :type="card.type"
@@ -135,7 +135,7 @@
                     :navigation="true"
                     :modules="modules"
                     class="mySwiper">
-                    <swiper-slide v-for="(card, index) in productsSecond">
+                    <swiper-slide v-for="(card, index) in $store.state.products.slice(36, 48)">
                         <the-card :key="index"
                             :title="card.title"
                             :type="card.type"
@@ -190,7 +190,7 @@
                     :navigation="true"
                     :modules="modules"
                     class="mySwiper">
-                    <swiper-slide v-for="(card, index) in productsThird">
+                    <swiper-slide v-for="(card, index) in $store.state.products.slice(48, 60)">
                         <the-card :key="index"
                             :title="card.title"
                             :type="card.type"
@@ -228,244 +228,17 @@ export default {
         SwiperSlide,
         TheCard,
     },
-    data() {
-        return {
-            productsOne: [
-                {
-                    type: "Complect",
-                    title: "Telefon",
-                    price: 15000,
-                    like: false
-                },
-                {
-                    type: "Complect",
-                    title: "Telefon",
-                    price: 15000,
-                    like: false
-                },
-                {
-                    type: "Complect",
-                    title: "Telefon",
-                    price: 15000,
-                    like: false
-                },
-                {
-                    type: "Complect",
-                    title: "Telefon",
-                    price: 15000,
-                    like: false
-                },
-                {
-                    type: "Complect",
-                    title: "Telefon",
-                    price: 15000,
-                    like: false
-                },
-                {
-                    type: "Complect",
-                    title: "Telefon",
-                    price: 15000,
-                    like: false
-                },
-                {
-                    type: "Complect",
-                    title: "Telefon",
-                    price: 15000,
-                    like: false
-                },
-                {
-                    type: "Complect",
-                    title: "Telefon",
-                    price: 15000,
-                    like: false
-                },
-                {
-                    type: "Complect",
-                    title: "Telefon",
-                    price: 15000,
-                    like: false
-                },
-                {
-                    type: "Complect",
-                    title: "Telefon",
-                    price: 15000,
-                    like: false
-                },
-                {
-                    type: "Complect",
-                    title: "Telefon",
-                    price: 15000,
-                    like: false
-                },
-                {
-                    type: "Complect",
-                    title: "Telefon",
-                    price: 15000,
-                    like: false
-                },
-            ],
-            productsSecond: [
-                {
-                    type: "Complect",
-                    title: "Telefon",
-                    price: 15000,
-                    like: false
-                },
-                {
-                    type: "Complect",
-                    title: "Telefon",
-                    price: 15000,
-                    like: false
-                },
-                {
-                    type: "Complect",
-                    title: "Telefon",
-                    price: 15000,
-                    like: false
-                },
-                {
-                    type: "Complect",
-                    title: "Telefon",
-                    price: 15000,
-                    like: false
-                },
-                {
-                    type: "Complect",
-                    title: "Telefon",
-                    price: 15000,
-                    like: false
-                },
-                {
-                    type: "Complect",
-                    title: "Telefon",
-                    price: 15000,
-                    like: false
-                },
-                {
-                    type: "Complect",
-                    title: "Telefon",
-                    price: 15000,
-                    like: false
-                },
-                {
-                    type: "Complect",
-                    title: "Telefon",
-                    price: 15000,
-                    like: false
-                },
-                {
-                    type: "Complect",
-                    title: "Telefon",
-                    price: 15000,
-                    like: false
-                },
-                {
-                    type: "Complect",
-                    title: "Telefon",
-                    price: 15000,
-                    like: false
-                },
-                {
-                    type: "Complect",
-                    title: "Telefon",
-                    price: 15000,
-                    like: false
-                },
-                {
-                    type: "Complect",
-                    title: "Telefon",
-                    price: 15000,
-                    like: false
-                },
-            ],
-            productsThird: [
-                {
-                    type: "Complect",
-                    title: "Telefon",
-                    price: 15000,
-                    like: false
-                },
-                {
-                    type: "Complect",
-                    title: "Telefon",
-                    price: 15000,
-                    like: false
-                },
-                {
-                    type: "Complect",
-                    title: "Telefon",
-                    price: 15000,
-                    like: false
-                },
-                {
-                    type: "Complect",
-                    title: "Telefon",
-                    price: 15000,
-                    like: false
-                },
-                {
-                    type: "Complect",
-                    title: "Telefon",
-                    price: 15000,
-                    like: false
-                },
-                {
-                    type: "Complect",
-                    title: "Telefon",
-                    price: 15000,
-                    like: false
-                },
-                {
-                    type: "Complect",
-                    title: "Telefon",
-                    price: 15000,
-                    like: false
-                },
-                {
-                    type: "Complect",
-                    title: "Telefon",
-                    price: 15000,
-                    like: false
-                },
-                {
-                    type: "Complect",
-                    title: "Telefon",
-                    price: 15000,
-                    like: false
-                },
-                {
-                    type: "Complect",
-                    title: "Telefon",
-                    price: 15000,
-                    like: false
-                },
-                {
-                    type: "Complect",
-                    title: "Telefon",
-                    price: 15000,
-                    like: false
-                },
-                {
-                    type: "Complect",
-                    title: "Telefon",
-                    price: 15000,
-                    like: false
-                },
-            ]
-        }
-    },
     methods: {
         AddCart(data) {
-            this.$store.commit('ADD_ORDER', data)
-            this.$store.commit('CHANGE_ORDER_COUNT')
+            this.$store.dispatch('addOrder', data)
         },
         AddToLikes(data) {
-            data.like = !data.like
-            if (data.like) {
-                this.$store.commit('ADD_LIKES')
-            } else {
-                this.$store.commit('SUBTRACT_LIKES')
-            }
+            // data.like = !data.like
+            // if (data.like) {
+            this.$store.commit('ADD_LIKES', data)
+            // } else {
+            // this.$store.commit('SUBTRACT_LIKES')
+            // }
         }
     },
     setup() {
@@ -504,16 +277,19 @@ export default {
         margin: 0;
     }
 
-    &::after {
-        content: '';
-        background: linear-gradient(to left, #FFFFFF 0%, rgba(255, 255, 255, 0.234) 100%);
-        position: absolute;
-        z-index: 9;
-        top: 0;
-        right: 0;
-        width: 100px;
-        height: 100%;
+    @media (min-width: 768px) {
+        &::after {
+            content: '';
+            background: linear-gradient(to left, #FFFFFF 0%, rgba(255, 255, 255, 0.234) 100%);
+            position: absolute;
+            z-index: 9;
+            top: 0;
+            right: -5px;
+            width: 100px;
+            height: 100%;
+        }
     }
+
 }
 
 .catalog {
@@ -540,13 +316,20 @@ export default {
         ul {
             display: flex;
             flex-direction: column;
-            gap: 25px;
+            gap: 5px;
 
             a {
+                padding: 10px 0px;
+                display: block;
                 font-weight: 500;
                 font-size: 14px;
                 line-height: 120%;
                 color: #222222;
+
+                &:hover {
+                    transition: .3s;
+                    color: #FFD600;
+                }
             }
         }
     }
@@ -555,7 +338,7 @@ export default {
         width: 100%;
         display: flex;
         flex-direction: column;
-        gap: 40px;
+        gap: 20px;
 
         &-item {
             .title {
@@ -567,8 +350,6 @@ export default {
         }
     }
 }
-
-
 </style>
 
 <style lang="scss">

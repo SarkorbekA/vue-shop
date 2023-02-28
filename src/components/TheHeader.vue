@@ -1,7 +1,3 @@
-<!-- <script setup>
-
-</script> -->
-
 <template>
   <header>
     <div class="header__top">
@@ -70,7 +66,7 @@
             <div class="menu__list-text">
               <a aria-label="link" class="menu__list-cart" href="#">Корзинка</a>
               <a aria-label="link" class="menu__list-count" href="#">
-                {{ $store.state.ordersData.length }}
+                <!-- {{ $store.state.products.filter(el => el.l) }} -->
               </a>
             </div>
           </li>
@@ -83,16 +79,6 @@
 <script>
 export default {
   name: "TheHeader",
-  // data() {
-  //   return {
-  //     cardCount: 0,
-  //   }
-  // },
-  // methods: {
-  //   addCart() {
-  //     this.cardCount++
-  //   },
-  // }
 }
 </script>
 
@@ -271,11 +257,6 @@ export default {
   text-align: right;
 }
 
-// .menu__list-text a:hover {
-//   color: #FFD600;
-//   transition: .3s;
-// }
-
 .menu__list-contact {
   text-align: end;
   display: block;
@@ -297,26 +278,15 @@ export default {
 }
 
 .menu__list-count {
-  width: 14px;
-  height: 14px;
+  width: 15px;
+  height: 15px;
   padding: 1px;
   background: #FFD600;
   border-radius: 50%;
   font-size: 10px;
   display: flex;
   align-items: center;
-  padding: 8px;
   margin: auto;
   justify-content: center;
 }
-
-// .menu__list-text:last-child:hover .menu__list-count {
-//   color: white !important;
-//   transition: .3s;
-// }
-
-// .menu__list-text:last-child:hover .menu__list-cart {
-//   color: #FFD600;
-//   transition: .3s;
-// }
 </style>

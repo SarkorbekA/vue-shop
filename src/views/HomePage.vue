@@ -1,6 +1,7 @@
 <script setup>
 import TheSlider from '../components/TheSlider.vue'
-import Products from '../components/Products.vue'
+import Products from '../components/HomePage/NewProducts.vue'
+import PopularProducts from '../components/HomePage/PopularProducts.vue'
 import BuyProduct from '../components/BuyProduct.vue'
 import Partners from '../components/Partners.vue'
 import Advantage from '../components/TheAdvantage.vue'
@@ -11,6 +12,7 @@ export default {
     component: {
         TheSlider,
         Products,
+        PopularProducts,
         BuyProduct,
         Partners,
         Advantage,
@@ -20,10 +22,9 @@ export default {
 
 <template>
     <TheSlider />
-
     <section class="product">
         <div class="product__title"><span>Популярные</span> товары</div>
-        <Products />
+        <PopularProducts />
     </section>
 
 
@@ -132,7 +133,8 @@ export default {
         font-weight: 700;
         font-size: 28px;
         color: #232323;
-        @media(max-width: 400px){
+
+        @media(max-width: 400px) {
             font-size: 24px;
         }
     }

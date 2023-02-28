@@ -2,7 +2,8 @@
     <section class="buy">
         <div class="container">
             <div class="buy__main">
-                <img src="../assets/img/products/product2.webp" alt="product">
+                <img src="../assets/img/products/product2.webp"
+                    alt="product">
                 <p class="category">
                     {{ this.bestProduct.type }}
                 </p>
@@ -13,25 +14,38 @@
                     {{ this.bestProduct.price }} UZS
                 </p>
                 <div class="time__box">
-                    <img src="../assets/img/clock.svg" alt="">
+                    <img src="../assets/img/clock.svg"
+                        alt="">
                     <p class="time">01 : 30 : 15</p>
                 </div>
-                <div v-if="!this.bestProduct.like" @click="AddToLikes(this.bestProduct)"
-                    :class="this.bestProduct.like ? 'add-like' : ''" class="favorite">
-                    <img src="../assets/img/icons/like.svg" alt="like">
-                </div>
-                <div v-else @click="AddToLikes(this.bestProduct)" :class="this.bestProduct.like ? 'add-like' : ''"
+                <div v-if="!this.bestProduct.like"
+                    @click="AddToLikes(this.bestProduct)"
+                    :class="this.bestProduct.like ? 'add-like' : ''"
                     class="favorite">
-                    <img src="../assets/img/icons/liked.svg" alt="like">
+                    <img src="../assets/img/icons/like.svg"
+                        alt="like">
                 </div>
-                <div @click="AddCart(this.bestProduct)" class="addCart">
+                <div v-else
+                    @click="AddToLikes(this.bestProduct)"
+                    :class="this.bestProduct.like ? 'add-like' : ''"
+                    class="favorite">
+                    <img src="../assets/img/icons/liked.svg"
+                        alt="like">
+                </div>
+                <div @click="AddCart(this.bestProduct)"
+                    class="addCart">
                     <i class="fa-solid fa-cart-shopping"></i>
                     <p>В Корзину</p>
                 </div>
             </div>
             <div class="product__list">
-                <the-card v-for="(card, index) in products" :key="index" :title="card.title" :type="card.type"
-                    :price="card.price" :like="card.like" @addProductToCard="AddCart(card)"
+                <the-card v-for="(card, index) in products"
+                    :key="index"
+                    :title="card.title"
+                    :type="card.type"
+                    :price="card.price"
+                    :like="card.like"
+                    @addProductToCard="AddCart(card)"
                     @addToFavorites="AddToLikes(card)" />
 
             </div>
@@ -46,79 +60,19 @@ export default {
     components: { TheCard },
     data() {
         return {
-            orderCard: [],
-            products: [
-                {
-                    type: "Complect",
-                    title: "Telefon",
-                    price: 15000,
-                    like: false
-                },
-                {
-                    type: "Complect",
-                    title: "Telefon",
-                    price: 15000,
-                    like: false
-                },
-                {
-                    type: "Complect",
-                    title: "Telefon",
-                    price: 15000,
-                    like: false
-                },
-                {
-                    type: "Complect",
-                    title: "Telefon",
-                    price: 15000,
-                    like: false
-                },
-                {
-                    type: "Complect",
-                    title: "Telefon",
-                    price: 15000,
-                    like: false
-                },
-                {
-                    type: "Complect",
-                    title: "Telefon",
-                    price: 15000,
-                    like: false
-                },
-                {
-                    type: "Complect",
-                    title: "Telefon",
-                    price: 15000,
-                    like: false
-                },
-                {
-                    type: "Complect",
-                    title: "Telefon",
-                    price: 15000,
-                    like: false
-                }
-            ],
             bestProduct: {
                 type: "Complect",
                 title: "Telefon",
                 price: 15000,
-                like: false
+                like: false,
+                cart: false,
+                count: 1,
             }
-        }
-    },
-    computed: {
-        count() {
-            return this.orderCard.length
         }
     },
     methods: {
         AddCart(data) {
-            this.orderCard.push({
-                title: data.title,
-                type: data.type,
-                price: data.price,
-            })
             this.$store.commit('ADD_ORDER', data)
-            this.$store.commit('CHANGE_ORDER_COUNT')
         },
         AddToLikes(data) {
             data.like = !data.like
@@ -149,9 +103,10 @@ export default {
         justify-content: space-between;
         gap: 30px;
 
-        @media (max-width: 1280px){
+        @media (max-width: 1280px) {
             grid-template-columns: 3fr 4fr;
         }
+
         @media (max-width: 1024px) {
             grid-template-columns: 1fr;
         }
