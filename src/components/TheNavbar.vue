@@ -8,6 +8,7 @@
                     <p>ВСЕ КАТЕГОРИИ</p>
                 </div>
                 <a aria-label="link"
+                    @click="$router.push('/favorites')"
                     href="#"
                     class="favorite">
                     <img width="20"
@@ -16,7 +17,7 @@
                         alt="like">
                     <p>Избранное</p>
                     <span class="favorite__count">
-                        {{ $store.state.likesCount }}
+                        {{ $store.state.products.filter(el => el.like == true).length }}
                     </span>
                 </a>
             </div>
@@ -66,7 +67,7 @@
                     alt="like">
                 <p>Избранное</p>
                 <span class="favorite__count">
-                    {{ $store.state.likesCount }}
+                    {{ $store.state.products.filter(el => el.like == true).length }}
                 </span>
             </a>
         </div>

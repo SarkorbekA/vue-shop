@@ -5,53 +5,77 @@
         <nav class="nav">
           <ul class="nav__menu">
             <li class="nav__items">
-              <a @click="$router.push('/contact')" aria-label="link" href="#">Контакты</a>
+              <a @click="$router.push('/contact')"
+                aria-label="link"
+                href="#">Контакты</a>
             </li>
             <li class="nav__items">
-              <a aria-label="link" href="#">Помощь</a>
+              <a aria-label="link"
+                href="#">Помощь</a>
             </li>
             <li class="nav__items">
               <a href="#">Услуги и сервис</a>
             </li>
             <li class="nav__items">
-              <a aria-label="link" href="#">Стать партнером</a>
+              <a aria-label="link"
+                href="#">Стать партнером</a>
             </li>
           </ul>
         </nav>
         <div class="login">
           <div class="login__img">
-            <img src="../assets/img/user-logo.svg" alt="user logo">
+            <img src="../assets/img/user-logo.svg"
+              alt="user logo">
           </div>
           <div class="login__items">
-            <a aria-label="link" href="#">Вход </a>
+            <a aria-label="link"
+              href="#">Вход </a>
             <span> | </span>
-            <a aria-label="link" href="#"> Регистрация</a>
+            <a aria-label="link"
+              href="#"> Регистрация</a>
           </div>
         </div>
       </div>
     </div>
     <div class="container">
       <div class="header">
-        <a @click="$router.push('/')" aria-label="link" href="#" class="logo">
-          <img width="100" height="auto" src="../assets/img/Logo.svg" alt="logo">
+        <a @click="$router.push('/')"
+          aria-label="link"
+          href="#"
+          class="logo">
+          <img width="100"
+            height="auto"
+            src="../assets/img/Logo.svg"
+            alt="logo">
         </a>
         <div class="search">
-          <input type="text" placeholder="Поиск по товарам...">
-          <img class="" src="../assets/img/search.svg" alt="search">
+          <input type="text"
+            placeholder="Поиск по товарам...">
+          <img class=""
+            src="../assets/img/search.svg"
+            alt="search">
         </div>
         <ul class="menu__list">
           <li class="location">
             <div class="menu__list-img">
-              <img width="19" height="auto" src="../assets/img/geo.svg" alt="location">
+              <img width="19"
+                height="auto"
+                src="../assets/img/geo.svg"
+                alt="location">
             </div>
             <div class="menu__list-text">
               <a href="#">Работаем по всему Узбекистану</a>
             </div>
           </li>
           <li>
-            <a class="contact" aria-label="link" href="tel:+998991001879">
+            <a class="contact"
+              aria-label="link"
+              href="tel:+998991001879">
               <div class="menu__list-img">
-                <img width="20" height="auto" src="../assets/img/tel.svg" alt="tel">
+                <img width="20"
+                  height="auto"
+                  src="../assets/img/tel.svg"
+                  alt="tel">
               </div>
               <div class="menu__list-text">
                 <h3 class="menu__list-contact">+998 90 000 00 00</h3>
@@ -59,14 +83,22 @@
               </div>
             </a>
           </li>
-          <li @click="$router.push('/cart')" class="cart">
+          <li @click="$router.push('/cart')"
+            class="cart">
             <div class="menu__list-img">
-              <img width="22" height="auto" src="../assets/img/shop.svg" alt="shop cart">
+              <img width="22"
+                height="auto"
+                src="../assets/img/shop.svg"
+                alt="shop cart">
             </div>
             <div class="menu__list-text">
-              <a aria-label="link" class="menu__list-cart" href="#">Корзинка</a>
-              <a aria-label="link" class="menu__list-count" href="#">
-                <!-- {{ $store.state.products.filter(el => el.l) }} -->
+              <a aria-label="link"
+                class="menu__list-cart"
+                href="#">Корзинка</a>
+              <a aria-label="link"
+                class="menu__list-count"
+                href="#">
+                {{ $store.state.products.filter(el => el.cart == true).length }}
               </a>
             </div>
           </li>
@@ -288,5 +320,4 @@ export default {
   align-items: center;
   margin: auto;
   justify-content: center;
-}
-</style>
+}</style>

@@ -4,7 +4,6 @@ import { createStore } from 'vuex'
 const store = createStore({
     state() {
         return {
-            likesCount: 0,
             products: [
                 {
                     id: 1,
@@ -15,6 +14,7 @@ const store = createStore({
                     like: false,
                     cart: false,
                     count: 1,
+                    discount: 10,
                 },
                 {
                     id: 2,
@@ -25,6 +25,7 @@ const store = createStore({
                     like: false,
                     cart: false,
                     count: 1,
+                    discount: 50,
                 },
                 {
                     id: 3,
@@ -254,7 +255,6 @@ const store = createStore({
                     like: false,
                     cart: false,
                     count: 1,
-                    discount: 10,
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                 },
                 {
@@ -851,18 +851,6 @@ const store = createStore({
         }
     },
     mutations: {
-        ADD_LIKES(state, item) {
-            if (item.like == false) {
-                item.like == !item.like
-            } else {
-                item.like == true
-            }
-            for (const item in state.products) {
-                if (item.like == true) {
-                    state.likesCount++
-                }
-            }
-        },
         ADD_TO_CART(state, item) {
             if (item.cart == false) {
                 item.cart = !item.cart
@@ -870,30 +858,7 @@ const store = createStore({
                 item.count++
             }
         }
-        // ADD_ORDER(state, payload) {
-        //     state.ordersData.push(payload)
-        // },
-        // ADD_COUNT_ORDER(state, index) {
-        //     state.ordersData[index].count += 1
-        // }
     },
-    actions: {
-        addOrder({ state, commit }, payload) {
-            let has = state.ordersData.findIndex(el => el.id == payload.id)
-            if (has == -1) {
-                commit('ADD_ORDER', {
-                    id: payload.id,
-                    price: payload.price,
-                    title: payload.title,
-                    like: payload.like,
-                    about: payload.about,
-                    count: 1
-                })
-            } else if (has != -1) {
-                commit('ADD_COUNT_ORDER', has)
-            }
-        }
-    }
 })
 
 export default store

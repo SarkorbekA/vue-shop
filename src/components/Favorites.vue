@@ -10,122 +10,99 @@
                     <h3 class="item">по рейтингу к цене</h3>
                     <h3 class="item">по размеру скидки</h3>
                     <label for="inMyRegion">
-                        <input type="checkbox" name="inMyRegion" id="inMyRegion">
+                        <input type="checkbox"
+                            name="inMyRegion"
+                            id="inMyRegion">
                         Предложения в моём регионе
                     </label>
                 </div>
             </div>
             <div class="favorites__filter-count">
-                <label :class="selectAll == true ? 'active' : ''" class="filter__all">
-                    <input @change="filterList()" type="checkbox" name="all__product" id="all__product">
+                <label :class="selectAll == true ? 'active' : ''"
+                    class="filter__all">
+                    <input @change="filterList()"
+                        type="checkbox"
+                        name="all__product"
+                        id="all__product">
                     Все товары
                 </label>
                 <div class="filter__btn">
                     <button class="filter__btn-discount">
-                        <img src="../assets/img/fav__page/discount.svg" alt="discount">
+                        <img src="../assets/img/fav__page/discount.svg"
+                            alt="discount">
                     </button>
                     <button class="filter__btn-discount">
-                        <img src="../assets/img/fav__page/delete.svg" alt="delete">
+                        <img src="../assets/img/fav__page/delete.svg"
+                            alt="delete">
                     </button>
                 </div>
             </div>
         </div>
         <div class="favorites__body">
-            <div class="favorites__body-content">
-                <div :class="selectedItem == true ? 'active' : ''" class="cart__item">
-                    <input v-model="checked" @change="selectItem()" type="checkbox">
+            <div v-if="$store.state.products.filter(el => el.like == true).length"
+                class="favorites__body-content">
+                <div v-for="(like, index) in $store.state.products.filter(el => el.like == true)"
+                    :key="index"
+                    :class="selectedItem == true ? 'active' : ''"
+                    class="cart__item">
+                    <input v-model="checked"
+                        @change="selectItem()"
+                        type="checkbox">
                     <div class="cart__item-content">
                         <div class="cart__item-left">
                             <div class="cart__item-img">
-                                <img src="../assets/img/cart/cart__img.png" alt="item">
+                                <img src="../assets/img/cart/cart__img.png"
+                                    alt="item">
                             </div>
                             <div class="cart__item-buttons">
-                                <button class="btn">В избранное</button>
-                                <button class="btn">Удалить</button>
+                                <button @click="addToCart(like)"
+                                    :class="like.cart == true ? 'active' : ''"
+                                    class="btn">В корзинку</button>
+                                <button @click="removeItem(like)"
+                                    class="btn">Удалить</button>
                             </div>
                         </div>
                         <div class="cart__item-center">
                             <h1 class="cart__item-name">
-                                New Year Candle, Christmas Gift Idea
+                                {{ like.title }}
                             </h1>
                             <div class="cart__item-facts">
                                 <h3>Коротко о товаре</h3>
                                 <ul>
-                                    <li><span>Handmade</span></li>
-                                    <li><span>Handmade</span></li>
-                                    <li><span>Handmade</span></li>
-                                    <li><span>Доступно только 4 штуки, и сейчас это есть у более 20 человек</span></li>
+                                    <li><span>{{ like.about }}</span></li>
                                 </ul>
                             </div>
-
                         </div>
                         <div class="cart__item-right">
                             <div class="prices">
-                                <h1 class="cart__item-sale">
-                                    1 000 000 UZS
+                                <h2 v-if="like.discount"
+                                    class="cart__item-sale"> {{ like.price - (like.discount * (like.price / 100)) }} UZS
+                                </h2>
+                                <h1 class="cart__item-sale"
+                                    :class="like.discount ? 'cart__item-price' : ''">
+                                    {{ like.price }} UZS
                                 </h1>
-                                <h2 class="cart__item-price"> 1 000 000 UZS</h2>
                             </div>
-                            <h3 class="cart__item-discount">Sale: 10%</h3>
+                            <h3 v-if="like.discount"
+                                class="cart__item-discount">Sale: {{ like.discount }}%</h3>
                             <div class="cart__item-count">
-                                <button class="minus">-</button>
-                                <div class="count">10</div>
-                                <button class="plus">+</button>
+                                <button @click="minusCount(like)"
+                                    class="minus">-</button>
+                                <div class="count">{{ like.count }}</div>
+                                <button @click="plusCount(like)"
+                                    class="plus">+</button>
                             </div>
                             <div class="cart__item-total">
                                 <div class="title">Общая цена:</div>
-                                <div class="price">100 000 000 UZS</div>
+                                <div class="price">{{ like.price * like.count }} UZS</div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="cart__item">
-                    <input type="checkbox">
-                    <div class="cart__item-content">
-                        <div class="cart__item-left">
-                            <div class="cart__item-img">
-                                <img src="../assets/img/cart/cart__img.png" alt="item">
-                            </div>
-                            <div class="cart__item-buttons">
-                                <button class="btn">В избранное</button>
-                                <button class="btn">Удалить</button>
-                            </div>
-                        </div>
-                        <div class="cart__item-center">
-                            <h1 class="cart__item-name">
-                                New Year Candle, Christmas Gift Idea
-                            </h1>
-                            <div class="cart__item-facts">
-                                <h3>Коротко о товаре</h3>
-                                <ul>
-                                    <li><span>Handmade</span></li>
-                                    <li><span>Handmade</span></li>
-                                    <li><span>Handmade</span></li>
-                                    <li><span>Доступно только 4 штуки, и сейчас это есть у более 20 человек</span></li>
-                                </ul>
-                            </div>
-
-                        </div>
-                        <div class="cart__item-right">
-                            <div class="prices">
-                                <h1 class="cart__item-sale">
-                                    1 000 000 UZS
-                                </h1>
-                                <h2 class="cart__item-price"> 1 000 000 UZS</h2>
-                            </div>
-                            <h3 class="cart__item-discount">Sale: 10%</h3>
-                            <div class="cart__item-count">
-                                <button class="minus">-</button>
-                                <div class="count">10</div>
-                                <button class="plus">+</button>
-                            </div>
-                            <div class="cart__item-total">
-                                <div class="title">Общая цена:</div>
-                                <div class="price">100 000 000 UZS</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            </div>
+            <div v-else
+                class="empty">
+                Пусто
             </div>
             <div class="favorites__body-side">
                 <div class="side__item">
@@ -138,19 +115,20 @@
                                 <div class="payment__info-left">
                                     Товары <span></span>
                                 </div>
-                                <div class="payment__info-price">4</div>
+                                <div class="payment__info-price">{{ $store.state.products.filter(item => item.like ==
+                                    true).length }}</div>
                             </div>
                             <div class="payment__info-item">
                                 <div class="payment__info-left">
                                     Общая стоимость <span></span>
                                 </div>
-                                <div class="payment__info-price">10 655 940 сум</div>
+                                <div class="payment__info-price">{{ this.cartPrice }} сум</div>
                             </div>
                             <div class="payment__info-item">
                                 <div class="payment__info-left">
                                     Скидки на товары <span></span>
                                 </div>
-                                <div class="payment__info-price">213 118 сум</div>
+                                <div class="payment__info-price">{{ this.cartDiscount }} сум</div>
                             </div>
                             <div class="payment__info-item">
                                 <div class="payment__info-left">
@@ -160,8 +138,10 @@
                             </div>
                         </div>
                         <form class="payment__promocode">
-                            <input type="text" placeholder="Промокоды">
-                            <input type="button" value="Применить">
+                            <input type="text"
+                                placeholder="Промокоды">
+                            <input type="button"
+                                value="Применить">
                         </form>
                         <div class="payment__pay">
                             <button>Перенести всё в корзину</button>
@@ -170,7 +150,7 @@
                 </div>
             </div>
         </div>
-</section>
+    </section>
 </template>
 
 <script>
@@ -178,6 +158,8 @@ export default {
     name: 'Favorites',
     data() {
         return {
+            cartPrice: 0,
+            cartDiscount: 0,
             selectAll: false,
             selectedItem: false,
             checked: false
@@ -191,8 +173,35 @@ export default {
         },
         selectItem() {
             this.selectedItem = !this.selectedItem
+        },
+        plusCount(item) {
+            this.cartPrice += item.price
+            item.count++
+        },
+        minusCount(item) {
+            if (item.count <= 1) {
+                item.like = false;
+                this.cartPrice -= item.price
+            } else {
+                this.cartPrice -= item.price
+                item.count--
+            }
+        },
+        removeItem(item) {
+            item.like = false
+            this.cartPrice -= item.price * item.count
+        },
+        addToCart(item) {
+            item.cart = !item.cart
         }
-    }
+    },
+    mounted() {
+        for (const item in this.$store.state.products.filter(item => item.like == true)) {
+            let oneItem = this.$store.state.products[item]
+            this.cartPrice += (oneItem.price - (oneItem.discount * (oneItem.price / 100))) * oneItem.count
+            this.cartDiscount += (oneItem.count * oneItem.price) - (oneItem.price - (oneItem.discount * (oneItem.price / 100))) * oneItem.count
+        }
+    },
 }
 </script>
 
@@ -269,6 +278,10 @@ export default {
                 &.active {
                     border: 1px solid #FFD600;
                 }
+
+                input {
+                    cursor: pointer;
+                }
             }
 
             .filter__btn {
@@ -295,7 +308,7 @@ export default {
 
     &__body {
         display: grid;
-        grid-template-columns: 10fr 4fr;
+        grid-template-columns: 10fr 5fr;
         gap: 20px;
         margin-top: 24px;
         color: #232323;
@@ -326,15 +339,12 @@ export default {
                 &-content {
                     display: flex;
                     flex-wrap: wrap;
-                    // justify-content: space-between;
                     row-gap: 20px;
                     column-gap: 15px;
-                    // max-height: 230px;
                 }
 
                 // left box
                 &-left {
-
                     display: flex;
                     flex-wrap: wrap;
                     align-content: space-between;
@@ -376,20 +386,28 @@ export default {
                             transition: .3s;
                             color: #232323;
                         }
+
+                        &.active {
+                            color: #E01A22;
+                        }
                     }
                 }
 
                 // center box
                 &-center {
-                    width: 450px;
+                    width: 400px;
                     border-right: 1px solid #E5E5E5;
                     height: 100%;
                     padding-right: 20px;
 
                     @media (max-width: 1280px) {
-                        min-width: 280px;
-                        width: 280px;
+                        min-width: 235px;
+                        width: 235px;
                         padding-right: 0;
+                    }
+
+                    @media (max-width: 1024px) {
+                        width: 330px;
                     }
 
                     @media (max-width: 768px) {
@@ -536,6 +554,17 @@ export default {
             }
         }
 
+        .empty {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            color: gray;
+            min-height: 300px;
+        }
+
         &-side {
             width: 100%;
 
@@ -579,7 +608,7 @@ export default {
                         display: flex;
                         flex-direction: column;
                         gap: 20px;
-                        padding: 15px 0px 15px 10px;
+                        padding: 15px 25px;
 
                         &-item {
                             display: flex;
@@ -647,7 +676,7 @@ export default {
                             padding: 11px;
                             text-align: center;
                             font-weight: 700;
-                            font-size: 18px;
+                            font-size: 16px;
                             color: #FFFFFF;
                         }
                     }

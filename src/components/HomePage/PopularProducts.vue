@@ -20,23 +20,12 @@ import TheCard from "../TheCard.vue";
 export default {
     name: "Products",
     components: { TheCard },
-    // data() {
-    //     return {
-    //         count: 12,
-    //     }
-    // },
     methods: {
         AddCart(card) {
-            // this.$store.dispatch('addOrder', card)
             this.$store.commit('ADD_TO_CART', card)
         },
         AddToLikes(data) {
             data.like = !data.like
-            if (data.like) {
-                this.$store.commit('ADD_LIKES')
-            } else {
-                this.$store.commit('SUBTRACT_LIKES')
-            }
         }
     },
 }
@@ -67,4 +56,5 @@ export default {
     @media (max-width: 450px) {
         grid-template-columns: 1fr;
     }
-}</style>
+}
+</style>

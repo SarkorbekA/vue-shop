@@ -35,12 +35,15 @@
                     </div>
                     <div class="cart__item-right">
                         <div class="prices">
-                            <h1 class="cart__item-sale">
+                            <h2 v-if="cart.discount"
+                                class="cart__item-sale"> {{ cart.price - (cart.discount * (cart.price / 100)) }} UZS</h2>
+                            <h1 class="cart__item-sale"
+                                :class="cart.discount ? 'cart__item-price' : ''">
                                 {{ cart.price }} UZS
                             </h1>
-                            <h2 class="cart__item-price"> 1 000 000 UZS</h2>
                         </div>
-                        <h3 class="cart__item-discount">Sale: 10%</h3>
+                        <h3 v-if="cart.discount"
+                            class="cart__item-discount">Sale: {{ cart.discount }}%</h3>
                         <div class="cart__item-count">
                             <button @click="minusCount(cart)"
                                 class="minus">-</button>
@@ -50,7 +53,8 @@
                         </div>
                         <div class="cart__item-total">
                             <div class="title">Общая цена:</div>
-                            <div class="price">{{ cart.price * cart.count }} UZS</div>
+                            <div class="price">{{ (cart.price - (cart.discount * (cart.price / 100))) * cart.count }} UZS
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -144,8 +148,7 @@ export default {
     data() {
         return {
             cartPrice: 0,
-            cartDiscount: 0,
-            allPrice: {},
+            cartDiscount: 0
         }
     },
     methods: {
@@ -168,17 +171,13 @@ export default {
         },
         cartLike(cart) {
             cart.like = !cart.like
-            if (cart.like) {
-                this.$store.commit('ADD_LIKES')
-            } else {
-                this.$store.commit('SUBTRACT_LIKES')
-            }
         }
     },
     mounted() {
         for (const item in this.$store.state.products.filter(item => item.cart == true)) {
             let oneItem = this.$store.state.products[item]
-            this.cartPrice += oneItem.price * oneItem.count
+            this.cartPrice += (oneItem.price - (oneItem.discount * (oneItem.price / 100))) * oneItem.count
+            this.cartDiscount += (oneItem.count * oneItem.price) - (oneItem.price - (oneItem.discount * (oneItem.price / 100))) * oneItem.count
         }
     },
 }
@@ -223,7 +222,6 @@ export default {
             .cart__item {
                 display: flex;
                 flex-wrap: wrap;
-                // justify-content: space-between;
                 row-gap: 20px;
                 column-gap: 20px;
                 padding: 20px 0px;
@@ -296,10 +294,6 @@ export default {
                     @media (max-width: 768px) {
                         border: none;
                     }
-
-                    // @media (max-width:500px) {
-                    //     width: 100%;
-                    // }
                 }
 
                 &-name {
