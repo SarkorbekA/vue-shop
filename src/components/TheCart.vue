@@ -153,20 +153,43 @@ export default {
     },
     methods: {
         removeItem(item) {
-            item.cart = false
-            this.cartPrice -= item.price * item.count
+            item.like = false
+            if (item.discount) {
+                this.cartPrice -= (item.price - (item.discount * (item.price / 100))) * item.count;
+                this.cartDiscount -= (item.count * item.price) - (item.price - (item.discount * (item.price / 100))) * item.count;
+            } else {
+                this.cartPrice -= item.price * item.count
+            }
+            item.count = 0;
         },
         plusCount(item) {
-            this.cartPrice += item.price
+            let discount = (item.discount * (item.price / 100));
+            if (item.discount) {
+                this.cartPrice += (item.price - discount);
+                this.cartDiscount += discount;
+            } else {
+                this.cartPrice += item.price;
+            }
             item.count++
         },
         minusCount(item) {
+            let discount = (item.discount * (item.price / 100));
             if (item.count <= 1) {
-                item.cart = false;
-                this.cartPrice -= item.price
+                item.like = false;
+                if (item.discount) {
+                    this.cartDiscount -= (item.count * item.price) - (item.price - discount)
+                    this.cartPrice -= (item.price - discount)
+                } else {
+                    this.cartPrice -= item.price
+                }
             } else {
-                this.cartPrice -= item.price
                 item.count--
+                if (item.discount) {
+                    this.cartDiscount -= (item.count * item.price) - (item.price - discount)
+                    this.cartPrice -= (item.price - discount)
+                } else {
+                    this.cartPrice -= item.price
+                }
             }
         },
         cartLike(cart) {

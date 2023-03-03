@@ -94,7 +94,15 @@
                             </div>
                             <div class="cart__item-total">
                                 <div class="title">Общая цена:</div>
-                                <div class="price">{{ like.price * like.count }} UZS</div>
+                                <div class="prices">
+                                    <h2 v-if="like.discount"
+                                        class="cart__item-sale price"> {{ (like.price - (like.discount * (like.price / 100))) * like.count }} UZS
+                                    </h2>
+                                    <h1 class="cart__item-sale price"
+                                        :class="like.discount ? 'cart__item-price' : ''">
+                                        {{ like.price * like.count }} UZS
+                                    </h1>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -166,6 +174,47 @@ export default {
         }
     },
     methods: {
+        removeItem(item) {
+            item.like = false;
+            if (item.discount) {
+                this.cartPrice -= (item.price - (item.discount * (item.price / 100))) * item.count;
+                this.cartDiscount -= (item.count * item.price) - (item.price - (item.discount * (item.price / 100))) * item.count;
+            } else {
+                this.cartPrice -= item.price * item.count;
+            }
+            item.count = 0;
+        },
+        plusCount(item) {
+            let discount = (item.discount * (item.price / 100));
+            if (item.discount) {
+                this.cartPrice += (item.price - discount);
+                this.cartDiscount += discount;
+            } else {
+                this.cartPrice += item.price;
+            }
+            item.count++
+        },
+        minusCount(item) {
+            let discount = (item.discount * (item.price / 100));
+            if (item.count <= 1) {
+                item.like = false;
+                if (item.discount) {
+                    this.cartPrice -= (item.price - discount)
+                    this.cartDiscount -= item.price - (item.price - discount)
+                } else {
+                    this.cartPrice -= item.price
+                }
+                item.count = 1
+            } else {
+                if (item.discount) {
+                    this.cartPrice -= (item.price - discount)
+                    this.cartDiscount -= item.price - (item.price - discount)
+                } else {
+                    this.cartPrice -= item.price
+                }
+                item.count--
+            }
+        },
         filterList() {
             this.selectAll = !this.selectAll
             this.selectedItem = !this.selectedItem
@@ -173,23 +222,6 @@ export default {
         },
         selectItem() {
             this.selectedItem = !this.selectedItem
-        },
-        plusCount(item) {
-            this.cartPrice += item.price
-            item.count++
-        },
-        minusCount(item) {
-            if (item.count <= 1) {
-                item.like = false;
-                this.cartPrice -= item.price
-            } else {
-                this.cartPrice -= item.price
-                item.count--
-            }
-        },
-        removeItem(item) {
-            item.like = false
-            this.cartPrice -= item.price * item.count
         },
         addToCart(item) {
             item.cart = !item.cart
