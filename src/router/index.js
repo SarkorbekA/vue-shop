@@ -5,6 +5,7 @@ import CartPage from '../views/CartPage.vue'
 import ContactPage from '../views/ContactPage.vue'
 import FavoritePage from '../views/FavoritePage.vue'
 import CatalogPage from '../views/CatalogPage.vue'
+import AboutPage from '../views/AboutPage.vue'
 
 
 const router = createRouter({
@@ -39,6 +40,11 @@ const router = createRouter({
             path: '/catalog',
             name: 'catalog',
             component: CatalogPage
+        },
+        {
+            path: '/about',
+            name: 'about',
+            component: AboutPage
         }
     ]
 })

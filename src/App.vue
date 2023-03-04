@@ -32,7 +32,7 @@ export default {
 
 .content {
   color: #232323;
-  padding: 30px 15px;
+  padding: 30px 12px;
 
   .page__router {
     margin-top: 24px;
