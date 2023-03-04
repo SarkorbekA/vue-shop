@@ -1,53 +1,55 @@
 <template>
     <section class="buy">
         <div class="container">
-            <div class="buy__main">
+            <div v-for="(card, index) in $store.state.products.slice(92, 93)"
+                :key="index"
+                class="buy__main">
                 <img src="../assets/img/products/product2.webp"
                     alt="product">
                 <p class="category">
-                    {{ this.bestProduct.type }}
+                    {{ card.type }}
                 </p>
                 <p class="info">
-                    {{ this.bestProduct.title }}
+                    {{ card.title }}
                 </p>
                 <p class="price">
-                    {{ this.bestProduct.price }} UZS
+                    {{ card.price }} UZS
                 </p>
                 <div class="time__box">
                     <img src="../assets/img/clock.svg"
                         alt="">
                     <p class="time">01 : 30 : 15</p>
                 </div>
-                <div v-if="!this.bestProduct.like"
-                    @click="AddToLikes(this.bestProduct)"
-                    :class="this.bestProduct.like ? 'add-like' : ''"
+                <div v-if="!card.like"
+                    @click="AddToLikes(card)"
+                    :class="card.like ? 'add-like' : ''"
                     class="favorite">
                     <img src="../assets/img/icons/like.svg"
                         alt="like">
                 </div>
                 <div v-else
-                    @click="AddToLikes(this.bestProduct)"
-                    :class="this.bestProduct.like ? 'add-like' : ''"
+                    @click="AddToLikes(card)"
+                    :class="card.like ? 'add-like' : ''"
                     class="favorite">
                     <img src="../assets/img/icons/liked.svg"
                         alt="like">
                 </div>
-                <div @click="AddCart(this.bestProduct)"
+                <div @click="AddCart(card)"
                     class="addCart">
                     <i class="fa-solid fa-cart-shopping"></i>
                     <p>В Корзину</p>
                 </div>
             </div>
             <div class="product__list">
-                <the-card v-for="(card, index) in products"
+                <the-card v-for="(card, index) in $store.state.products.slice(84, 92)"
                     :key="index"
                     :title="card.title"
                     :type="card.type"
                     :price="card.price"
+                    :discount="card.discount"
                     :like="card.like"
                     @addProductToCard="AddCart(card)"
                     @addToFavorites="AddToLikes(card)" />
-
             </div>
         </div>
     </section>
@@ -58,29 +60,12 @@ import TheCard from "./TheCard.vue";
 export default {
     name: "BuyProduct",
     components: { TheCard },
-    data() {
-        return {
-            bestProduct: {
-                type: "Complect",
-                title: "Telefon",
-                price: 15000,
-                like: false,
-                cart: false,
-                count: 1,
-            }
-        }
-    },
     methods: {
-        AddCart(data) {
-            this.$store.commit('ADD_ORDER', data)
+        AddCart(card) {
+            this.$store.commit('ADD_TO_CART', card)
         },
         AddToLikes(data) {
             data.like = !data.like
-            if (data.like) {
-                this.$store.commit('ADD_LIKES')
-            } else {
-                this.$store.commit('SUBTRACT_LIKES')
-            }
         }
     }
 }

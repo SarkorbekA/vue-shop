@@ -21,15 +21,10 @@ export default {
     components: { TheCard },
     methods: {
         AddCart(card) {
-            this.$store.dispatch('addOrder', card)
+            this.$store.commit('ADD_TO_CART', card)
         },
         AddToLikes(data) {
             data.like = !data.like
-            if (data.like) {
-                this.$store.commit('ADD_LIKES')
-            } else {
-                this.$store.commit('SUBTRACT_LIKES')
-            }
         }
     },
 }

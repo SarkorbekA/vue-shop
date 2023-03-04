@@ -3,9 +3,9 @@
         <div class="cart__content">
             <h1 class="cart__content-title">Всего {{ $store.state.products.filter(el => el.cart == true).length }} товара
             </h1>
-            <div v-if="$store.state.products.filter(el => el.cart == true)"
+            <div v-if="$store.state.products.filter(el => el.cart == true).length"
                 class="cart__content-box">
-                <div v-for="(cart, index) in $store.state.products.filter(el => el.cart == true)"
+                <div v-for="(item, index) in $store.state.products.filter(el => el.cart == true)"
                     :key="index"
                     class="cart__item">
                     <div class="cart__item-left">
@@ -14,46 +14,54 @@
                                 alt="item">
                         </div>
                         <div class="cart__item-buttons">
-                            <button @click="cartLike(cart)"
-                                :class="cart.like == true ? 'active' : ''"
+                            <button @click="cartLike(item)"
+                                :class="item.like == true ? 'active' : ''"
                                 class="btn">В
                                 избранное</button>
-                            <button @click="removeItem(cart)"
+                            <button @click="removeItem(item)"
                                 class="btn">Удалить</button>
                         </div>
                     </div>
                     <div class="cart__item-center">
                         <h1 class="cart__item-name">
-                            {{ cart.title }}
+                            {{ item.title }}
                         </h1>
                         <div class="cart__item-facts">
                             <h3>Коротко о товаре</h3>
                             <ul>
-                                <li><span>{{ cart.about }}</span></li>
+                                <li><span>{{ item.about }}</span></li>
                             </ul>
                         </div>
                     </div>
                     <div class="cart__item-right">
                         <div class="prices">
-                            <h2 v-if="cart.discount"
-                                class="cart__item-sale"> {{ cart.price - (cart.discount * (cart.price / 100)) }} UZS</h2>
+                            <h2 v-if="item.discount"
+                                class="cart__item-sale"> {{ item.price - (item.discount * (item.price / 100)) }} UZS</h2>
                             <h1 class="cart__item-sale"
-                                :class="cart.discount ? 'cart__item-price' : ''">
-                                {{ cart.price }} UZS
+                                :class="item.discount ? 'cart__item-price' : ''">
+                                {{ item.price }} UZS
                             </h1>
                         </div>
-                        <h3 v-if="cart.discount"
-                            class="cart__item-discount">Sale: {{ cart.discount }}%</h3>
+                        <h3 v-if="item.discount"
+                            class="cart__item-discount">Sale: {{ item.discount }}%</h3>
                         <div class="cart__item-count">
-                            <button @click="minusCount(cart)"
+                            <button @click="minusCount(item)"
                                 class="minus">-</button>
-                            <div class="count">{{ cart.count }}</div>
-                            <button @click="plusCount(cart)"
+                            <div class="count">{{ item.count }}</div>
+                            <button @click="plusCount(item)"
                                 class="plus">+</button>
                         </div>
                         <div class="cart__item-total">
                             <div class="title">Общая цена:</div>
-                            <div class="price">{{ (cart.price - (cart.discount * (cart.price / 100))) * cart.count }} UZS
+                            <div class="prices">
+                                <h2 v-if="item.discount"
+                                    class="cart__item-sale price"> {{ (item.price - (item.discount * (item.price /
+                                        100))) * item.count }} UZS
+                                </h2>
+                                <h1 class="cart__item-sale price"
+                                    :class="item.discount ? 'cart__item-price' : ''">
+                                    {{ item.price * item.count }} UZS
+                                </h1>
                             </div>
                         </div>
                     </div>
@@ -153,14 +161,16 @@ export default {
     },
     methods: {
         removeItem(item) {
-            item.like = false
+            item.cart = false;
             if (item.discount) {
                 this.cartPrice -= (item.price - (item.discount * (item.price / 100))) * item.count;
                 this.cartDiscount -= (item.count * item.price) - (item.price - (item.discount * (item.price / 100))) * item.count;
             } else {
-                this.cartPrice -= item.price * item.count
+                this.cartPrice -= item.price * item.count;
             }
-            item.count = 0;
+            if (!item.like == true) {
+                item.count = 1;
+            }
         },
         plusCount(item) {
             let discount = (item.discount * (item.price / 100));
@@ -175,32 +185,37 @@ export default {
         minusCount(item) {
             let discount = (item.discount * (item.price / 100));
             if (item.count <= 1) {
-                item.like = false;
+                item.cart = false;
                 if (item.discount) {
-                    this.cartDiscount -= (item.count * item.price) - (item.price - discount)
-                    this.cartPrice -= (item.price - discount)
+                    this.cartPrice -= (item.price - discount);
+                    this.cartDiscount -= item.price - (item.price - discount);
                 } else {
-                    this.cartPrice -= item.price
+                    this.cartPrice -= item.price;
                 }
+                item.count = 1;
             } else {
-                item.count--
                 if (item.discount) {
-                    this.cartDiscount -= (item.count * item.price) - (item.price - discount)
-                    this.cartPrice -= (item.price - discount)
+                    this.cartPrice -= (item.price - discount);
+                    this.cartDiscount -= item.price - (item.price - discount);
                 } else {
-                    this.cartPrice -= item.price
+                    this.cartPrice -= item.price;
                 }
+                item.count--;
             }
         },
-        cartLike(cart) {
-            cart.like = !cart.like
+        cartLike(item) {
+            item.like = !item.like
         }
     },
     mounted() {
         for (const item in this.$store.state.products.filter(item => item.cart == true)) {
-            let oneItem = this.$store.state.products[item]
-            this.cartPrice += (oneItem.price - (oneItem.discount * (oneItem.price / 100))) * oneItem.count
-            this.cartDiscount += (oneItem.count * oneItem.price) - (oneItem.price - (oneItem.discount * (oneItem.price / 100))) * oneItem.count
+            let oneItem = this.$store.state.products.filter(item => item.cart == true)[item]
+            if (oneItem.discount) {
+                this.cartPrice += (oneItem.price - (oneItem.discount * (oneItem.price / 100))) * oneItem.count
+                this.cartDiscount += (oneItem.count * oneItem.price) - (oneItem.price - (oneItem.discount * (oneItem.price / 100))) * oneItem.count
+            } else {
+                this.cartPrice += oneItem.price * oneItem.count
+            }
         }
     },
 }

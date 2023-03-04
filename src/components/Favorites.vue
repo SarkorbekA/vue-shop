@@ -18,20 +18,26 @@
                 </div>
             </div>
             <div class="favorites__filter-count">
-                <label :class="selectAll == true ? 'active' : ''"
+                <div :class="selectAll == true ? 'active' : ''"
                     class="filter__all">
-                    <input @change="filterList()"
-                        type="checkbox"
-                        name="all__product"
-                        id="all__product">
-                    Все товары
-                </label>
+                    <label :class="$store.state.products.filter(el => el.like == true).length ? 'cursor' : ''"
+                        class="filter__all-label">
+                        <input @change="filterList()"
+                            type="checkbox"
+                            name="all__product"
+                            id="all__product"
+                            :class="$store.state.products.filter(el => el.like == true).length ? 'cursor' : ''"
+                            v-bind:disabled="!$store.state.products.filter(el => el.like == true).length">
+                        Все товары
+                    </label>
+                </div>
                 <div class="filter__btn">
                     <button class="filter__btn-discount">
                         <img src="../assets/img/fav__page/discount.svg"
                             alt="discount">
                     </button>
-                    <button class="filter__btn-discount">
+                    <button @click="removeAll()"
+                        class="filter__btn-discount">
                         <img src="../assets/img/fav__page/delete.svg"
                             alt="delete">
                     </button>
@@ -96,7 +102,8 @@
                                 <div class="title">Общая цена:</div>
                                 <div class="prices">
                                     <h2 v-if="like.discount"
-                                        class="cart__item-sale price"> {{ (like.price - (like.discount * (like.price / 100))) * like.count }} UZS
+                                        class="cart__item-sale price"> {{ (like.price - (like.discount * (like.price /
+                                            100))) * like.count }} UZS
                                     </h2>
                                     <h1 class="cart__item-sale price"
                                         :class="like.discount ? 'cart__item-price' : ''">
@@ -182,7 +189,9 @@ export default {
             } else {
                 this.cartPrice -= item.price * item.count;
             }
-            item.count = 0;
+            if (!item.cart == true) {
+                item.count = 1;
+            }
         },
         plusCount(item) {
             let discount = (item.discount * (item.price / 100));
@@ -199,10 +208,10 @@ export default {
             if (item.count <= 1) {
                 item.like = false;
                 if (item.discount) {
-                    this.cartPrice -= (item.price - discount)
-                    this.cartDiscount -= item.price - (item.price - discount)
+                    this.cartPrice -= (item.price - discount);
+                    this.cartDiscount -= item.price - (item.price - discount);
                 } else {
-                    this.cartPrice -= item.price
+                    this.cartPrice -= item.price;
                 }
                 item.count = 1
             } else {
@@ -212,26 +221,40 @@ export default {
                 } else {
                     this.cartPrice -= item.price
                 }
-                item.count--
+                item.count--;
             }
         },
         filterList() {
-            this.selectAll = !this.selectAll
-            this.selectedItem = !this.selectedItem
-            this.checked = !this.checked
+            this.selectAll = !this.selectAll;
+            this.selectedItem = !this.selectedItem;
+            this.checked = !this.checked;
         },
         selectItem() {
-            this.selectedItem = !this.selectedItem
+            this.selectedItem = !this.selectedItem;
         },
         addToCart(item) {
-            item.cart = !item.cart
+            item.cart = !item.cart;
+        },
+        removeAll() {
+            this.cartPrice = 0;
+            this.cartDiscount = 0;
+            for (const item in this.$store.state.products.filter(item => item.like == true)) {
+                let product = this.$store.state.products[item]
+                product.count = 1;
+                product.like = false;
+            }
+            this.selectAll = false;
         }
     },
     mounted() {
         for (const item in this.$store.state.products.filter(item => item.like == true)) {
             let oneItem = this.$store.state.products[item]
-            this.cartPrice += (oneItem.price - (oneItem.discount * (oneItem.price / 100))) * oneItem.count
-            this.cartDiscount += (oneItem.count * oneItem.price) - (oneItem.price - (oneItem.discount * (oneItem.price / 100))) * oneItem.count
+            if (oneItem.discount) {
+                this.cartPrice += (oneItem.price - (oneItem.discount * (oneItem.price / 100))) * oneItem.count
+                this.cartDiscount += (oneItem.count * oneItem.price) - (oneItem.price - (oneItem.discount * (oneItem.price / 100))) * oneItem.count
+            } else {
+                this.cartPrice += oneItem.price * oneItem.count
+            }
         }
     },
 }
@@ -297,22 +320,24 @@ export default {
             gap: 30px;
 
             .filter__all {
-                cursor: pointer;
-                display: flex;
-                align-items: center;
-                height: 42px;
-                background: #F9F9F9;
                 border: 1px solid #bbbbbb;
-                border-radius: 2px;
-                padding: 12px 15px;
-                gap: 10px;
+
+                .filter__all-label {
+                    display: flex;
+                    align-items: center;
+                    height: 42px;
+                    background: #F9F9F9;
+                    border-radius: 2px;
+                    padding: 12px 15px;
+                    gap: 10px;
+                }
+
+                .cursor {
+                    cursor: pointer;
+                }
 
                 &.active {
                     border: 1px solid #FFD600;
-                }
-
-                input {
-                    cursor: pointer;
                 }
             }
 
@@ -331,6 +356,11 @@ export default {
                     border-radius: 2px;
 
                     &.active {
+                        border: 1px solid #FFD600;
+                    }
+
+                    &:hover {
+                        transition: .3s;
                         border: 1px solid #FFD600;
                     }
                 }

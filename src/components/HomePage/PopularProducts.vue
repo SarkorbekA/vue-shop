@@ -1,6 +1,5 @@
 <template>
     <div class="container">
-        <!-- <h1>{{ count }}</h1> -->
         <div class="product__list">
             <the-card v-for="(card, index) in $store.state.products.slice(0, 12)"
                 :key="index"

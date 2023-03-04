@@ -213,7 +213,7 @@
                     </div>
                 </div>
                 <div class="buy__box-btn">
-                    <button @click="addToCard" class="addCart">
+                    <button class="addCart">
                         <i class="fa-solid fa-cart-shopping"></i>
                         <p>В Корзину</p>
                     </button>
@@ -306,9 +306,6 @@ export default {
         };
     },
     methods: {
-        addToCard() {
-            this.$store.commit('CHANGE_ORDER_COUNT')
-        },
         toggleSection(index) {
             this.sections.forEach((section, i) => {
                 if (i === index) {

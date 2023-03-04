@@ -126,6 +126,7 @@ const store = createStore({
                     like: false,
                     cart: false,
                     count: 1,
+                    discount: 1,
                 },
                 {
                     id: 13,
@@ -136,6 +137,7 @@ const store = createStore({
                     like: false,
                     cart: false,
                     count: 1,
+                    discount: 1,
                 },
                 {
                     id: 14,
@@ -246,6 +248,7 @@ const store = createStore({
                     like: false,
                     cart: false,
                     count: 1,
+                    discount: 5,
                 },
                 {
                     id: 25,
@@ -847,13 +850,106 @@ const store = createStore({
                     cart: false,
                     count: 1,
                 },
+                {
+                    id: 85,
+                    type: "Complect",
+                    title: "Telefon",
+                    price: 15000,
+                    about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
+                    like: false,
+                    cart: false,
+                    discount: 10,
+                    count: 1,
+                },
+                {
+                    id: 86,
+                    type: "Complect",
+                    title: "Telefon",
+                    price: 15000,
+                    about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
+                    like: false,
+                    cart: false,
+                    count: 1,
+                },
+                {
+                    id: 87,
+                    type: "Complect",
+                    title: "Telefon",
+                    price: 15000,
+                    about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
+                    like: false,
+                    cart: false,
+                    count: 1,
+                },
+                {
+                    id: 88,
+                    type: "Complect",
+                    title: "Telefon",
+                    price: 15000,
+                    about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
+                    like: false,
+                    cart: false,
+                    count: 1,
+                },
+                {
+                    id: 89,
+                    type: "Complect",
+                    title: "Telefon",
+                    price: 15000,
+                    about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
+                    like: false,
+                    cart: false,
+                    count: 1,
+                },
+                {
+                    id: 90,
+                    type: "Complect",
+                    title: "Telefon",
+                    price: 15000,
+                    about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
+                    like: false,
+                    cart: false,
+                    count: 1,
+                },
+                {
+                    id: 91,
+                    type: "Complect",
+                    title: "Telefon",
+                    price: 15000,
+                    about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
+                    like: false,
+                    cart: false,
+                    count: 1,
+                },
+                {
+                    id: 92,
+                    type: "Complect",
+                    title: "Telefon",
+                    price: 15000,
+                    about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
+                    like: false,
+                    cart: false,
+                    discount: 10,
+                    count: 1,
+                },
+                {
+                    id: 93,
+                    type: "Техника",
+                    title: "Ноутбук",
+                    price: 7000000,
+                    about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
+                    like: false,
+                    cart: false,
+                    discount: 10,
+                    count: 1,
+                },
             ]
         }
     },
     mutations: {
         ADD_TO_CART(state, item) {
             if (item.cart == false) {
-                item.cart = !item.cart
+                item.cart = true;
             } else {
                 item.count++
             }

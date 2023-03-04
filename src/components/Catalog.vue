@@ -229,16 +229,11 @@ export default {
         TheCard,
     },
     methods: {
-        AddCart(data) {
-            this.$store.dispatch('addOrder', data)
+        AddCart(card) {
+            this.$store.commit('ADD_TO_CART', card)
         },
         AddToLikes(data) {
-            // data.like = !data.like
-            // if (data.like) {
-            this.$store.commit('ADD_LIKES', data)
-            // } else {
-            // this.$store.commit('SUBTRACT_LIKES')
-            // }
+            data.like = !data.like
         }
     },
     setup() {
