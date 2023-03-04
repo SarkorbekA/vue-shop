@@ -21,9 +21,9 @@ export default {
                 <span>О нас</span>
             </div>
             <section class="info">
-                <h1 class="info__title">О нас</h1>
                 <div class="info__box">
                     <div class="info__article">
+                        <h1 class="info__title">О нас</h1>
                         <p class="text">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet ipsum consectetur quisque ultrices
                             sed
@@ -57,7 +57,7 @@ export default {
     overflow-x: hidden;
 
     .info {
-        padding: 30px 0px;
+        padding: 20px 0px 60px;
 
         &__title {
             font-weight: 700;
@@ -74,12 +74,12 @@ export default {
 
             @media (max-width: 1024px) {
                 flex-wrap: wrap;
-                gap: 50px;
+                gap: 65px;
             }
         }
 
         &__article {
-            width: 55%;
+            width: 50%;
 
             @media (max-width: 1024px) {
                 width: 100%;
@@ -110,6 +110,7 @@ export default {
                 height: 100%;
                 margin: auto;
                 object-fit: contain;
+                transform: scale(1.2);
 
                 @media (max-width: 1280px) {
                     width: 100%;
@@ -131,13 +132,13 @@ export default {
                 position: absolute;
                 top: 50%;
                 transform: translateY(-50%);
-                right: -40%;
+                right: -35%;
                 z-index: -1;
+
                 @media (max-width: 1024px) {
-                    right: -10%;
+                    right: -20%;
                 }
             }
         }
     }
-}
-</style>
+}</style>

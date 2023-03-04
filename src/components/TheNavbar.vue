@@ -23,7 +23,8 @@
             </div>
             <ul class="navbar-list">
                 <li>
-                    <a aria-label="link"
+                    <a @click="$router.push('/about')"
+                        aria-label="link"
                         href="#">О нас</a>
                 </li>
                 <li>
