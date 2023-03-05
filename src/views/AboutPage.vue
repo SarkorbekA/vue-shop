@@ -49,6 +49,43 @@ export default {
             </section>
             <TheAdvantage />
         </div>
+        <section class="features">
+            <div class="container">
+                <div class="features__img">
+                    <img src="../assets/img/about/second.webp"
+                        alt="computer">
+                    <div class="left__item"></div>
+                </div>
+                <div class="features__box">
+                    <h1 class="title">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pharetra, viverra nisi scelerisque
+                        vestibulum mattis. Lacus scelerisque magna.
+                    </h1>
+                    <ul class="features__list">
+                        <li class="features__list-item">
+                            <img src="../assets/img/about/check.svg"
+                                alt="check item">
+                            <p>Duis nisi augue nulla sed.</p>
+                        </li>
+                        <li class="features__list-item">
+                            <img src="../assets/img/about/check.svg"
+                                alt="check item">
+                            <p>Nisl quis velit odio amet mi in risus eu non.</p>
+                        </li>
+                        <li class="features__list-item">
+                            <img src="../assets/img/about/check.svg"
+                                alt="check item">
+                            <p>Leo lacus lectus aliquet convallis sit.</p>
+                        </li>
+                        <li class="features__list-item">
+                            <img src="../assets/img/about/check.svg"
+                                alt="check item">
+                            <p>Ornare lectus sodales nunc aenean.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
     </section>
 </template>
 
@@ -138,6 +175,93 @@ export default {
                 @media (max-width: 1024px) {
                     right: -20%;
                 }
+            }
+        }
+    }
+}
+
+.features {
+    padding: 50px 0px 70px;
+    background: #F5F7FA;
+
+    .container {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+
+        @media (max-width: 1024px) {
+            flex-direction: column;
+        }
+    }
+
+    &__img {
+        width: 50%;
+        position: relative;
+
+        @media (max-width: 1280px) {
+            width: 55%;
+        }
+
+        @media (max-width: 1024px) {
+            width: 100%;
+        }
+
+        img {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            object-fit: contain;
+        }
+
+        .left__item {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 95px;
+            width: 100%;
+            left: -40%;
+            z-index: 1;
+            background: #FFD600;
+        }
+    }
+
+    &__box {
+        width: 50%;
+
+        @media (max-width: 1280px) {
+            width: 45%;
+        }
+
+        @media (max-width: 1024px) {
+            width: 100%;
+        }
+
+        .title {
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 29px;
+            letter-spacing: 0.03em;
+            color: #232323;
+        }
+    }
+
+    &__list {
+        margin-top: 35px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        &-item {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+
+            p {
+                font-weight: 700;
+                font-size: 18px;
+                line-height: 22px;
+                letter-spacing: 0.03em;
+                color: #232323;
             }
         }
     }
