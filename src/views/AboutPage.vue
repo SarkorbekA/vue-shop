@@ -86,6 +86,31 @@ export default {
                 </div>
             </div>
         </section>
+        <div class="info__second">
+            <div class="container">
+                <div class="info__img">
+                    <img src="../assets/img/about/firstw.webp"
+                        alt="about img">
+                </div>
+                <div class="info__article">
+                    <p class="text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet ipsum consectetur quisque ultrices sed
+                        elementum. At ut amet venenatis enim erat. Nec vitae ultrices magna id felis laoreet pellentesque
+                        nunc.
+                        Vivamus mattis ullamcorper quis consectetur. Maecenas massa erat consequat odio purus massa.
+                        Tincidunt
+                        semper adipiscing lectus dui et odio faucibus lectus.
+                    </p>
+                    <p class="text">
+                        Aenean fringilla ut pellentesque ultricies dictum. Maecenas ullamcorper ipsum eget morbi leo leo
+                        lectus.
+                        Egestas lacus et aliquam ullamcorper id vulputate mauris tortor nullam. Mi nec libero orci, quisque
+                        at.
+                        Orci eleifend netus urna fusce a amet neque. Fermentum lacinia dictum.
+                    </p>
+                </div>
+            </div>
+        </div>
     </section>
 </template>
 
@@ -180,6 +205,30 @@ export default {
     }
 }
 
+.info__second {
+    margin-top: 55px;
+    padding: 30px 0px 60px;
+
+    .container {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        justify-content: space-between;
+
+        @media (max-width: 1024px) {
+            flex-wrap: wrap;
+            gap: 65px;
+        }
+
+        .text {
+            @media (min-width: 1280px) {
+                font-size: 22px;
+            }
+        }
+    }
+
+}
+
 .features {
     padding: 50px 0px 70px;
     background: #F5F7FA;
@@ -265,4 +314,5 @@ export default {
             }
         }
     }
-}</style>
+}
+</style>

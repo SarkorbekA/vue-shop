@@ -146,6 +146,7 @@
 <style lang="scss" scoped>
 footer {
     padding: 55px 0px 80px 0px;
+    background: #F5F7FA;
 
     .footer {
         display: grid;
@@ -331,4 +332,5 @@ footer {
             }
         }
     }
-}</style>
+}
+</style>
