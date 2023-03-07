@@ -13,6 +13,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                     discount: 10,
                 },
@@ -24,6 +25,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                     discount: 50,
                 },
@@ -35,6 +37,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -45,6 +48,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -55,6 +59,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -65,6 +70,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -75,6 +81,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -85,6 +92,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -95,6 +103,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -105,6 +114,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -115,6 +125,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -125,6 +136,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                     discount: 1,
                 },
@@ -136,6 +148,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                     discount: 1,
                 },
@@ -147,6 +160,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -157,6 +171,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -167,6 +182,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -177,6 +193,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -187,6 +204,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -197,6 +215,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -207,6 +226,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -217,6 +237,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -227,6 +248,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -237,6 +259,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -247,6 +270,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                     discount: 5,
                 },
@@ -257,6 +281,7 @@ const store = createStore({
                     price: 15000,
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                 },
@@ -268,6 +293,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -278,6 +304,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -288,6 +315,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -298,6 +326,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -308,6 +337,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -318,6 +348,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -328,6 +359,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -338,6 +370,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -348,6 +381,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -358,6 +392,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -368,6 +403,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -378,6 +414,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -388,6 +425,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -398,6 +436,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -408,6 +447,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -418,6 +458,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -428,6 +469,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -438,6 +480,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -448,6 +491,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -458,6 +502,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -468,6 +513,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -478,6 +524,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -488,6 +535,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -498,6 +546,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -508,6 +557,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -518,6 +568,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -528,6 +579,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -538,6 +590,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -548,6 +601,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -558,6 +612,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -568,6 +623,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -578,6 +634,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -588,6 +645,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -598,6 +656,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -608,6 +667,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -618,6 +678,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -628,6 +689,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -638,6 +700,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -648,6 +711,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -658,6 +722,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -668,6 +733,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -678,6 +744,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -688,6 +755,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -698,6 +766,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -708,6 +777,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -718,6 +788,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -728,6 +799,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -738,6 +810,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -748,6 +821,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -758,6 +832,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -768,6 +843,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -778,6 +854,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -788,6 +865,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -798,6 +876,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -808,6 +887,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -818,6 +898,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -828,6 +909,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -838,6 +920,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -848,6 +931,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -858,6 +942,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     discount: 10,
                     count: 1,
                 },
@@ -869,6 +954,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -879,6 +965,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -889,6 +976,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -899,6 +987,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -909,6 +998,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -919,6 +1009,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     count: 1,
                 },
                 {
@@ -929,6 +1020,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     discount: 10,
                     count: 1,
                 },
@@ -940,6 +1032,7 @@ const store = createStore({
                     about: 'Доступно только 4 штуки, и сейчас это есть у более 20 человек',
                     like: false,
                     cart: false,
+                    checkbox: false,
                     discount: 10,
                     count: 1,
                 },
@@ -952,6 +1045,16 @@ const store = createStore({
                 item.cart = true;
             } else {
                 item.count++
+            }
+        },
+        REMOVE_CHECKED(state) {
+            for (const item in state.products) {
+                if (state.products[item].checkbox == true) {
+                    state.products[item].checkbox = false;
+                    state.products[item].like = false;
+                    state.products[item].count = 1;
+                }
+                // console.log(item);
             }
         }
     },

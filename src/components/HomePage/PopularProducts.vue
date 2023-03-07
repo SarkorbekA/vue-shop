@@ -8,6 +8,7 @@
                 :price="card.price"
                 :discount="card.discount"
                 :like="card.like"
+                :img="`https://picsum.photos/${200 + index}/300`"
                 @addProductToCard="AddCart(card)"
                 @addToFavorites="AddToLikes(card)" />
         </div>

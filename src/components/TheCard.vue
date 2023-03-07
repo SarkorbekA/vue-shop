@@ -1,8 +1,8 @@
 <template>
     <div class="product__item">
         <!-- <img width="100%" height="auto" class="product__img" src="../assets/img/products/product.webp" alt="product"> -->
-        <img @click="$router.push('/details')" width="100%" height="auto" class="product__img"
-            src="../assets/img/products/product.webp" alt="product">
+        <img @click="$router.push('/details')" width="100%" class="product__img"
+            :src="img" alt="product">
         <p class="type">{{ type }}</p>
         <p class="title">{{ title }} </p>
         <p class="price">{{ price }} UZS</p>
@@ -25,7 +25,7 @@
 <script>
 export default {
     name: 'TheCard',
-    props: ['type', 'title', 'price', 'like', 'discount'],
+    props: ['type', 'title', 'price', 'like', 'discount', 'img'],
     methods: {
         addToCard() {
             this.$emit('addProductToCard')
@@ -41,7 +41,6 @@ export default {
 .product__item {
     text-align: center;
     width: 100%;
-    // height: 230px;
     padding-bottom: 8px;
     background: white;
     border: 1px solid transparent;
@@ -56,8 +55,9 @@ export default {
 
     .product__img {
         width: 100%;
-        height: auto;
+        height: 120px;
         cursor: pointer;
+        object-fit: cover;
 
         @media (max-width: 450px) {
             width: 80% !important;

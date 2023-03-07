@@ -36,7 +36,7 @@
                         <img src="../assets/img/fav__page/discount.svg"
                             alt="discount">
                     </button>
-                    <button @click="removeAll()"
+                    <button @click="removeChecked()"
                         class="filter__btn-discount">
                         <img src="../assets/img/fav__page/delete.svg"
                             alt="delete">
@@ -47,13 +47,13 @@
         <div class="favorites__body">
             <div v-if="$store.state.products.filter(el => el.like == true).length"
                 class="favorites__body-content">
-                <div v-for="(like, index) in $store.state.products.filter(el => el.like == true)"
-                    :key="index"
-                    :class="selectedItem == true ? 'active' : ''"
+                <div v-for="like in $store.state.products.filter(el => el.like == true)"
+                    :key="like.id"
+                    :class="like.checkbox == true ? 'active' : ''"
                     class="cart__item">
-                    <input v-model="checked"
-                        @change="selectItem()"
+                    <input v-model="like.checkbox"
                         type="checkbox">
+                    <span>{{ like.checkbox }}</span>
                     <div class="cart__item-content">
                         <div class="cart__item-left">
                             <div class="cart__item-img">
@@ -229,21 +229,25 @@ export default {
             this.selectedItem = !this.selectedItem;
             this.checked = !this.checked;
         },
-        selectItem() {
-            this.selectedItem = !this.selectedItem;
+        selectItem(like) {
+            like.checkbox = !like.checkbox;
         },
         addToCart(item) {
             item.cart = !item.cart;
         },
-        removeAll() {
-            this.cartPrice = 0;
-            this.cartDiscount = 0;
-            for (const item in this.$store.state.products.filter(item => item.like == true)) {
-                let product = this.$store.state.products[item]
-                product.count = 1;
-                product.like = false;
-            }
-            this.selectAll = false;
+        removeChecked() {
+            // this.cartPrice = 0;
+            // this.cartDiscount = 0;
+            this.$store.commit('REMOVE_CHECKED')
+            // console.log(this.$store.state.products);
+            // for (const item in this.$store.state.products.filter(item => item.checkbox == true)) {
+            // let product = this.$store.state.products[item]
+            // product.count = 1;
+            // product.like = false;
+            //     item.checkbox = false;
+            //     item.like = false;
+            // }
+            // this.selectAll = false;
         }
     },
     mounted() {

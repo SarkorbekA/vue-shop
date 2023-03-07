@@ -85,7 +85,9 @@
                             :title="card.title"
                             :type="card.type"
                             :price="card.price"
+                            :discount="card.discount"
                             :like="card.like"
+                            :img="`https://picsum.photos/${200 + index}/300`"
                             @addProductToCard="AddCart(card)"
                             @addToFavorites="AddToLikes(card)"
                             class="catalog__content-item">
@@ -140,7 +142,9 @@
                             :title="card.title"
                             :type="card.type"
                             :price="card.price"
+                            :discount="card.discount"
                             :like="card.like"
+                            :img="`https://picsum.photos/${200 + index}/300`"
                             @addProductToCard="AddCart(card)"
                             @addToFavorites="AddToLikes(card)"
                             class="catalog__content-item">
@@ -195,7 +199,9 @@
                             :title="card.title"
                             :type="card.type"
                             :price="card.price"
+                            :discount="card.discount"
                             :like="card.like"
+                            :img="`https://picsum.photos/${200 + index}/300`"
                             @addProductToCard="AddCart(card)"
                             @addToFavorites="AddToLikes(card)"
                             class="catalog__content-item">
