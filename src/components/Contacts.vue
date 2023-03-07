@@ -1,5 +1,5 @@
 <template>
-    <h1 class="contact__title">Оплата и доставка</h1>
+    <h1 class="contact__title">Контакты</h1>
     <div class="adress">
         <div class="adress__box">
             <div class="phone">

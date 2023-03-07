@@ -6,6 +6,7 @@ import ContactPage from '../views/ContactPage.vue'
 import FavoritePage from '../views/FavoritePage.vue'
 import CatalogPage from '../views/CatalogPage.vue'
 import AboutPage from '../views/AboutPage.vue'
+import PayPage from '../views/PayPage.vue'
 
 
 const router = createRouter({
@@ -45,6 +46,11 @@ const router = createRouter({
             path: '/about',
             name: 'about',
             component: AboutPage
+        },
+        {
+            path: '/pay',
+            name: 'pay',
+            component: PayPage
         }
     ]
 })

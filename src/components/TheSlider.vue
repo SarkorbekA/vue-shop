@@ -1,31 +1,40 @@
 <template>
     <div class="container">
-        <swiper :slidesPerView="2" :spaceBetween="20" :pagination="{
-            clickable: true,
-        }" :autoplay="{
-    delay: 4000,
-    disableOnInteraction: false,
-}" :breakpoints="{
-    '@0.00': {
-        slidesPerView: 1,
-        spaceBetween: 10,
-    },
-    '@0.75': {
-        slidesPerView: 1,
-        spaceBetween: 20,
-    },
-    '@1.00': {
-        slidesPerView: 1,
-        spaceBetween: 20,
-    },
-    '@1.50': {
-        slidesPerView: 2,
-        spaceBetween: 20,
-    },
-}" :loop="true" :navigation="true" :modules="modules" class="mySwiper">
+        <swiper :slidesPerView="2"
+            :spaceBetween="20"
+            :pagination="{
+                clickable: true,
+            }"
+            :autoplay="{
+                delay: 4000,
+                disableOnInteraction: false,
+            }"
+            :breakpoints="{
+                '@0.00': {
+                    slidesPerView: 1,
+                    spaceBetween: 10,
+                },
+                '@0.75': {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                },
+                '@1.00': {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                },
+                '@1.50': {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+            }"
+            :loop="true"
+            :navigation="true"
+            :modules="modules"
+            class="mySwiper">
 
             <swiper-slide>
-                <a href="#" class="box box__yellow">
+                <a href="#"
+                    class="box box__yellow">
                     <p>Хозяйственные товары</p>
                     <span class="right">
                         <i class="fa-solid fa-chevron-right"></i>
@@ -33,7 +42,8 @@
                 </a>
             </swiper-slide>
             <swiper-slide>
-                <a href="#" class="box box__white">
+                <a href="#"
+                    class="box box__white">
                     <p>Мотивационные декоры</p>
                     <span class="right">
                         <i class="fa-solid fa-chevron-right"></i>
@@ -41,7 +51,8 @@
                 </a>
             </swiper-slide>
             <swiper-slide>
-                <a href="#" class="box box__yellow">
+                <a href="#"
+                    class="box box__yellow">
                     <p>Хозяйственные товары</p>
                     <span class="right">
                         <i class="fa-solid fa-chevron-right"></i>
@@ -49,7 +60,8 @@
                 </a>
             </swiper-slide>
             <swiper-slide>
-                <a href="#" class="box box__white">
+                <a href="#"
+                    class="box box__white">
                     <p>Мотивационные декоры</p>
                     <span class="right">
                         <i class="fa-solid fa-chevron-right"></i>
@@ -58,7 +70,6 @@
             </swiper-slide>
         </swiper>
     </div>
-
 </template>
 
 <script>
@@ -134,16 +145,16 @@ export default {
     justify-content: space-between;
     gap: 8px;
 
+    @media (max-width: 576px) {
+        height: 85px;
+    }
+
     p {
         font-weight: 700;
         font-size: 28px;
-        
-        @media (max-width: 576px) {
-            font-size: 24px;
-        }
 
         @media (max-width: 576px) {
-            font-size: 20px;
+            font-size: 24px;
         }
     }
 
@@ -233,5 +244,4 @@ export default {
     background: #FFD600;
     width: 15px;
     height: 15px;
-}
-</style>
+}</style>

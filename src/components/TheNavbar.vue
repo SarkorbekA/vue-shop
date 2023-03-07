@@ -28,7 +28,7 @@
                         href="#">О нас</a>
                 </li>
                 <li>
-                    <a @click="$router.push('/contact')"
+                    <a @click="$router.push('/pay')"
                         aria-label="link"
                         href="#">Оплата и доставка</a>
                 </li>
