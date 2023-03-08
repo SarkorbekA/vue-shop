@@ -1,6 +1,5 @@
 <template>
     <div class="product__item">
-        <!-- <img width="100%" height="auto" class="product__img" src="../assets/img/products/product.webp" alt="product"> -->
         <img @click="$router.push('/details')" width="100%" class="product__img"
             :src="img" alt="product">
         <p class="type">{{ type }}</p>

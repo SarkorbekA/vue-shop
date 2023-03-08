@@ -204,7 +204,8 @@ export default {
             }
         },
         cartLike(item) {
-            item.like = !item.like
+            item.like = !item.like;
+            item.checkbox = false;
         }
     },
     mounted() {

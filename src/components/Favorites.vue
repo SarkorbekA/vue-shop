@@ -47,67 +47,66 @@
         <div class="favorites__body">
             <div v-if="$store.state.products.filter(el => el.like == true).length"
                 class="favorites__body-content">
-                <div v-for="like in $store.state.products.filter(el => el.like == true)"
-                    :key="like.id"
-                    :class="like.checkbox == true ? 'active' : ''"
+                <div v-for="item in $store.state.products.filter(el => el.like == true)"
+                    :key="item.id"
+                    :class="item.checkbox == true ? 'active' : ''"
                     class="cart__item">
-                    <input v-model="like.checkbox"
+                    <input v-model="item.checkbox"
                         type="checkbox">
-                    <span>{{ like.checkbox }}</span>
                     <div class="cart__item-content">
                         <div class="cart__item-left">
                             <div class="cart__item-img">
-                                <img src="../assets/img/cart/cart__img.png"
+                                <img :src="`https://picsum.photos/${200 + item.id}/300`"
                                     alt="item">
                             </div>
                             <div class="cart__item-buttons">
-                                <button @click="addToCart(like)"
-                                    :class="like.cart == true ? 'active' : ''"
+                                <button @click="addToCart(item)"
+                                    :class="item.cart == true ? 'active' : ''"
                                     class="btn">В корзинку</button>
-                                <button @click="removeItem(like)"
+                                <button @click="removeItem(item)"
                                     class="btn">Удалить</button>
                             </div>
                         </div>
                         <div class="cart__item-center">
                             <h1 class="cart__item-name">
-                                {{ like.title }}
+                                {{ item.title }}
                             </h1>
                             <div class="cart__item-facts">
                                 <h3>Коротко о товаре</h3>
                                 <ul>
-                                    <li><span>{{ like.about }}</span></li>
+                                    <li><span>{{ item.about }}</span></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="cart__item-right">
                             <div class="prices">
-                                <h2 v-if="like.discount"
-                                    class="cart__item-sale"> {{ like.price - (like.discount * (like.price / 100)) }} UZS
+                                <h2 v-if="item.discount"
+                                    class="cart__item-sale"> {{ item.price - (item.discount * (item.price / 100)) }} UZS
                                 </h2>
                                 <h1 class="cart__item-sale"
-                                    :class="like.discount ? 'cart__item-price' : ''">
-                                    {{ like.price }} UZS
+                                    :class="item.discount ? 'cart__item-price' : ''">
+                                    {{ item.price }} UZS
                                 </h1>
                             </div>
-                            <h3 v-if="like.discount"
-                                class="cart__item-discount">Sale: {{ like.discount }}%</h3>
+                            <h3 v-if="item.discount"
+                                class="cart__item-discount">Sale: {{ item.discount }}%</h3>
                             <div class="cart__item-count">
-                                <button @click="minusCount(like)"
+                                <button @click="minusCount(item)"
                                     class="minus">-</button>
-                                <div class="count">{{ like.count }}</div>
-                                <button @click="plusCount(like)"
+                                <div class="count">{{ item.count }}</div>
+                                <button @click="plusCount(item)"
                                     class="plus">+</button>
                             </div>
                             <div class="cart__item-total">
                                 <div class="title">Общая цена:</div>
                                 <div class="prices">
-                                    <h2 v-if="like.discount"
-                                        class="cart__item-sale price"> {{ (like.price - (like.discount * (like.price /
-                                            100))) * like.count }} UZS
+                                    <h2 v-if="item.discount"
+                                        class="cart__item-sale price"> {{ (item.price - (item.discount * (item.price /
+                                            100))) * item.count }} UZS
                                     </h2>
                                     <h1 class="cart__item-sale price"
-                                        :class="like.discount ? 'cart__item-price' : ''">
-                                        {{ like.price * like.count }} UZS
+                                        :class="item.discount ? 'cart__item-price' : ''">
+                                        {{ item.price * item.count }} UZS
                                     </h1>
                                 </div>
                             </div>
@@ -183,6 +182,7 @@ export default {
     methods: {
         removeItem(item) {
             item.like = false;
+            item.checkbox = false;
             if (item.discount) {
                 this.cartPrice -= (item.price - (item.discount * (item.price / 100))) * item.count;
                 this.cartDiscount -= (item.count * item.price) - (item.price - (item.discount * (item.price / 100))) * item.count;
@@ -207,6 +207,7 @@ export default {
             let discount = (item.discount * (item.price / 100));
             if (item.count <= 1) {
                 item.like = false;
+                item.checkbox = false;
                 if (item.discount) {
                     this.cartPrice -= (item.price - discount);
                     this.cartDiscount -= item.price - (item.price - discount);
@@ -236,30 +237,28 @@ export default {
             item.cart = !item.cart;
         },
         removeChecked() {
-            // this.cartPrice = 0;
-            // this.cartDiscount = 0;
             this.$store.commit('REMOVE_CHECKED')
-            // console.log(this.$store.state.products);
-            // for (const item in this.$store.state.products.filter(item => item.checkbox == true)) {
-            // let product = this.$store.state.products[item]
-            // product.count = 1;
-            // product.like = false;
-            //     item.checkbox = false;
-            //     item.like = false;
-            // }
-            // this.selectAll = false;
+            this.updatePrice()
+        },
+        updatePrice() {
+            if (this.$store.state.products.filter(item => item.like == true).length) {
+                for (const item in this.$store.state.products.filter(item => item.like == true)) {
+                    let oneItem = this.$store.state.products[item]
+                    if (oneItem.discount) {
+                        this.cartPrice += (oneItem.price - (oneItem.discount * (oneItem.price / 100))) * oneItem.count
+                        this.cartDiscount += (oneItem.count * oneItem.price) - (oneItem.price - (oneItem.discount * (oneItem.price / 100))) * oneItem.count
+                    } else {
+                        this.cartPrice += oneItem.price * oneItem.count
+                    }
+                }
+            } else{
+                this.cartPrice = 0;
+                this.cartDiscount = 0;
+            }
         }
     },
     mounted() {
-        for (const item in this.$store.state.products.filter(item => item.like == true)) {
-            let oneItem = this.$store.state.products[item]
-            if (oneItem.discount) {
-                this.cartPrice += (oneItem.price - (oneItem.discount * (oneItem.price / 100))) * oneItem.count
-                this.cartDiscount += (oneItem.count * oneItem.price) - (oneItem.price - (oneItem.discount * (oneItem.price / 100))) * oneItem.count
-            } else {
-                this.cartPrice += oneItem.price * oneItem.count
-            }
-        }
+        this.updatePrice()
     },
 }
 </script>
@@ -427,8 +426,10 @@ export default {
 
                 &-img {
                     width: 100%;
+                    max-height: 200px;
 
                     img {
+                        height: 100%;
                         width: 100%;
                         object-fit: cover;
                     }
@@ -526,6 +527,7 @@ export default {
                     align-content: space-between;
                     max-height: 220px;
                     gap: 8px;
+                
 
                     @media (max-width: 768px) {
                         width: 100%;

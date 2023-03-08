@@ -4,8 +4,10 @@
             <div v-for="(card, index) in $store.state.products.slice(92, 93)"
                 :key="index"
                 class="buy__main">
-                <img src="../assets/img/products/product2.webp"
-                    alt="product">
+                <div class="buy__main-img">
+                    <img :src="`https://picsum.photos/${200 + index}/300`"
+                        alt="product">
+                </div>
                 <p class="category">
                     {{ card.type }}
                 </p>
@@ -143,6 +145,20 @@ export default {
     img {
         width: 80%;
         margin: auto;
+    }
+
+
+    &-img {
+        height: 340px;
+        width: 100%;
+
+        img {
+            height: 100%;
+            width: 80%;
+            @media (max-width: 576px) {
+                width: 100%;
+            }
+        }
     }
 
     .category {

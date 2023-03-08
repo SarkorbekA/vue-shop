@@ -1054,7 +1054,6 @@ const store = createStore({
                     state.products[item].like = false;
                     state.products[item].count = 1;
                 }
-                // console.log(item);
             }
         }
     },

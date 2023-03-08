@@ -33,8 +33,9 @@
                         href="#">Оплата и доставка</a>
                 </li>
                 <li>
-                    <a aria-label="link"
-                        href="#">Услуги</a>
+                    <a @click="$router.push('/catalog')"
+                        aria-label="link"
+                        href="#">Каталог</a>
                 </li>
                 <li>
                     <a @click="$router.push('/contact')"
@@ -45,9 +46,6 @@
                     <a aria-label="link"
                         href="#">Отзывы</a>
                 </li>
-                <!-- <li>
-                    <a aria-label="link" href="#">Новинки</a>
-                </li> -->
                 <li>
                     <a @click="$router.push('/cart')"
                         aria-label="link"

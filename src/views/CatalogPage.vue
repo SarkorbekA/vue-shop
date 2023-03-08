@@ -11,16 +11,11 @@ export default {
         TheCard,
     },
     methods: {
-        AddCart(data) {
-            this.$store.dispatch('addOrder', data)
+        AddCart(card) {
+            this.$store.commit('ADD_TO_CART', card)
         },
         AddToLikes(data) {
             data.like = !data.like
-            if (data.like) {
-                this.$store.commit('ADD_LIKES')
-            } else {
-                this.$store.commit('SUBTRACT_LIKES')
-            }
         }
     },
 }
@@ -41,13 +36,14 @@ export default {
         <div class="container">
             <div class="show__product-title">Вы <span> смотрели</span></div>
             <div class="show__product-list">
-                <the-card v-for="(card, index) in $store.state.products.slice(60,72)"
+                <the-card v-for="(card, index) in $store.state.products.slice(60, 72)"
                     :key="index"
                     :title="card.title"
                     :type="card.type"
                     :price="card.price"
                     :discount="card.discount"
                     :like="card.like"
+                    :img="`https://picsum.photos/${200 + card.id}/300`"
                     @addProductToCard="AddCart(card)"
                     @addToFavorites="AddToLikes(card)" />
             </div>

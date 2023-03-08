@@ -87,7 +87,7 @@
                             :price="card.price"
                             :discount="card.discount"
                             :like="card.like"
-                            :img="`https://picsum.photos/${200 + index}/300`"
+                            :img="`https://picsum.photos/${200 + card.id}/300`"
                             @addProductToCard="AddCart(card)"
                             @addToFavorites="AddToLikes(card)"
                             class="catalog__content-item">
@@ -144,7 +144,7 @@
                             :price="card.price"
                             :discount="card.discount"
                             :like="card.like"
-                            :img="`https://picsum.photos/${200 + index}/300`"
+                            :img="`https://picsum.photos/${200 + card.id}/300`"
                             @addProductToCard="AddCart(card)"
                             @addToFavorites="AddToLikes(card)"
                             class="catalog__content-item">
@@ -201,7 +201,7 @@
                             :price="card.price"
                             :discount="card.discount"
                             :like="card.like"
-                            :img="`https://picsum.photos/${200 + index}/300`"
+                            :img="`https://picsum.photos/${200 + card.id}/300`"
                             @addProductToCard="AddCart(card)"
                             @addToFavorites="AddToLikes(card)"
                             class="catalog__content-item">
@@ -276,6 +276,12 @@ export default {
     .product__item {
         width: 100%;
         margin: 0;
+        @media (max-width: 576px) {
+            width: 85%;
+        }
+        @media (max-width: 449px) {
+            width: 70%;
+        }
     }
 
     @media (min-width: 768px) {
@@ -347,6 +353,9 @@ export default {
                 font-size: 24px;
                 line-height: 100%;
                 color: #232323;
+                @media (max-width: 768px) {
+                    font-size: 20px;
+                }
             }
         }
     }
