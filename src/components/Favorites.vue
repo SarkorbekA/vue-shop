@@ -241,6 +241,8 @@ export default {
             this.updatePrice()
         },
         updatePrice() {
+            this.cartPrice = 0;
+            this.cartDiscount = 0;
             if (this.$store.state.products.filter(item => item.like == true).length) {
                 for (const item in this.$store.state.products.filter(item => item.like == true)) {
                     let oneItem = this.$store.state.products[item]

@@ -1047,7 +1047,7 @@ const store = createStore({
                 item.count++
             }
         },
-        REMOVE_CHECKED(state) {
+        REMOVE_CHECKED(state) { 
             for (const item in state.products) {
                 if (state.products[item].checkbox == true) {
                     state.products[item].checkbox = false;
