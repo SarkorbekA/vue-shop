@@ -315,6 +315,14 @@ export default {
                 // }
             });
         }
+    },
+    computed: {
+        detail() {
+            return this.$store.state.products.find(el => el.id == this.$route.params.id)
+        }
+    },
+    mounted() {
+        console.log(this.detail);
     }
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
     <div class="product__item">
-        <img @click="$router.push('/details')" width="100%" class="product__img"
+        <img @click="goDetail" width="100%" class="product__img"
             :src="img" alt="product">
         <p class="type">{{ type }}</p>
         <p class="title">{{ title }} </p>
@@ -24,13 +24,17 @@
 <script>
 export default {
     name: 'TheCard',
-    props: ['type', 'title', 'price', 'like', 'discount', 'img'],
+    props: ['type', 'title', 'price', 'like', 'discount', 'img', 'id'],
     methods: {
         addToCard() {
             this.$emit('addProductToCard')
         },
         addToFavorites() {
             this.$emit('addToFavorites')
+        },
+        goDetail() {
+            // console.log(this.)
+            this.$router.push(`/details/${this.id}`)
         }
     }
 }
