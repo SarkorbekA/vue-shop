@@ -9,7 +9,12 @@ export default {
     component: {
         ProductDetail,
         DetailProducts,
-    }
+    },
+    computed: {
+        detail() {
+            return this.$store.state.products.find(el => el.id == this.$route.params.id)
+        }
+    },
 }
 </script>
 
@@ -17,10 +22,11 @@ export default {
 <template>
     <div class="content container">
         <div class="page__router">
-            <a @click="$router.push('/')" href="#">Главная</a>
+            <a @click="$router.push('/')"
+                href="#">Главная</a>
             <span> / </span>
             <a href="#">Каталог</a>
-            <span> / New Year Candle, Christmas Gift Idea</span>
+            <span> / {{ this.detail.title }}</span>
         </div>
         <ProductDetail />
     </div>

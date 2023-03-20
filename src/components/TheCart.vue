@@ -10,7 +10,7 @@
                     class="cart__item">
                     <div class="cart__item-left">
                         <div class="cart__item-img">
-                            <img src="../assets/img/cart/cart__img.png"
+                            <img height="auto" :src="`https://picsum.photos/${200 + item.id}/300`"
                                 alt="item">
                         </div>
                         <div class="cart__item-buttons">
@@ -186,19 +186,20 @@ export default {
             let discount = (item.discount * (item.price / 100));
             if (item.count <= 1) {
                 item.cart = false;
+                item.checkbox = false;
                 if (item.discount) {
                     this.cartPrice -= (item.price - discount);
                     this.cartDiscount -= item.price - (item.price - discount);
                 } else {
                     this.cartPrice -= item.price;
                 }
-                item.count = 1;
+                item.count = 1
             } else {
                 if (item.discount) {
-                    this.cartPrice -= (item.price - discount);
-                    this.cartDiscount -= item.price - (item.price - discount);
+                    this.cartPrice -= (item.price - discount)
+                    this.cartDiscount -= item.price - (item.price - discount)
                 } else {
-                    this.cartPrice -= item.price;
+                    this.cartPrice -= item.price
                 }
                 item.count--;
             }
@@ -206,18 +207,28 @@ export default {
         cartLike(item) {
             item.like = !item.like;
             item.checkbox = false;
+        },
+        updatePrice() {
+            this.cartPrice = 0;
+            this.cartDiscount = 0;
+            if (this.$store.state.products.filter(item => item.cart == true).length) {
+                for (const item in this.$store.state.products.filter(item => item.cart == true)) {
+                    let oneItem = this.$store.state.products[item]
+                    if (oneItem.discount) {
+                        this.cartPrice += (oneItem.price - (oneItem.discount * (oneItem.price / 100))) * oneItem.count
+                        this.cartDiscount += (oneItem.count * oneItem.price) - ((oneItem.price - (oneItem.discount * (oneItem.price / 100))) * oneItem.count)
+                    } else {
+                        this.cartPrice += oneItem.price * oneItem.count
+                    }
+                }
+            } else {
+                this.cartPrice = 0;
+                this.cartDiscount = 0;
+            }
         }
     },
     mounted() {
-        for (const item in this.$store.state.products.filter(item => item.cart == true)) {
-            let oneItem = this.$store.state.products.filter(item => item.cart == true)[item]
-            if (oneItem.discount) {
-                this.cartPrice += (oneItem.price - (oneItem.discount * (oneItem.price / 100))) * oneItem.count
-                this.cartDiscount += (oneItem.count * oneItem.price) - (oneItem.price - (oneItem.discount * (oneItem.price / 100))) * oneItem.count
-            } else {
-                this.cartPrice += oneItem.price * oneItem.count
-            }
-        }
+        this.updatePrice()
     },
 }
 </script>
@@ -285,8 +296,10 @@ export default {
 
                 &-img {
                     width: 100%;
+                    max-height: 200px;
 
                     img {
+                        height: 100%;
                         width: 100%;
                         object-fit: cover;
                     }

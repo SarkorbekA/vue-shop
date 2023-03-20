@@ -4,32 +4,38 @@
             <div class="product__box">
                 <div class="product__box-img">
                     <div class="main__img">
-                        <img src="../assets/img/about_page/preview.png" alt="main img">
+                        <img src="../assets/img/about_page/preview.png"
+                            alt="main img">
                     </div>
                     <div class="select__img">
                         <div class="select__item active">
-                            <img src="../assets/img/about_page/product.png" alt="preview">
+                            <img src="../assets/img/about_page/product.png"
+                                alt="preview">
                         </div>
                         <div class="select__item">
-                            <img src="../assets/img/about_page/product.png" alt="preview">
+                            <img src="../assets/img/about_page/product.png"
+                                alt="preview">
                         </div>
                         <div class="select__item">
-                            <img src="../assets/img/about_page/product.png" alt="preview">
+                            <img src="../assets/img/about_page/product.png"
+                                alt="preview">
                         </div>
                         <div class="select__item">
-                            <img src="../assets/img/about_page/product.png" alt="preview">
+                            <img src="../assets/img/about_page/product.png"
+                                alt="preview">
                         </div>
                     </div>
                 </div>
                 <div class="product__box-info">
                     <h1 class="product__name">
-                        New Year Candle, Christmas Gift Idea
+                        {{ this.detail.title }}
                     </h1>
                     <div class="product__status">
                         <div class="status__title">
                             <h3>Состояние товара: <span>Новый</span></h3>
                             <div class="delete__btn">
-                                <img src="../assets/img/about_page/exit.svg" alt="exit">
+                                <img src="../assets/img/about_page/exit.svg"
+                                    alt="exit">
                             </div>
                         </div>
                         <div class="status__btn">
@@ -40,19 +46,31 @@
                     <div class="product__facts">
                         <h3>Коротко о товаре</h3>
                         <ul>
-                            <li><span>Handmade</span></li>
-                            <li><span>Handmade</span></li>
-                            <li><span>Handmade</span></li>
-                            <li><span>Доступно только 4 штуки, и сейчас это есть у более 20 человек</span></li>
+                            <li><span>{{ this.detail.about }}</span></li>
                         </ul>
                     </div>
                     <div class="product__recall">
                         <div class="product__stars">
-                            <img width="12px" height="12px" src="../assets/img/about_page/star.svg" alt="star">
-                            <img width="12px" height="12px" src="../assets/img/about_page/star.svg" alt="star">
-                            <img width="12px" height="12px" src="../assets/img/about_page/star.svg" alt="star">
-                            <img width="12px" height="12px" src="../assets/img/about_page/star.svg" alt="star">
-                            <img width="12px" height="12px" src="../assets/img/about_page/star.svg" alt="star">
+                            <img width="12px"
+                                height="12px"
+                                src="../assets/img/about_page/star.svg"
+                                alt="star">
+                            <img width="12px"
+                                height="12px"
+                                src="../assets/img/about_page/star.svg"
+                                alt="star">
+                            <img width="12px"
+                                height="12px"
+                                src="../assets/img/about_page/star.svg"
+                                alt="star">
+                            <img width="12px"
+                                height="12px"
+                                src="../assets/img/about_page/star.svg"
+                                alt="star">
+                            <img width="12px"
+                                height="12px"
+                                src="../assets/img/about_page/star.svg"
+                                alt="star">
                         </div>
                         <h3 class="product__review">245 отзывов</h3>
                     </div>
@@ -71,17 +89,35 @@
                 <div class="comments__box">
                     <div class="comments__person">
                         <div class="comments__person-img">
-                            <img width="40" height="40" src="../assets/img/about_page/man.png" alt="man">
+                            <img width="40"
+                                height="40"
+                                src="../assets/img/about_page/man.png"
+                                alt="man">
                         </div>
                         <div class="comments__person-box">
                             <h3 class="comments__person-name">Артем Орлов</h3>
                             <div class="comments__person-grade">
                                 <div class="product__stars">
-                                    <img width="12px" height="12px" src="../assets/img/about_page/star.svg" alt="star">
-                                    <img width="12px" height="12px" src="../assets/img/about_page/star.svg" alt="star">
-                                    <img width="12px" height="12px" src="../assets/img/about_page/star.svg" alt="star">
-                                    <img width="12px" height="12px" src="../assets/img/about_page/star.svg" alt="star">
-                                    <img width="12px" height="12px" src="../assets/img/about_page/star.svg" alt="star">
+                                    <img width="12px"
+                                        height="12px"
+                                        src="../assets/img/about_page/star.svg"
+                                        alt="star">
+                                    <img width="12px"
+                                        height="12px"
+                                        src="../assets/img/about_page/star.svg"
+                                        alt="star">
+                                    <img width="12px"
+                                        height="12px"
+                                        src="../assets/img/about_page/star.svg"
+                                        alt="star">
+                                    <img width="12px"
+                                        height="12px"
+                                        src="../assets/img/about_page/star.svg"
+                                        alt="star">
+                                    <img width="12px"
+                                        height="12px"
+                                        src="../assets/img/about_page/star.svg"
+                                        alt="star">
                                 </div>
                                 <h3>Опыт использварния: <span>несколько месяцев</span></h3>
                             </div>
@@ -119,11 +155,17 @@
                         </div>
                         <div class="comments__like">
                             <div class="like">
-                                <img width="12px" height="auto" src="../assets/img/about_page/like.svg" alt="like">
+                                <img width="12px"
+                                    height="auto"
+                                    src="../assets/img/about_page/like.svg"
+                                    alt="like">
                                 <span class="like__count">4</span>
                             </div>
                             <div class="like dislike">
-                                <img width="12px" height="auto" src="../assets/img/about_page/like.svg" alt="like">
+                                <img width="12px"
+                                    height="auto"
+                                    src="../assets/img/about_page/like.svg"
+                                    alt="like">
                                 <span class="like__count">0</span>
                             </div>
                         </div>
@@ -132,17 +174,35 @@
                 <div class="comments__box">
                     <div class="comments__person">
                         <div class="comments__person-img">
-                            <img width="40" height="40" src="../assets/img/about_page/man.png" alt="man">
+                            <img width="40"
+                                height="40"
+                                src="../assets/img/about_page/man.png"
+                                alt="man">
                         </div>
                         <div class="comments__person-box">
                             <h3 class="comments__person-name">Артем Орлов</h3>
                             <div class="comments__person-grade">
                                 <div class="product__stars">
-                                    <img width="12px" height="12px" src="../assets/img/about_page/star.svg" alt="star">
-                                    <img width="12px" height="12px" src="../assets/img/about_page/star.svg" alt="star">
-                                    <img width="12px" height="12px" src="../assets/img/about_page/star.svg" alt="star">
-                                    <img width="12px" height="12px" src="../assets/img/about_page/star.svg" alt="star">
-                                    <img width="12px" height="12px" src="../assets/img/about_page/star.svg" alt="star">
+                                    <img width="12px"
+                                        height="12px"
+                                        src="../assets/img/about_page/star.svg"
+                                        alt="star">
+                                    <img width="12px"
+                                        height="12px"
+                                        src="../assets/img/about_page/star.svg"
+                                        alt="star">
+                                    <img width="12px"
+                                        height="12px"
+                                        src="../assets/img/about_page/star.svg"
+                                        alt="star">
+                                    <img width="12px"
+                                        height="12px"
+                                        src="../assets/img/about_page/star.svg"
+                                        alt="star">
+                                    <img width="12px"
+                                        height="12px"
+                                        src="../assets/img/about_page/star.svg"
+                                        alt="star">
                                 </div>
                                 <h3>Опыт использварния: <span>несколько месяцев</span></h3>
                             </div>
@@ -180,11 +240,17 @@
                         </div>
                         <div class="comments__like">
                             <div class="like">
-                                <img width="12px" height="auto" src="../assets/img/about_page/like.svg" alt="like">
+                                <img width="12px"
+                                    height="auto"
+                                    src="../assets/img/about_page/like.svg"
+                                    alt="like">
                                 <span class="like__count">4</span>
                             </div>
                             <div class="like dislike">
-                                <img width="12px" height="auto" src="../assets/img/about_page/like.svg" alt="like">
+                                <img width="12px"
+                                    height="auto"
+                                    src="../assets/img/about_page/like.svg"
+                                    alt="like">
                                 <span class="like__count">0</span>
                             </div>
                         </div>
@@ -197,17 +263,19 @@
                 <h3 class="buy__box-title">
                     Самая низкая цена
                 </h3>
-                <h3 class="buy__box-price">1 000 000 UZS</h3>
+                <h3 class="buy__box-price">{{ this.detail.price }} UZS</h3>
                 <div class="buy__box-service">
                     <div class="item">
                         <div class="item__img">
-                            <img src="../assets/img/about_page/delivery.svg" alt="delivery image">
+                            <img src="../assets/img/about_page/delivery.svg"
+                                alt="delivery image">
                         </div>
                         <p><span href="#">Бесплатно курьером</span>, 2-3 дня</p>
                     </div>
                     <div class="item">
                         <div class="item__img">
-                            <img src="../assets/img/about_page/card.svg" alt="delivery image">
+                            <img src="../assets/img/about_page/card.svg"
+                                alt="delivery image">
                         </div>
                         <p>Картой на сайте/курьеру, наличными</p>
                     </div>
@@ -221,27 +289,38 @@
                 <div class="buy__box-rating">
                     <div class="product__recall">
                         <div class="product__stars">
-                            <img src="../assets/img/about_page/star.svg" alt="star">
-                            <img src="../assets/img/about_page/star.svg" alt="star">
-                            <img src="../assets/img/about_page/star.svg" alt="star">
-                            <img src="../assets/img/about_page/star.svg" alt="star">
-                            <img src="../assets/img/about_page/white__star.svg" alt="star">
+                            <img src="../assets/img/about_page/star.svg"
+                                alt="star">
+                            <img src="../assets/img/about_page/star.svg"
+                                alt="star">
+                            <img src="../assets/img/about_page/star.svg"
+                                alt="star">
+                            <img src="../assets/img/about_page/star.svg"
+                                alt="star">
+                            <img src="../assets/img/about_page/white__star.svg"
+                                alt="star">
                         </div>
                         <h3 class="product__review">5 отзывов</h3>
                     </div>
                 </div>
             </div>
             <div class="accordion">
-                <div v-for="(section, index) in sections" :key="index" class="accordion__section">
-                    <button :class="section.open ? 'accordion__header-border' : ''" class="accordion__header"
+                <div v-for="(section, index) in sections"
+                    :key="index"
+                    class="accordion__section">
+                    <button :class="section.open ? 'accordion__header-border' : ''"
+                        class="accordion__header"
                         @click="toggleSection(index)">
                         <h1 class="accordion-title">{{ section.header }}</h1>
                         <div class="accordion-arrow">
                             <img :class="section.open ? 'accordion-arrow__open' : 'accordion-arrow__close'"
-                                src="../assets/img/about_page/arrow.svg" alt="arrow">
+                                src="../assets/img/about_page/arrow.svg"
+                                alt="arrow">
                         </div>
                     </button>
-                    <div v-if="index == 4" class="accordion__content" :class="section.open ? 'accordion__open' : ''">
+                    <div v-if="index == 4"
+                        class="accordion__content"
+                        :class="section.open ? 'accordion__open' : ''">
                         <div class="accordion__content-related">
                             <div class="item">Товары для дома</div>
                             <div class="item">Декор для дома</div>
@@ -249,12 +328,14 @@
                             <div class="item">Идея новогодного подарка</div>
                         </div>
                     </div>
-                    <div v-else-if="index == 3" class="accordion__content"
+                    <div v-else-if="index == 3"
+                        class="accordion__content"
                         :class="section.open ? 'accordion__open' : ''">
                         <div class="accordion__content-seller">
                             <div class="seller__header">
                                 <div class="seller__header-img">
-                                    <img src="../assets/img/about_page/seller.svg" alt="seller image">
+                                    <img src="../assets/img/about_page/seller.svg"
+                                        alt="seller image">
                                 </div>
                                 <div class="seller__header-content">
                                     <h3 class="company-name">Makeawishcandle</h3>
@@ -267,7 +348,9 @@
                             <p class="seller__about">Этот продавец обычно отвечает в течение нескольких часов</p>
                         </div>
                     </div>
-                    <div v-else class="accordion__content" :class="section.open ? 'accordion__open' : ''">
+                    <div v-else
+                        class="accordion__content"
+                        :class="section.open ? 'accordion__open' : ''">
                         hello
                     </div>
                 </div>
@@ -321,9 +404,6 @@ export default {
             return this.$store.state.products.find(el => el.id == this.$route.params.id)
         }
     },
-    mounted() {
-        console.log(this.detail);
-    }
 }
 </script>
 
@@ -484,7 +564,7 @@ export default {
             .seller__about {
                 font-weight: 400;
                 font-size: 12px;
-                                display: block;
+                display: block;
                 margin: auto;
                 text-align: center;
                 color: #90989F;
@@ -534,7 +614,7 @@ export default {
         .prodcut_review {
             font-weight: 400;
             font-size: 12px;
-                    }
+        }
     }
 
     &-content {
@@ -617,7 +697,7 @@ export default {
                         h3 {
                             font-weight: 400;
                             font-size: 14px;
-                                                    }
+                        }
 
                         .delete__btn {
                             cursor: pointer;
@@ -660,7 +740,7 @@ export default {
                     h3 {
                         font-weight: 700;
                         font-size: 14px;
-                                            }
+                    }
 
                     ul {
                         margin-left: 16px;
@@ -673,7 +753,7 @@ export default {
                             span {
                                 font-weight: 400;
                                 font-size: 14px;
-                                                                color: #232323;
+                                color: #232323;
                             }
                         }
                     }
@@ -687,7 +767,7 @@ export default {
             .comments__title {
                 font-weight: 700;
                 font-size: 28px;
-                            }
+            }
 
             .comments__filter {
                 display: flex;
@@ -698,7 +778,7 @@ export default {
                 &-title {
                     font-weight: 400;
                     font-size: 14px;
-                                    }
+                }
 
                 &-box {
                     display: flex;
@@ -710,7 +790,7 @@ export default {
                         cursor: pointer;
                         font-weight: 400;
                         font-size: 14px;
-                                                color: #FFD600;
+                        color: #FFD600;
 
                         &:hover {
                             color: #232323;
@@ -746,7 +826,7 @@ export default {
                     &-name {
                         font-weight: 700;
                         font-size: 14px;
-                                            }
+                    }
 
                     &-grade {
                         display: flex;
@@ -758,7 +838,7 @@ export default {
                         h3 {
                             font-weight: 400;
                             font-size: 12px;
-                                                        color: #999999;
+                            color: #999999;
                         }
                     }
                 }
@@ -774,7 +854,7 @@ export default {
                         margin-bottom: 25px;
                         font-weight: 400;
                         font-size: 14px;
-                        
+
                         h3 {
                             margin-bottom: 15px;
                         }
@@ -814,7 +894,7 @@ export default {
                         .comments__date {
                             font-weight: 400;
                             font-size: 13px;
-                                                        color: #90989F
+                            color: #90989F
                         }
                     }
 
@@ -831,7 +911,7 @@ export default {
                             span {
                                 font-weight: 400;
                                 font-size: 13px;
-                                                            }
+                            }
 
                             &.dislike {
                                 img {
@@ -897,7 +977,7 @@ export default {
                     p {
                         font-weight: 400;
                         font-size: 13px;
-                                                color: #333333;
+                        color: #333333;
                     }
                 }
             }
@@ -947,7 +1027,7 @@ export default {
                 .product__review {
                     font-weight: 700;
                     font-size: 13px;
-                                        color: #90989F;
+                    color: #90989F;
                 }
             }
         }

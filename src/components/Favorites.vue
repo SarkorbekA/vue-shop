@@ -18,16 +18,16 @@
                 </div>
             </div>
             <div class="favorites__filter-count">
-                <div :class="selectAll == true ? 'active' : ''"
-                    class="filter__all">
+                <div class="filter__all">
                     <label :class="$store.state.products.filter(el => el.like == true).length ? 'cursor' : ''"
                         class="filter__all-label">
-                        <input @change="filterList()"
+                        <input @change="filterAll()"
                             type="checkbox"
                             name="all__product"
+                            v-model="this.filter"
                             id="all__product"
                             :class="$store.state.products.filter(el => el.like == true).length ? 'cursor' : ''"
-                            v-bind:disabled="!$store.state.products.filter(el => el.like == true).length">
+                            :disabled="!$store.state.products.filter(el => el.like == true).length">
                         Все товары
                     </label>
                 </div>
@@ -174,9 +174,7 @@ export default {
         return {
             cartPrice: 0,
             cartDiscount: 0,
-            selectAll: false,
-            selectedItem: false,
-            checked: false
+            filter: true
         }
     },
     methods: {
@@ -189,7 +187,7 @@ export default {
             } else {
                 this.cartPrice -= item.price * item.count;
             }
-            if (!item.cart == true) {
+            if (item.cart == false) {
                 item.count = 1;
             }
         },
@@ -225,13 +223,10 @@ export default {
                 item.count--;
             }
         },
-        filterList() {
-            this.selectAll = !this.selectAll;
-            this.selectedItem = !this.selectedItem;
-            this.checked = !this.checked;
-        },
-        selectItem(like) {
-            like.checkbox = !like.checkbox;
+        filterAll() {
+            for (const key in this.$store.state.products.filter(el => el.like == true)) {
+                this.$store.state.products.filter(el => el.like == true)[key].checkbox = true
+            }
         },
         addToCart(item) {
             item.cart = !item.cart;
@@ -248,12 +243,12 @@ export default {
                     let oneItem = this.$store.state.products[item]
                     if (oneItem.discount) {
                         this.cartPrice += (oneItem.price - (oneItem.discount * (oneItem.price / 100))) * oneItem.count
-                        this.cartDiscount += (oneItem.count * oneItem.price) - (oneItem.price - (oneItem.discount * (oneItem.price / 100))) * oneItem.count
+                        this.cartDiscount += (oneItem.count * oneItem.price) - ((oneItem.price - (oneItem.discount * (oneItem.price / 100))) * oneItem.count)
                     } else {
                         this.cartPrice += oneItem.price * oneItem.count
                     }
                 }
-            } else{
+            } else {
                 this.cartPrice = 0;
                 this.cartDiscount = 0;
             }
@@ -262,6 +257,15 @@ export default {
     mounted() {
         this.updatePrice()
     },
+    computed: {
+        filterParam() {
+            if (this.filter == true) {
+                for (const key in this.$store.state.products.filter(el => el.like == true)) {
+                    this.$store.state.products.filter(el => el.like == true)[key].checkbox = true;
+                }
+            }
+        }
+    }
 }
 </script>
 
@@ -340,10 +344,6 @@ export default {
                 .cursor {
                     cursor: pointer;
                 }
-
-                &.active {
-                    border: 1px solid #FFD600;
-                }
             }
 
             .filter__btn {
@@ -359,10 +359,6 @@ export default {
                     background: #FFFFFF;
                     border: 1px solid #AFB0B4;
                     border-radius: 2px;
-
-                    &.active {
-                        border: 1px solid #FFD600;
-                    }
 
                     &:hover {
                         transition: .3s;
@@ -529,7 +525,7 @@ export default {
                     align-content: space-between;
                     max-height: 220px;
                     gap: 8px;
-                
+
 
                     @media (max-width: 768px) {
                         width: 100%;
